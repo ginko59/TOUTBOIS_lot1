@@ -1,8 +1,215 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" prefHeight="820.0" prefWidth="692.0" text="Prospect" textAlignment="CENTER">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="800.0">
+               <children>
+                  <SplitPane dividerPositions="0.8125662778366913" layoutX="159.0" layoutY="223.0" orientation="VERTICAL" prefHeight="782.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="640.0" prefWidth="663.0">
+                           <children>
+                              <TitledPane alignment="CENTER" animated="false" layoutX="14.0" layoutY="22.0" prefHeight="123.0" prefWidth="294.0" text="Société">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="93.0" prefWidth="292.0">
+                                       <children>
+                                          <GridPane layoutX="-14.0" layoutY="26.0" prefHeight="180.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="137.0" minWidth="10.0" prefWidth="76.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="208.0" minWidth="10.0" prefWidth="208.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Enseigne" />
+                                                <Label text="Siret" GridPane.rowIndex="1" />
+                                                <TextField GridPane.columnIndex="1" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane alignment="CENTER" animated="false" layoutX="14.0" layoutY="305.0" prefHeight="263.0" prefWidth="294.0" text="Contact">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="248.0" prefWidth="292.0">
+                                       <children>
+                                          <GridPane layoutX="54.0" layoutY="131.0" prefHeight="351.0" prefWidth="308.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.0" minWidth="10.0" prefWidth="71.99999237060547" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.99999618530273" minWidth="10.0" prefWidth="128.00000762939453" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Civilité" />
+                                                <Label text="Nom" GridPane.rowIndex="1" />
+                                                <Label text="Prénom" GridPane.rowIndex="2" />
+                                                <Label text="Fonction" GridPane.rowIndex="3" />
+                                                <Label text="Téléphone" GridPane.rowIndex="4" />
+                                                <Label text="Email" GridPane.rowIndex="5" />
+                                                <TextField GridPane.columnIndex="1" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" layoutX="14.0" layoutY="152.0" prefHeight="145.0" prefWidth="631.0" text="Adresse">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="67.0" prefWidth="615.0">
+                                       <children>
+                                          <GridPane layoutX="27.0" layoutY="14.0" prefHeight="137.0" prefWidth="615.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints maxHeight="18.0" minHeight="10.0" prefHeight="12.999999046325684" vgrow="SOMETIMES" />
+                                                <RowConstraints maxHeight="33.000000953674316" minHeight="10.0" prefHeight="33.000000953674316" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="22.000011444091797" minHeight="10.0" prefHeight="22.000011444091797" vgrow="SOMETIMES" />
+                                              <RowConstraints maxHeight="37.0000114440918" minHeight="10.0" prefHeight="26.999988555908203" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Numéro " GridPane.halignment="CENTER" />
+                                                <Label text="Type voie" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                                                <Label text="Libellé voie" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                                                <Label text="Complément d'adresse" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                                                <Label text="Boite postale" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                <Label text="Code postal" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                <Label text="Ville" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                <Label text="Pays" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                <TextField prefHeight="29.0" prefWidth="134.0" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                   <GridPane.margin>
+                                                      <Insets left="10.0" right="10.0" />
+                                                   </GridPane.margin>
+                                                </TextField>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <TitledPane alignment="CENTER" animated="false" layoutX="323.0" layoutY="306.0" prefHeight="132.0" prefWidth="321.0" text="Compléments d'information">
+                                <content>
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="303.0">
+                                       <children>
+                                          <GridPane layoutX="25.8" layoutY="20.0" prefHeight="150.0" prefWidth="304.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label text="Date de dernière visite" />
+                                                <TextField GridPane.columnIndex="1" />
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                </content>
+                              </TitledPane>
+                              <ButtonBar layoutX="322.0" layoutY="484.0" prefHeight="40.0" prefWidth="317.0">
+                                <buttons>
+                                  <Button mnemonicParsing="false" text="Ajouter" />
+                                    <Button layoutX="190.0" layoutY="16.0" mnemonicParsing="false" text="Modifier" />
+                                    <Button layoutX="190.0" layoutY="16.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
+                                </buttons>
+                              </ButtonBar>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="170.0" minWidth="0.0" prefHeight="151.0" prefWidth="663.0">
+                           <children>
+                              <TableView layoutX="222.0" layoutY="-15.0" prefHeight="170.0" prefWidth="663.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn prefWidth="44.00000071525574" text="Id." />
+                                  <TableColumn minWidth="8.0" prefWidth="110.99999618530273" text="Enseigne" />
+                                    <TableColumn prefWidth="87.00001525878906" text="Nom" />
+                                    <TableColumn minWidth="0.0" prefWidth="89.00001525878906" text="Prénom" />
+                                    <TableColumn minWidth="0.0" prefWidth="104.0" text="Telephone" />
+                                    <TableColumn minWidth="0.0" prefWidth="117.00006103515625" text="Email" />
+                                    <TableColumn minWidth="0.0" prefWidth="140.0" text="Nb com." />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </content>
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TitledPane>
+   </children>
 </AnchorPane>
-
