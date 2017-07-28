@@ -13,6 +13,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -29,12 +31,16 @@
                      <menus>
                         <Menu mnemonicParsing="false" text="File">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Close" />
+                              <MenuItem mnemonicParsing="false" text="Client" />
+                              <MenuItem mnemonicParsing="false" text="Représentant" />
+                              <MenuItem mnemonicParsing="false" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Edit">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Delete" />
+                              <MenuItem mnemonicParsing="false" text="Client" />
+                              <MenuItem mnemonicParsing="false" text="Représentant" />
+                              <MenuItem mnemonicParsing="false" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
@@ -211,6 +217,11 @@
                                     </AnchorPane>
                                  </content>
                               </TitledPane>
+                              <ImageView fitHeight="127.0" fitWidth="248.0" layoutX="395.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../ressources/logo.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </AnchorPane>
                         <AnchorPane minHeight="170.0" minWidth="0.0" prefHeight="151.0" prefWidth="663.0">
