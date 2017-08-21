@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 public class MainApp extends Application {
 
     private Stage primaryStage;
-    private BorderPane rootLayout;
+    private static BorderPane rootLayout;
 
    @Override
     public void start(Stage primaryStage) {
@@ -25,7 +25,7 @@ public class MainApp extends Application {
 
        initRootLayout();
 
-       showPersonOverview();
+       showStartOverview();
        
     }
 
@@ -51,7 +51,7 @@ public class MainApp extends Application {
    /**
      * Shows the person overview inside the root layout.
      */
-    public void showPersonOverview() {
+    public void showStartOverview() {
         try {
             // Load person overview.
             FXMLLoader loader = new FXMLLoader();
@@ -76,4 +76,49 @@ public class MainApp extends Application {
    public static void main(String[] args) {
         launch(args);
     }
+
+public static void showClientOverview() {
+	try {
+        // Load person overview.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainApp.class.getResource("../view/ClientOverview.fxml"));
+        AnchorPane clientOverview = (AnchorPane) loader.load();
+
+       // Set person overview into the center of root layout.
+        rootLayout.setCenter(clientOverview);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+	
+}
+
+public static void showrepresentantOverview() {
+	try {
+        // Load person overview.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainApp.class.getResource("../view/RepresentantOverview.fxml"));
+        AnchorPane representantOverview = (AnchorPane) loader.load();
+
+       // Set person overview into the center of root layout.
+        rootLayout.setCenter(representantOverview);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+	
+}
+
+public static void showprospectOverview() {
+	try {
+        // Load person overview.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainApp.class.getResource("../view/ProspectOverview.fxml"));
+        AnchorPane prospectOverview = (AnchorPane) loader.load();
+
+       // Set person overview into the center of root layout.
+        rootLayout.setCenter(prospectOverview);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+	
+}
 }
