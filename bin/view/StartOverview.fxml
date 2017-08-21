@@ -23,8 +23,8 @@
                         <Menu mnemonicParsing="false" text="File">
                            <items>
                               <MenuItem fx:id="mClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
-                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
-                              <MenuItem fx:id="mProspect" mnemonicParsing="false" text="Prospect" />
+                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
+                              <MenuItem fx:id="mProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Edit">
