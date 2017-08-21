@@ -32,5 +32,9 @@ public class ProspectOverviewController {
 	private void handleprospect(){
 		MainApp.showprospectOverview();
 	}
+	@FXML
+	private void formulaireprospect(){
+		MainApp.showFormulaireProspect();
+	}
 
 }

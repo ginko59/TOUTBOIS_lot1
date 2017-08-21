@@ -191,7 +191,7 @@
                               </TitledPane>
                               <ButtonBar layoutX="326.0" layoutY="487.0" prefHeight="40.0" prefWidth="317.0">
                                  <buttons>
-                                    <Button fx:id="bAjouter" mnemonicParsing="false" text="Ajouter" />
+                                    <Button fx:id="bAjouter" mnemonicParsing="false" onAction="#formulairerepresentant" text="Ajouter" />
                                     <Button fx:id="bModifier" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" text="Modifier" />
                                     <Button fx:id="bSupprimer" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
                                  </buttons>

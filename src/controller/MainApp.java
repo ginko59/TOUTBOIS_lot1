@@ -121,4 +121,50 @@ public static void showprospectOverview() {
     }
 	
 }
+
+public static void showFormulaireProspect() {
+	try {
+        // Load person overview.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainApp.class.getResource("../view/FormulaireProspect.fxml"));
+        AnchorPane formulaireProspect = (AnchorPane) loader.load();
+
+       // Set person overview into the center of root layout.
+        rootLayout.setCenter(formulaireProspect);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+	
+}
+public static void showFormulaireRepresentant() {
+	try {
+        // Load person overview.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainApp.class.getResource("../view/FormulaireReprésentant.fxml"));
+        AnchorPane formulaireRepresentant = (AnchorPane) loader.load();
+
+       // Set person overview into the center of root layout.
+        rootLayout.setCenter(formulaireRepresentant);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+	
+}
+
+public static void showFormulaireClient() {
+	try {
+        // Load person overview.
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(MainApp.class.getResource("../view/FormulaireClient.fxml"));
+        AnchorPane formulaireClient = (AnchorPane) loader.load();
+
+       // Set person overview into the center of root layout.
+        rootLayout.setCenter(formulaireClient);
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+	
+}
+
+
 }

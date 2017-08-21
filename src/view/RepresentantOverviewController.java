@@ -32,6 +32,11 @@ public class RepresentantOverviewController {
 		private void handleprospect(){
 			MainApp.showprospectOverview();
 		}
+		
+		@FXML
+		private void formulairerepresentant(){
+			MainApp.showFormulaireRepresentant();
+		}
 	}
 
 		
