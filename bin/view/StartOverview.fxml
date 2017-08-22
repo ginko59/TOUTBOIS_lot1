@@ -12,7 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="820.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.StartOverviewController">
+<AnchorPane maxHeight="373.0" maxWidth="692.0" minHeight="373.0" minWidth="692.0" prefHeight="373.0" prefWidth="692.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.StartOverviewController">
    <children>
       <TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" prefHeight="820.0" prefWidth="692.0" text="Menu principal" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <content>
@@ -63,7 +63,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="690.0">
                <children>
-                  <ImageView fitHeight="308.0" fitWidth="495.0" layoutX="126.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="214.0" fitWidth="337.0" layoutX="193.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../ressources/logo.png" />
                      </image>

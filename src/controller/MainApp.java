@@ -19,7 +19,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("TOUTBOIS");
-        this.primaryStage.setResizable(false);
+        this.primaryStage.setResizable(true);
      // Set the application icon.
         this.primaryStage.getIcons().add(new Image("file:ressources/logo.png"));
 
