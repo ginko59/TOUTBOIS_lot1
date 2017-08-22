@@ -19,7 +19,7 @@ public class MainApp extends Application {
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("TOUTBOIS");
-        this.primaryStage.setResizable(true);
+        this.primaryStage.setResizable(false);
      // Set the application icon.
         this.primaryStage.getIcons().add(new Image("file:ressources/logo.png"));
 
@@ -42,6 +42,7 @@ public class MainApp extends Application {
            // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
+            primaryStage.sizeToScene();
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
