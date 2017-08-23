@@ -29,18 +29,25 @@
                <children>
                   <MenuBar blendMode="MULTIPLY" layoutY="-3.0" prefHeight="35.0" prefWidth="692.0">
                      <menus>
-                        <Menu mnemonicParsing="false" text="File">
+                        <Menu mnemonicParsing="false" text="Fichier">
                            <items>
-                              <MenuItem fx:id="mClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
-                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
-                              <MenuItem fx:id="mProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
+                              <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
+                              <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
+                              <MenuItem fx:id="fProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
+                        <Menu mnemonicParsing="false" text="Modifier">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Client" />
-                              <MenuItem mnemonicParsing="false" text="Représentant" />
-                              <MenuItem mnemonicParsing="false" text="Prospect" />
+                              <MenuItem fx:id="mClient" mnemonicParsing="false" text="Client" />
+                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
+                              <MenuItem fx:id="mProspect" mnemonicParsing="false" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Ajouter">
+                           <items>
+                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
+                              <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
+                              <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
@@ -191,7 +198,7 @@
                               </TitledPane>
                               <ButtonBar layoutX="322.0" layoutY="484.0" prefHeight="40.0" prefWidth="317.0">
                                  <buttons>
-                                    <Button fx:id="bAjouter" mnemonicParsing="false" onAction="#formulaireprospect" text="Ajouter" />
+                                    <Button fx:id="bAjouter" mnemonicParsing="false" onAction="#formulaiprospect" text="Ajouter" />
                                     <Button fx:id="bModifier" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" text="Modifier" />
                                     <Button fx:id="bSupprimer" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
                                  </buttons>

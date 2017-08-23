@@ -6,20 +6,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 
 public class ClientOverviewController {
-	
+
 	@FXML
-    private Button bAjouter;
-    @FXML
-    private Button bModifier;
-    @FXML
-    private Button bSupprimer;
-    @FXML
-    private MenuItem mClient;
-    @FXML
-    private MenuItem mRepresentant;
-    @FXML
-    private MenuItem mProspect;
-    
+	private Button bAjouter;
+	@FXML
+	private Button bModifier;
+	@FXML
+	private Button bSupprimer;
+	@FXML
+	private MenuItem fClient;
+	@FXML
+	private MenuItem fRepresentant;
+	@FXML
+	private MenuItem fProspect;
+
+	@FXML
+	private MenuItem aClient;
+	@FXML
+	private MenuItem aRepresentant;
+	@FXML
+	private MenuItem aProspect;
+	@FXML
+	private MenuItem mClient;
+	@FXML
+	private MenuItem mRepresentant;
+	@FXML
+	private MenuItem mProspect;
+
 	@FXML
 	private void handleclient(){
 		MainApp.showClientOverview();
@@ -34,9 +47,15 @@ public class ClientOverviewController {
 	}
 	
 	@FXML
-	private void formulaireclient(){
+	private void formulairerepresentant(){
+		MainApp.showFormulaireRepresentant();
+	}
+	@FXML
+	private void formulaiprospect(){
+		MainApp.showFormulaireProspect();
+	}
+	@FXML
+	private void formulaiclient(){
 		MainApp.showFormulaireClient();
 	}
 }
-
-	

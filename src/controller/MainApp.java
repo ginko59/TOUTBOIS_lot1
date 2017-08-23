@@ -110,12 +110,12 @@ public static void showrepresentantOverview() {
 
 public static void showprospectOverview() {
 	try {
-        // Load person overview.
+        // Load  overview.
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MainApp.class.getResource("../view/ProspectOverview.fxml"));
         AnchorPane prospectOverview = (AnchorPane) loader.load();
 
-       // Set person overview into the center of root layout.
+       // Set  overview into the center of root layout.
         rootLayout.setCenter(prospectOverview);
     } catch (IOException e) {
         e.printStackTrace();

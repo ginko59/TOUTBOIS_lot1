@@ -12,13 +12,26 @@ public class FormulaireProspectController {
     @FXML
     private Button bAnnuler;
     @FXML
+    private MenuItem fClient;
+    @FXML
+    private MenuItem fRepresentant;
+    @FXML
+    private MenuItem fProspect;
+   
+    @FXML
+    private MenuItem aClient;
+    @FXML
+    private MenuItem aRepresentant;
+    @FXML
+    private MenuItem aProspect;
+    @FXML
     private MenuItem mClient;
     @FXML
     private MenuItem mRepresentant;
     @FXML
     private MenuItem mProspect;
     
-	@FXML
+    @FXML
 	private void handleclient(){
 		MainApp.showClientOverview();
 	}
@@ -30,9 +43,17 @@ public class FormulaireProspectController {
 	private void handleprospect(){
 		MainApp.showprospectOverview();
 	}
+	
 	@FXML
-	private void formulaireprospect(){
+	private void formulairerepresentant(){
+		MainApp.showFormulaireRepresentant();
+	}
+	@FXML
+	private void formulaiprospect(){
 		MainApp.showFormulaireProspect();
 	}
-
+	@FXML
+	private void formulaiclient(){
+		MainApp.showFormulaireClient();
+	}
 }

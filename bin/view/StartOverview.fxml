@@ -20,18 +20,25 @@
                <children>
                   <MenuBar blendMode="MULTIPLY" layoutX="2.0" layoutY="-1.0" prefHeight="35.0" prefWidth="692.0">
                      <menus>
-                        <Menu mnemonicParsing="false" text="File">
+                        <Menu mnemonicParsing="false" text="Fichier">
                            <items>
-                              <MenuItem fx:id="mClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
-                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
-                              <MenuItem fx:id="mProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
+                              <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
+                              <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
+                              <MenuItem fx:id="fProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
+                        <Menu mnemonicParsing="false" text="Modifier">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Client" />
-                              <MenuItem mnemonicParsing="false" text="Représentant" />
-                              <MenuItem mnemonicParsing="false" text="Prospect" />
+                              <MenuItem fx:id="mClient" mnemonicParsing="false" text="Client" />
+                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
+                              <MenuItem fx:id="mProspect" mnemonicParsing="false" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Ajouter">
+                           <items>
+                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
+                              <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
+                              <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">

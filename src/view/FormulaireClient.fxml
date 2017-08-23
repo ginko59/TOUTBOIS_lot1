@@ -31,16 +31,23 @@
                      <menus>
                         <Menu mnemonicParsing="false" text="File">
                            <items>
-                              <MenuItem fx:id="mClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
-                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
-                              <MenuItem fx:id="mProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
+                              <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
+                              <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
+                              <MenuItem fx:id="fProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
+                        <Menu mnemonicParsing="false" text="Modifier">
                            <items>
-                              <MenuItem mnemonicParsing="false" text="Client" />
-                              <MenuItem mnemonicParsing="false" text="Représentant" />
-                              <MenuItem mnemonicParsing="false" text="Prospect" />
+                              <MenuItem fx:id="mClient" mnemonicParsing="false" text="Client" />
+                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
+                              <MenuItem fx:id="mReprésentant" mnemonicParsing="false" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Ajouter">
+                           <items>
+                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
+                              <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
+                              <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
@@ -216,7 +223,7 @@
                               <ButtonBar layoutX="347.0" layoutY="484.0" prefHeight="40.0" prefWidth="254.0">
                                  <buttons>
                                     <Button fx:id="bSauvegarder" alignment="CENTER" mnemonicParsing="false" text="Sauvegarder" />
-                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="114.0" text="Annuler" />
+                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" onAction="#handleclient" prefHeight="29.0" prefWidth="114.0" text="Annuler" />
                                  </buttons>
                               </ButtonBar>
                               <ImageView fitHeight="127.0" fitWidth="248.0" layoutX="384.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
