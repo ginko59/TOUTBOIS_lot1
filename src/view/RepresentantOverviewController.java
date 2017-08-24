@@ -6,6 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 
 public class RepresentantOverviewController {
+	private MainApp mainApp;
+
+	public void setMainApp(MainApp mainApp) {
+	    this.mainApp = mainApp;
+	   
+	}
 	@FXML
     private Button bAjouter;
     @FXML
@@ -35,28 +41,28 @@ public class RepresentantOverviewController {
 	    
     @FXML
 	private void handleclient(){
-		MainApp.showClientOverview();
+		mainApp.showClientOverview();
 	}
 	@FXML
 	private void handlerepresentant(){
-		MainApp.showrepresentantOverview();
+		mainApp.showrepresentantOverview();
 	}
 	@FXML
 	private void handleprospect(){
-		MainApp.showprospectOverview();
+		mainApp.showprospectOverview();
 	}
 	
 	@FXML
 	private void formulairerepresentant(){
-		MainApp.showFormulaireRepresentant();
+		mainApp.showFormulaireRepresentant();
 	}
 	@FXML
 	private void formulaiprospect(){
-		MainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect();
 	}
 	@FXML
 	private void formulaiclient(){
-		MainApp.showFormulaireClient();
+		mainApp.showFormulaireClient();
 	}
 }
 		

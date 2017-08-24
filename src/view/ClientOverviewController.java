@@ -4,8 +4,25 @@ import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.fxml.FXMLLoader;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class ClientOverviewController {
+	
+	private MainApp mainApp;
+
+	public void setMainApp(MainApp mainApp) {
+	    this.mainApp = mainApp;
+	   
+	}
+	 
+	
 
 	@FXML
 	private Button bAjouter;
@@ -35,27 +52,27 @@ public class ClientOverviewController {
 
 	@FXML
 	private void handleclient(){
-		MainApp.showClientOverview();
+		mainApp.showClientOverview();
 	}
 	@FXML
 	private void handlerepresentant(){
-		MainApp.showrepresentantOverview();
+		mainApp.showrepresentantOverview();
 	}
 	@FXML
 	private void handleprospect(){
-		MainApp.showprospectOverview();
+		mainApp.showprospectOverview();
 	}
 	
 	@FXML
 	private void formulairerepresentant(){
-		MainApp.showFormulaireRepresentant();
+		mainApp.showFormulaireRepresentant();
 	}
 	@FXML
 	private void formulaiprospect(){
-		MainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect();
 	}
 	@FXML
 	private void formulaiclient(){
-		MainApp.showFormulaireClient();
+		mainApp.showFormulaireClient();
 	}
 }
