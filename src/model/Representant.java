@@ -1,10 +1,13 @@
 package model;
 
+import javafx.beans.property.IntegerProperty;
+
 public class Representant extends Contact {
-	public int identifiantR;
+	public IntegerProperty identifiantR;
 	public float tauxCommission;
 	public float salaire;
-	public int getIdentifiantR() {
+	
+	public IntegerProperty getIdentifiantR() {
 		return identifiantR;
 	}
 	public float getTauxCommission() {
@@ -14,7 +17,7 @@ public class Representant extends Contact {
 		return salaire;
 	}
 	public void setIdentifiantR(int identifiantR) {
-		this.identifiantR = identifiantR;
+		this.identifiantR.set(identifiantR);
 	}
 	public void setTauxCommission(float tauxCommission) {
 		this.tauxCommission = tauxCommission;
@@ -26,7 +29,7 @@ public class Representant extends Contact {
 			String email, String tel, int nbCommande, Adresse adresse, int identifiantR, float tauxCommission,
 			float salaire) {
 		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
-		this.identifiantR = identifiantR;
+		this.identifiantR.set(identifiantR);;
 		this.tauxCommission = tauxCommission;
 		this.salaire = salaire;
 	}

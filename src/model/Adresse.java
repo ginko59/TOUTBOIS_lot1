@@ -1,66 +1,71 @@
 package model;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Adresse {
-	public int num;
-	public String voie;
-	public String nomVoie;
-	public String complement;
-	public int bp;
-	public int cp;
-	public String ville;
-	public String pays;
-	public int getNum() {
+	public IntegerProperty num;
+	public StringProperty voie;
+	public StringProperty nomVoie;
+	public StringProperty complement;
+	public IntegerProperty bp;
+	public IntegerProperty cp;
+	public StringProperty ville;
+	public StringProperty pays;
+	
+	public IntegerProperty getNum() {
 		return num;
 	}
 	public String getVoie() {
-		return voie;
+		return voie.get();
 	}
 	public String getNomVoie() {
-		return nomVoie;
+		return nomVoie.get();
 	}
 	public String getComplement() {
-		return complement;
+		return complement.get();
 	}
-	public int getBp() {
+	public IntegerProperty getBp() {
 		return bp;
 	}
-	public int getCp() {
+	public IntegerProperty getCp() {
 		return cp;
 	}
 	public String getVille() {
-		return ville;
+		return ville.get();
 	}
 	public String getPays() {
-		return pays;
+		return pays.get();
 	}
-	public void setNum(int num) {
+	public void setNum(IntegerProperty num) {
 		this.num = num;
 	}
-	public void setVoie(String voie) {
+	public void setVoie(StringProperty voie) {
 		this.voie = voie;
 	}
-	public void setNomVoie(String nomVoie) {
+	public void setNomVoie(StringProperty nomVoie) {
 		this.nomVoie = nomVoie;
 	}
-	public void setComplement(String complement) {
+	public void setComplement(StringProperty complement) {
 		this.complement = complement;
 	}
-	public void setBp(int bp) {
+	public void setBp(IntegerProperty bp) {
 		this.bp = bp;
 	}
-	public void setCp(int cp) {
+	public void setCp(IntegerProperty cp) {
 		this.cp = cp;
 	}
 	public void setVille(String ville) {
-		this.ville = ville;
+		this.ville.set(ville);;
 	}
 	public void setPays(String pays) {
-		this.pays = pays;
+		this.pays.set(pays);;
 	}
 	
 	
 	
-	public Adresse(int num, String voie, String nomVoie, String complement, int bp, int cp, String ville, String pays) {
+	public Adresse(IntegerProperty num, StringProperty voie, StringProperty nomVoie, StringProperty complement, IntegerProperty bp, IntegerProperty cp, StringProperty ville, StringProperty pays) {
 		super();
 		this.num = num;
 		this.voie = voie;
@@ -71,6 +76,13 @@ public class Adresse {
 		this.ville = ville;
 		this.pays = pays;
 	}
+	
+	public Adresse() {
+		super();
+		
+	}
+	
+	
 	
 	
 	

@@ -1,39 +1,43 @@
 package model;
 
+import javafx.beans.property.StringProperty;
+
 public abstract class Contact {
-	public String enseigne;
-	public String siret;
-	public String civilite;
-	public String nom;
-	public String prenom ;
-	public String fonction;
-	public String email;
-	public String tel;
+	public StringProperty enseigne;
+	public StringProperty siret;
+	public StringProperty civilite;
+	public StringProperty nom;
+	public StringProperty prenom ;
+	public StringProperty fonction;
+	public StringProperty email;
+	public StringProperty tel;
 	public int nbCommande;
 	public Adresse adresse;
+	
+	
 	public String getEnseigne() {
-		return enseigne;
+		return enseigne.get();
 	}
 	public String getSiret() {
-		return siret;
+		return siret.get();
 	}
 	public String getCivilite() {
-		return civilite;
+		return civilite.get();
 	}
 	public String getNom() {
-		return nom;
+		return nom.get();
 	}
 	public String getPrenom() {
-		return prenom;
+		return prenom.get();
 	}
 	public String getFonction() {
-		return fonction;
+		return fonction.get();
 	}
 	public String getEmail() {
-		return email;
+		return email.get();
 	}
 	public String getTel() {
-		return tel;
+		return tel.get();
 	}
 	public int getNbCommande() {
 		return nbCommande;
@@ -41,29 +45,31 @@ public abstract class Contact {
 	public Adresse getAdresse() {
 		return adresse;
 	}
+	
+	
 	public void setEnseigne(String enseigne) {
-		this.enseigne = enseigne;
+		this.enseigne.set(enseigne);
 	}
 	public void setSiret(String siret) {
-		this.siret = siret;
+		this.siret.set(siret);
 	}
 	public void setCivilite(String civilite) {
-		this.civilite = civilite;
+		this.civilite.set(civilite);
 	}
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nom.set(nom);
 	}
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+		this.prenom.set(prenom);
 	}
 	public void setFonction(String fonction) {
-		this.fonction = fonction;
+		this.fonction.set(fonction);
 	}
 	public void setEmail(String email) {
-		this.email = email;
+		this.email.set(email);
 	}
 	public void setTel(String tel) {
-		this.tel = tel;
+		this.tel.set(tel);
 	}
 	public void setNbCommande(int nbCommande) {
 		this.nbCommande = nbCommande;
@@ -75,19 +81,23 @@ public abstract class Contact {
 	
 	
 	
-	public Contact(String enseigne, String siret, String civilite, String nom, String prenom, String fonction,
-			String email, String tel, int nbCommande, Adresse adresse) {
-		super();
-		this.enseigne = enseigne;
-		this.siret = siret;
-		this.civilite = civilite;
-		this.nom = nom;
-		this.prenom = prenom;
-		this.fonction = fonction;
-		this.email = email;
-		this.tel = tel;
+	public Contact(StringProperty enseigne2, StringProperty siret2, StringProperty civilite2, StringProperty nom2, StringProperty prenom2, StringProperty fonction2,
+			StringProperty email2, StringProperty tel2, int nbCommande, Adresse adresse) {		super();
+		this.enseigne = enseigne2;
+		this.siret = siret2;
+		this.civilite = civilite2;
+		this.nom = nom2;
+		this.prenom = prenom2;
+		this.fonction = fonction2;
+		this.email = email2;
+		this.tel = tel2;
 		this.nbCommande = nbCommande;
 		this.adresse = adresse;
+	}
+	
+	public Contact() {		
+		super();
+		
 	}
 	
 	
