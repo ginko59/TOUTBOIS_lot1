@@ -2,11 +2,13 @@ package view;
 
 import controller.MainApp;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.fxml.FXMLLoader;
 import javafx.application.Application;
 import javafx.beans.property.IntegerProperty;
@@ -18,6 +20,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Adresse;
 import model.Client;
+import model.Person;
 
 public class ClientOverviewController {
 	
@@ -55,6 +58,13 @@ public class ClientOverviewController {
 	private MenuItem mRepresentant;
 	@FXML
 	private MenuItem mProspect;
+	
+	@FXML
+    private MenuItem fSave;
+    @FXML
+    private MenuItem fSaveAs;
+    @FXML
+    private MenuItem fOpen;
 	
 	@FXML
 	private TextField tfEnseigne;
@@ -231,7 +241,47 @@ private void initialize() {
     // Add observable list data to the table
     clientTable.setItems(mainApp.getClientData());
 }
+/**
+ * Called when the user clicks on the delete button.
+ */
+@FXML
+private void handleDeleteClient() {
+    int selectedIndex = clientTable.getSelectionModel().getSelectedIndex();
+    if (selectedIndex >= 0) {
+        clientTable.getItems().remove(selectedIndex);
+    } else {
+        // Nothing selected.
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.initOwner(mainApp.getPrimaryStage());
+        alert.setTitle("No Selection");
+        alert.setHeaderText("No client Selected");
+        alert.setContentText("Please select a client in the table.");
 
+        alert.showAndWait();
+    }
+
+}
+
+@FXML
+private void handleEditClient() {
+    Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
+    if (selectedClient != null) {
+        boolean okClicked = mainApp.showFormulaireClient(selectedClient);
+        if (okClicked) {
+            showClientDetails(selectedClient);
+        }
+
+    } else {
+        // Nothing selected.
+        Alert alert = new Alert(AlertType.WARNING);
+        alert.initOwner(mainApp.getPrimaryStage());
+        alert.setTitle("No Selection");
+        alert.setHeaderText("No CLient Selected");
+        alert.setContentText("Please select a client in the table.");
+
+        alert.showAndWait();
+    }
+}
 
   
 }

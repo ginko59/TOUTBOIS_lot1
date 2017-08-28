@@ -57,10 +57,10 @@ public class Adresse {
 		this.cp = cp;
 	}
 	public void setVille(String ville) {
-		this.ville.set(ville);;
+		this.ville.set(ville);
 	}
 	public void setPays(String pays) {
-		this.pays.set(pays);;
+		this.pays.set(pays);
 	}
 	
 	

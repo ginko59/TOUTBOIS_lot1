@@ -38,6 +38,13 @@ public class RepresentantOverviewController {
     private MenuItem mRepresentant;
     @FXML
     private MenuItem mProspect;
+    
+    @FXML
+    private MenuItem fSave;
+    @FXML
+    private MenuItem fSaveAs;
+    @FXML
+    private MenuItem fOpen;
 	    
     @FXML
 	private void handleclient(){

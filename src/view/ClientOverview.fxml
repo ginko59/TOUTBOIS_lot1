@@ -29,7 +29,7 @@
                <children>
                   <MenuBar blendMode="MULTIPLY" layoutY="-3.0" prefHeight="35.0" prefWidth="692.0">
                     <menus>
-                      <Menu mnemonicParsing="false" text="Fichier">
+                      <Menu mnemonicParsing="false" text="Consulter">
                         <items>
                           <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
                               <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
@@ -48,6 +48,12 @@
                               <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
                               <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
                               <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Fichier">
+                           <items>
+                              <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
+                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
                            </items>
                         </Menu>
                       <Menu mnemonicParsing="false" text="Help">
@@ -224,7 +230,7 @@
                                 <buttons>
                                   <Button fx:id="bAjouter" mnemonicParsing="false" onAction="#formulaiclient" text="Ajouter" />
                                     <Button fx:id="bModifier" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" text="Modifier" />
-                                    <Button fx:id="bSupprimer" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
+                                    <Button fx:id="bSupprimer" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
                                 </buttons>
                               </ButtonBar>
                               <ImageView fitHeight="127.0" fitWidth="248.0" layoutX="385.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">

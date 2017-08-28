@@ -38,6 +38,13 @@ public class StartOverviewController {
     private MenuItem mProspect;
     
     @FXML
+    private MenuItem fSave;
+    @FXML
+    private MenuItem fSaveAs;
+    @FXML
+    private MenuItem fOpen;
+    
+    @FXML
 	private void handleclient(){
 		mainApp.showClientOverview();
 	}

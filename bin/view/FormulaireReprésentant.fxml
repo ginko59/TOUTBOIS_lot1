@@ -50,6 +50,12 @@
                               <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
                            </items>
                         </Menu>
+                        <Menu mnemonicParsing="false" text="Fichier">
+                           <items>
+                              <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
+                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
+                           </items>
+                        </Menu>
                         <Menu mnemonicParsing="false" text="Help">
                            <items>
                               <MenuItem mnemonicParsing="false" text="About" />
