@@ -96,7 +96,7 @@ public class ClientOverviewController {
 	@FXML
 	private TableView<Client> clientTable;
 	@FXML
-	private TableColumn<Client, IntegerProperty> tcId;
+	private TableColumn<Client, Integer> tcId;
 	@FXML
 	private TableColumn<Client, String> tcEnseigne;
 	@FXML
@@ -108,7 +108,7 @@ public class ClientOverviewController {
 	@FXML
 	private TableColumn<Client, String> tcMail;
 	@FXML
-	private TableColumn<Client, IntegerProperty> tcNbCom;
+	private TableColumn<Client, Integer> tcNbCom;
 	
 	
 	
@@ -223,10 +223,10 @@ private void initialize() {
     tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
     
     tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
-   // tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
+    tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
     tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
     tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
-  //  tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
+    tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
     
     // Add observable list data to the table
     clientTable.setItems(mainApp.getClientData());
