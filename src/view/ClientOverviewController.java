@@ -5,9 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXMLLoader;
 import javafx.application.Application;
+import javafx.beans.property.IntegerProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -92,19 +94,21 @@ public class ClientOverviewController {
 	private TextField tfIdRepresentant;
 	
 	@FXML
-	private TableColumn<?, ?> tcId;
+	private TableView<Client> clientTable;
 	@FXML
-	private TableColumn<?, ?> tcEnseigne;
+	private TableColumn<Client, IntegerProperty> tcId;
 	@FXML
-	private TableColumn<?, ?> tcNom;
+	private TableColumn<Client, String> tcEnseigne;
 	@FXML
-	private TableColumn<?, ?> tcPrenom;
+	private TableColumn<Client, String> tcNom;
 	@FXML
-	private TableColumn<?, ?> tcTel;
+	private TableColumn<Client, String> tcPrenom;
 	@FXML
-	private TableColumn<?, ?> tcMail;
+	private TableColumn<Client, String> tcTel;
 	@FXML
-	private TableColumn<?, ?> tcNbCom;
+	private TableColumn<Client, String> tcMail;
+	@FXML
+	private TableColumn<Client, IntegerProperty> tcNbCom;
 	
 	
 	
@@ -198,4 +202,40 @@ private void showClientDetails(Client client) {
         tfIdRepresentant.setText("");
     }
 }
+
+/**
+ * The constructor.
+ * The constructor is called before the initialize() method.
+ * @return 
+ */
+public void PersonOverviewController() {
 }
+
+/**
+ * Initializes the controller class. This method is automatically called
+ * after the fxml file has been loaded.
+ */
+
+
+@FXML
+private void initialize() {
+    // Initialize the client table with the two columns.
+    tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
+    
+    tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
+   // tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
+    tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
+    tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
+  //  tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
+    
+    // Add observable list data to the table
+    clientTable.setItems(mainApp.getClientData());
+}
+
+
+  
+}
+
+
+
+

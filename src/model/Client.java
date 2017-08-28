@@ -1,6 +1,7 @@
 package model;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -15,10 +16,16 @@ public class Client extends Contact {
 	
 	
 	
-	public IntegerProperty getIdentifiantC() {
-		return identifiantC;
+	public Integer getIdentifiantC() {
+		return identifiantC.get();
 	}
 	
+	public IntegerProperty identifiantCProperty() {
+		return identifiantC;
+	}
+	public void setIdentifiantC(Integer identifiantC){
+		this.identifiantC.set(identifiantC);
+	}
 	
 
 
@@ -57,15 +64,11 @@ public class Client extends Contact {
 
 
 
-
-	public void setIdentifiantC(int identifiantC) {
-		this.identifiantC = identifiantC;
-	}
-
-
 	public void setRepresentant(Representant representant) {
 		this.representant = representant;
 	}
+	
+
 
 	public Client(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom, StringProperty prenom, StringProperty fonction,
 			StringProperty email, StringProperty tel, int nbCommande, Adresse adresse) {
@@ -75,7 +78,7 @@ public class Client extends Contact {
 
 
 	public Client(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom, StringProperty prenom, StringProperty fonction,
-			StringProperty email, StringProperty tel, int nbCommande, Adresse adresse, int identifiantC, Representant representant) {
+			StringProperty email, StringProperty tel, int nbCommande, Adresse adresse, SimpleIntegerProperty identifiantC, Representant representant) {
 		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
 		this.identifiantC = identifiantC;
 		this.representant = representant;

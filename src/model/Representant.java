@@ -1,6 +1,7 @@
 package model;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
 
 public class Representant extends Contact {
 	public IntegerProperty identifiantR;
@@ -25,16 +26,16 @@ public class Representant extends Contact {
 	public void setSalaire(float salaire) {
 		this.salaire = salaire;
 	}
-	public Representant(String enseigne, String siret, String civilite, String nom, String prenom, String fonction,
-			String email, String tel, int nbCommande, Adresse adresse, int identifiantR, float tauxCommission,
+	public Representant(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom, StringProperty prenom, StringProperty fonction,
+			StringProperty email, StringProperty tel, int nbCommande, Adresse adresse, int identifiantR, float tauxCommission,
 			float salaire) {
 		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
 		this.identifiantR.set(identifiantR);;
 		this.tauxCommission = tauxCommission;
 		this.salaire = salaire;
 	}
-	public Representant(String enseigne, String siret, String civilite, String nom, String prenom, String fonction,
-			String email, String tel, int nbCommande, Adresse adresse) {
+	public Representant(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom, StringProperty prenom, StringProperty fonction,
+			StringProperty email, StringProperty tel, int nbCommande, Adresse adresse) {
 		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
 		// TODO Auto-generated constructor stub
 	}

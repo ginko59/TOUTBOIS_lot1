@@ -1,5 +1,6 @@
 package model;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.StringProperty;
 
 public abstract class Contact {
@@ -11,7 +12,7 @@ public abstract class Contact {
 	public StringProperty fonction;
 	public StringProperty email;
 	public StringProperty tel;
-	public int nbCommande;
+	public IntegerProperty nbCommande;
 	public Adresse adresse;
 	
 	
@@ -39,7 +40,7 @@ public abstract class Contact {
 	public String getTel() {
 		return tel.get();
 	}
-	public int getNbCommande() {
+	public IntegerProperty getNbCommande() {
 		return nbCommande;
 	}
 	public Adresse getAdresse() {
@@ -71,27 +72,53 @@ public abstract class Contact {
 	public void setTel(String tel) {
 		this.tel.set(tel);
 	}
-	public void setNbCommande(int nbCommande) {
+	public void setNbCommande(IntegerProperty nbCommande) {
 		this.nbCommande = nbCommande;
 	}
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
 	
+	public StringProperty enseigneProperty(){
+		return enseigne;
+			}
+	public StringProperty siretProperty(){
+		return siret;
+	}
+	public StringProperty civiliteProperty(){
+		return civilite;
+	}
+	public StringProperty nomProperty(){
+		return nom;
+	}
+	public StringProperty prenomProperty(){
+		return prenom;
+	}
+	public StringProperty fonctionProperty(){
+		return fonction;
+	}
+	public StringProperty emailProperty(){
+		return email;
+	}
+	
+	public StringProperty telProperty(){
+		return tel;
+	}
+	public IntegerProperty nbCommandeProperty() {
+		return nbCommande;
+	}
 	
 	
-	
-	public Contact(StringProperty enseigne2, StringProperty siret2, StringProperty civilite2, StringProperty nom2, StringProperty prenom2, StringProperty fonction2,
-			StringProperty email2, StringProperty tel2, int nbCommande, Adresse adresse) {		super();
-		this.enseigne = enseigne2;
-		this.siret = siret2;
-		this.civilite = civilite2;
-		this.nom = nom2;
-		this.prenom = prenom2;
-		this.fonction = fonction2;
-		this.email = email2;
-		this.tel = tel2;
-		this.nbCommande = nbCommande;
+	public Contact(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom, StringProperty prenom, StringProperty fonction,
+			StringProperty email, StringProperty tel, int nbCommande, Adresse adresse) {		
+		this.enseigne = enseigne;
+		this.siret = siret;
+		this.civilite = civilite;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.fonction = fonction;
+		this.email = email;
+		this.tel = tel;
 		this.adresse = adresse;
 	}
 	
