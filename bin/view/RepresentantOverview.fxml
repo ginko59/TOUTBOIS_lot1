@@ -29,7 +29,7 @@
                <children>
                   <MenuBar blendMode="MULTIPLY" layoutY="-3.0" prefHeight="35.0" prefWidth="692.0">
                      <menus>
-                        <Menu mnemonicParsing="false" text="Fichier">
+                        <Menu mnemonicParsing="false" text="Consulter">
                            <items>
                               <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
                               <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
@@ -52,8 +52,8 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Fichier">
                            <items>
-                              <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
-                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
+                              <MenuItem fx:id="fSave" mnemonicParsing="false" text="Enregistrer" />
+                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" text="Enregistrer sous" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
@@ -86,8 +86,8 @@
                                              <children>
                                                 <Label text="Enseigne" />
                                                 <Label text="Siret" GridPane.rowIndex="1" />
-                                                <TextField GridPane.columnIndex="1" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="tfEnseigne" GridPane.columnIndex="1" />
+                                                <TextField fx:id="tfSiret" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -118,12 +118,12 @@
                                                 <Label text="Fonction" GridPane.rowIndex="3" />
                                                 <Label text="Téléphone" GridPane.rowIndex="4" />
                                                 <Label text="Email" GridPane.rowIndex="5" />
-                                                <TextField GridPane.columnIndex="1" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <TextField fx:id="tfCivilite" GridPane.columnIndex="1" />
+                                                <TextField fx:id="tfNom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="tfPrenom" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField fx:id="tfFonction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField fx:id="tfTel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="tfMail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -156,42 +156,42 @@
                                                 <Label text="Code postal" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                                                 <Label text="Ville" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                                                 <Label text="Pays" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                <TextField prefHeight="29.0" prefWidth="134.0" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfNum" prefHeight="29.0" prefWidth="134.0" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfVoie" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfLibelle" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfComplement" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.rowIndex="3">
+                                                <TextField fx:id="tfBoite" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <TextField fx:id="tfCP" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                <TextField fx:id="tfVille" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                <TextField fx:id="tfPays" GridPane.columnIndex="3" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
@@ -206,7 +206,7 @@
                                  <buttons>
                                     <Button fx:id="bAjouter" mnemonicParsing="false" onAction="#formulairerepresentant" text="Ajouter" />
                                     <Button fx:id="bModifier" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" text="Modifier" />
-                                    <Button fx:id="bSupprimer" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
+                                    <Button fx:id="bSupprimer" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleDeleteRepresentant" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
                                  </buttons>
                               </ButtonBar>
                               <TitledPane alignment="CENTER" animated="false" layoutX="320.0" layoutY="295.0" prefHeight="168.0" prefWidth="328.0" text="Compléments d'information">
@@ -226,10 +226,10 @@
                                              <children>
                                                 <Label text="Identifiant représentant" />
                                                 <Label text="Taux commission" GridPane.rowIndex="1" />
-                                                <TextField GridPane.columnIndex="1" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="tfIdRepresentant" GridPane.columnIndex="1" />
+                                                <TextField fx:id="tfCommission" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                 <Label text="Salaire" GridPane.rowIndex="2" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField fx:id="tfSalaire" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -247,11 +247,11 @@
                            <children>
                               <TableView layoutX="222.0" layoutY="-15.0" prefHeight="170.0" prefWidth="663.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
-                                    <TableColumn prefWidth="44.00000071525574" text="Id." />
-                                    <TableColumn prefWidth="110.99999618530273" text="Nom" />
-                                    <TableColumn minWidth="0.0" prefWidth="110.00001525878906" text="Prénom" />
-                                    <TableColumn minWidth="0.0" prefWidth="137.0" text="Telephone" />
-                                    <TableColumn minWidth="0.0" prefWidth="259.00006103515625" text="Email" />
+                                    <TableColumn fx:id="tcIdR" prefWidth="44.00000071525574" text="Id." />
+                                    <TableColumn fx:id="tcNom" prefWidth="110.99999618530273" text="Nom" />
+                                    <TableColumn fx:id="tcPrenom" minWidth="0.0" prefWidth="110.00001525878906" text="Prénom" />
+                                    <TableColumn fx:id="tcTel" minWidth="0.0" prefWidth="137.0" text="Telephone" />
+                                    <TableColumn fx:id="tcMail" minWidth="0.0" prefWidth="259.00006103515625" text="Email" />
                                  </columns>
                               </TableView>
                            </children>

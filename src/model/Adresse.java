@@ -14,8 +14,8 @@ public class Adresse {
 	public StringProperty ville;
 	public StringProperty pays;
 	
-	public IntegerProperty getNum() {
-		return num;
+	public Integer getNum() {
+		return num.get();
 	}
 	public String getVoie() {
 		return voie.get();
@@ -26,11 +26,11 @@ public class Adresse {
 	public String getComplement() {
 		return complement.get();
 	}
-	public IntegerProperty getBp() {
-		return bp;
+	public Integer getBp() {
+		return bp.get();
 	}
-	public IntegerProperty getCp() {
-		return cp;
+	public Integer getCp() {
+		return cp.get();
 	}
 	public String getVille() {
 		return ville.get();
@@ -38,29 +38,54 @@ public class Adresse {
 	public String getPays() {
 		return pays.get();
 	}
-	public void setNum(IntegerProperty num) {
-		this.num = num;
+	public void setNum(Integer num) {
+		this.num.set(num);
 	}
-	public void setVoie(StringProperty voie) {
-		this.voie = voie;
+	public void setVoie(String voie) {
+		this.voie.set(voie);
 	}
-	public void setNomVoie(StringProperty nomVoie) {
-		this.nomVoie = nomVoie;
+	public void setNomVoie(String nomVoie) {
+		this.nomVoie.set(nomVoie);
 	}
-	public void setComplement(StringProperty complement) {
-		this.complement = complement;
+	public void setComplement(String complement) {
+		this.complement.set(complement);
 	}
-	public void setBp(IntegerProperty bp) {
-		this.bp = bp;
+	public void setBp(Integer bp) {
+		this.bp.set(bp);
 	}
-	public void setCp(IntegerProperty cp) {
-		this.cp = cp;
+	public void setCp(Integer cp) {
+		this.cp.set(cp);
 	}
 	public void setVille(String ville) {
 		this.ville.set(ville);
 	}
 	public void setPays(String pays) {
 		this.pays.set(pays);
+	}
+	
+	public IntegerProperty numProperty() {
+		return num;
+	}
+	public StringProperty voieProperty() {
+		return voie;
+	}
+	public StringProperty nomVoieProperty() {
+		return nomVoie ;
+	}
+	public StringProperty complementProperty() {
+		return complement ;
+	}
+	public IntegerProperty bpProperty() {
+		return bp;
+	}
+	public IntegerProperty cpProperty () {
+		return cp;
+	}
+	public StringProperty villeProperty() {
+		return ville;
+	}
+	public StringProperty paysProperty() {
+		return pays ;
 	}
 	
 	
