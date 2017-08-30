@@ -245,7 +245,7 @@
                         </AnchorPane>
                         <AnchorPane minHeight="170.0" minWidth="0.0" prefHeight="151.0" prefWidth="663.0">
                            <children>
-                              <TableView layoutX="222.0" layoutY="-15.0" prefHeight="170.0" prefWidth="663.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="representantTable" layoutX="222.0" layoutY="-15.0" prefHeight="170.0" prefWidth="663.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
                                     <TableColumn fx:id="tcIdR" prefWidth="44.00000071525574" text="Id." />
                                     <TableColumn fx:id="tcNom" prefWidth="110.99999618530273" text="Nom" />

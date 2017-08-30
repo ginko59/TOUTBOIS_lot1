@@ -1,9 +1,10 @@
 package model;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public abstract class Contact {
+public class Contact {
 	public StringProperty enseigne;
 	public StringProperty siret;
 	public StringProperty civilite;
@@ -14,6 +15,7 @@ public abstract class Contact {
 	public StringProperty tel;
 	public IntegerProperty nbCommande;
 	public Adresse adresse;
+	
 	
 	
 	public String getEnseigne() {
@@ -122,8 +124,18 @@ public abstract class Contact {
 		this.adresse = adresse;
 	}
 	
-	public Contact() {		
-		super();
+	public Contact() {
+		
+		this.enseigne = new SimpleStringProperty(null);
+		this.siret = new SimpleStringProperty(null);
+		this.civilite = new SimpleStringProperty(null);
+		this.nom = new SimpleStringProperty(null);
+		this.prenom = new SimpleStringProperty(null);
+		this.fonction = new SimpleStringProperty(null);
+		this.email = new SimpleStringProperty(null);
+		this.tel = new SimpleStringProperty(null);
+		this.adresse = new Adresse();
+		
 		
 	}
 	

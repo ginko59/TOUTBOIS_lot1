@@ -3,6 +3,7 @@ package view;
 import java.io.File;
 
 import controller.MainApp;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -94,6 +95,8 @@ public class FormulaireClientController {
 	private TextField tfIdClient;
 	@FXML
 	private TextField tfIdRepresentant;
+	@FXML
+	private TextField tfCommande;
 	
 	@FXML
 	private TableView<Client> clientTable;
@@ -217,38 +220,42 @@ public class FormulaireClientController {
 	    @FXML
 	    private void handleOk() {
 	        if (isInputValid()) {
-	            client.setPrenom(tfPrenom.getText());
-	            client.setNom(tfNom.getText());
-	            client.setCivilite(tfCivilite.getText());
-	            client.setFonction(tfFonction.getText());
-	            client.setEmail(tfMail.getText());
-	            client.setTel(tfTel.getText());
-	            client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	            client.representant.setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	client.setPrenom(tfPrenom.getText());
+	        	client.setNom(tfNom.getText());
+	        	client.setCivilite(tfCivilite.getText());
+	        	client.setFonction(tfFonction.getText());
+	        	client.setEmail(tfMail.getText());
+	        	client.setTel(tfTel.getText());
+	        	client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
+	        	//client.representant.setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	//client.setNbCommande(Integer.parseInt(tfCommande);
+	        	client.setEnseigne(tfEnseigne.getText());
+	        	client.setSiret(tfSiret.getText());
+	        	 
+	        	
 	            
-	            client.adresse.setNum(Integer.parseInt(tfNum.getText()));
-	            client.adresse.setVoie(tfVoie.getText());
-	            client.adresse.setNomVoie(tfLibelle.getText());
-	            client.adresse.setCp(Integer.parseInt(tfCP.getText()));
-	            client.adresse.setVille(tfVille.getText());
-	            client.adresse.setBp(Integer.parseInt(tfBoite.getText()));
-	            client.adresse.setPays(tfPays.getText());
-	            
-	            client.setSiret(tfSiret.getText());
-	            client.setEnseigne(tfEnseigne.getText());
+	        	/*client.getAdresse().setNum(Integer.parseInt(tfNum.getText()));
+	        	client.getAdresse().setVoie(tfVoie.getText());
+	        	client.adresse.setNomVoie(tfLibelle.getText());
+	        	client.adresse.setCp(Integer.parseInt(tfCP.getText()));
+	        	client.adresse.setVille(tfVille.getText());
+	        	client.adresse.setBp(Integer.parseInt(tfBoite.getText()));
+	        	client.adresse.setPays(tfPays.getText());*/
+	                      
+	           
 
 	            okClicked = true;
-	            dialogStage.close();
+	            //dialogStage.close();
+	            mainApp.getClientData().add(client);
 	        }
 	    }
 	    /**
 	     * Sets the client to be edited in the dialog.
 	     *
-	     * @param person
 	     */
-	    public void setClient(Client client) {
+	   public void setClient(Client client) {
 	        this.client = client;
-
+/*
 	        tfEnseigne.setText(client.getEnseigne());
 	        tfSiret.setText(client.getSiret());
 	        tfPrenom.setText(client.getPrenom());
@@ -268,7 +275,7 @@ public class FormulaireClientController {
 	        tfIdClient.setText(Integer.toString(client.getIdentifiantC()));
 	       
 	        tfIdRepresentant.setText(Integer.toString(client.representant.getIdentifiantR()));
-	        
+	        */
 	    }
 
 	    /**

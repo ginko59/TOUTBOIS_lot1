@@ -11,17 +11,26 @@ public class Client extends Contact {
 	public Representant representant= new Representant();
 	public Adresse adresse= new Adresse() ;
 	
-	// public int identifiantR;
+	
 
 	public Client() {
 			super();
+			this.adresse = null;
+			this.representant = null;
+			this.identifiantC = new SimpleIntegerProperty(0);
 		}
 	
+
+	
+	
+
+
+
 	public Client(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom,
 			StringProperty prenom, StringProperty fonction, StringProperty email, StringProperty tel, int nbCommande,
 			Adresse adresse) {
 		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Client(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom,
@@ -44,7 +53,7 @@ public class Client extends Contact {
 		this.nbCommande = new SimpleIntegerProperty(nbCommande);
 		this.enseigne = new SimpleStringProperty(enseigne); 
 		this.siret = new SimpleStringProperty(siret);
-		
+		//this.representant.identifiantR =new SimpleIntegerProperty(representant.getIdentifiantR());
 		
 		
 		
@@ -89,6 +98,10 @@ public class Client extends Contact {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}
+
+	public void setIdentifiantC(IntegerProperty identifiantC) {
+		this.identifiantC = identifiantC;
 	}
 	
 	

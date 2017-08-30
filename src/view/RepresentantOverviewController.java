@@ -133,6 +133,8 @@ public class RepresentantOverviewController {
 	private void formulaiclient(){
 		mainApp.showFormulaireClient(null);
 	}
+	
+	
 	Adresse adresse = new Adresse();
 	
 	private void showRepresentantDetails(Representant representant) {
@@ -149,18 +151,19 @@ public class RepresentantOverviewController {
 	        tfMail.setText(representant.getEmail());
 	        
 	        tfIdRepresentant.setText(representant.getIdentifiantR().toString());
+	        tfSalaire.setText(representant.getSalaire().toString());
+	        tfCommission.setText(representant.getTauxCommission().toString());
 	        
-	        tfPays.setText(representant.getAdresse().getPays());
+	        tfVille.setText(representant.getAdresse().getVille());
 	        tfNum.setText(representant.getAdresse().getNum().toString());
 	    	tfVoie.setText(representant.getAdresse().getVoie());
 	    	tfLibelle.setText(representant.getAdresse().getNomVoie());
 	    	tfComplement.setText(representant.getAdresse().getComplement());
 	    	tfBoite.setText(representant.getAdresse().getBp().toString());
 	        tfCP.setText(representant.getAdresse().getCp().toString());
-	        tfVille.setText(representant.getAdresse().getVille());
 	        
-	        tfSalaire.setText(representant.getSalaire().toString());
-	        tfCommission.setText(representant.getTauxCommission().toString());
+	        tfPays.setText(representant.getAdresse().getPays());
+	      
 
 	        
 	    	

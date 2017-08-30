@@ -204,7 +204,7 @@
                               </TitledPane>
                               <TitledPane alignment="CENTER" animated="false" layoutX="322.0" layoutY="295.0" prefHeight="127.0" prefWidth="329.0" text="Compléments d'information">
                                 <content>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="303.0">
+                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="162.0" prefWidth="327.0">
                                        <children>
                                           <GridPane layoutX="25.8" layoutY="20.0" prefHeight="150.0" prefWidth="304.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columnConstraints>
@@ -214,12 +214,15 @@
                                             <rowConstraints>
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                              <children>
                                                 <Label text="Identifiant client" />
                                                 <Label text="Identifiant représentant" GridPane.rowIndex="1" />
                                                 <TextField fx:id="tfIdClient" GridPane.columnIndex="1" />
                                                 <TextField fx:id="tfIdRepresentant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label text="Nombre commandes" GridPane.rowIndex="2" />
+                                                <TextField fx:id="tfCommande" layoutX="161.0" layoutY="32.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -228,7 +231,7 @@
                               </TitledPane>
                               <ButtonBar layoutX="322.0" layoutY="484.0" prefHeight="40.0" prefWidth="317.0">
                                 <buttons>
-                                  <Button fx:id="bAjouter" mnemonicParsing="false" onAction="#formulaireclient" text="Ajouter" />
+                                  <Button fx:id="bAjouter" mnemonicParsing="false" onAction="#handleNewClient" text="Ajouter" />
                                     <Button fx:id="bModifier" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleEditClient" text="Modifier" />
                                     <Button fx:id="bSupprimer" layoutX="190.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleDeleteClient" prefHeight="29.0" prefWidth="114.0" text="Supprimer" />
                                 </buttons>

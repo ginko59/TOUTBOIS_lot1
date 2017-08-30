@@ -105,6 +105,8 @@ public class ClientOverviewController {
 	private TextField tfIdClient;
 	@FXML
 	private TextField tfIdRepresentant;
+	@FXML
+	private TextField tfCommande;
 	
 	@FXML
 	private TableView<Client> clientTable;
@@ -243,7 +245,7 @@ private void initialize() {
     tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
     tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
     tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
-    tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
+    //tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
     tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
     
     
@@ -304,7 +306,9 @@ private void handleEditClient() {
 private void handleNewClient() {
     Client tempClient = new Client();
     boolean okClicked = mainApp.showFormulaireClient(tempClient);
+    
     if (okClicked) {
+    	
         mainApp.getClientData().add(tempClient);
     }
 }

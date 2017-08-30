@@ -1,6 +1,7 @@
 package model;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -13,6 +14,7 @@ public class Adresse {
 	public IntegerProperty cp;
 	public StringProperty ville;
 	public StringProperty pays;
+	protected Contact contact;
 	
 	public Integer getNum() {
 		return num.get();
@@ -90,20 +92,31 @@ public class Adresse {
 	
 	
 	
-	public Adresse(IntegerProperty num, StringProperty voie, StringProperty nomVoie, StringProperty complement, IntegerProperty bp, IntegerProperty cp, StringProperty ville, StringProperty pays) {
-		super();
-		this.num = num;
-		this.voie = voie;
-		this.nomVoie = nomVoie;
-		this.complement = complement;
-		this.bp = bp;
-		this.cp = cp;
-		this.ville = ville;
-		this.pays = pays;
+	public Adresse(Integer num, String voie, String nomVoie, String complement, Integer bp, Integer cp, String ville, String pays) {
+		super ();
+		this.num  = new SimpleIntegerProperty(0);
+		this.voie =  new SimpleStringProperty(voie);
+		this.nomVoie = new SimpleStringProperty(nomVoie);
+		this.complement = new SimpleStringProperty(complement);
+		this.bp = new SimpleIntegerProperty(0);
+		this.cp  = new SimpleIntegerProperty(0);
+		this.ville = new SimpleStringProperty(ville);
+		this.pays = new SimpleStringProperty(pays);
 	}
 	
 	public Adresse() {
-		super();
+		
+		
+		//this.contact.setAdresse(this);
+		this.num = new SimpleIntegerProperty(0);
+		this.voie = new SimpleStringProperty(null);
+		this.nomVoie = new SimpleStringProperty(null);
+		this.complement = new SimpleStringProperty(null);
+		this.bp = new SimpleIntegerProperty(0);
+		this.cp = new SimpleIntegerProperty(0);
+		this.ville = new SimpleStringProperty(null);
+		this.pays = new SimpleStringProperty(null);
+		
 		
 	}
 	

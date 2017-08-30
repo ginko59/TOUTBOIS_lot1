@@ -56,7 +56,7 @@ public class Representant extends Contact {
 	public Representant(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom, StringProperty prenom, StringProperty fonction,
 			StringProperty email, StringProperty tel, int nbCommande, Adresse adresse) {
 		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
-		// TODO Auto-generated constructor stub
+		
 	}
 	public Representant() {
 		super();
@@ -83,6 +83,7 @@ public class Representant extends Contact {
 			this.tauxCommission = new SimpleFloatProperty (0);
 			this.salaire = new SimpleFloatProperty (0);
 			
+			// Some initial dummy data, just for convenient testing.
 			this.adresse.voie = new SimpleStringProperty("some street");
 			this.adresse.cp = new SimpleIntegerProperty(1234);
 			this.adresse.ville = new SimpleStringProperty("some city");
@@ -94,4 +95,11 @@ public class Representant extends Contact {
 			
 	
 
-}}
+}
+	public Adresse getAdresse() {
+		return adresse;
+	}	
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+}
