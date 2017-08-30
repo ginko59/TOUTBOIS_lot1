@@ -23,7 +23,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Adresse;
 import model.Client;
-import model.ClientListWrapper;
+//import model.ClientListWrapper;
 import model.Contact;
 
 import model.Representant;
@@ -47,7 +47,7 @@ public class MainApp extends Application {
 	
 	public MainApp() {
 		// Add some sample data
-		/*clientData.add(new Client("Hans", "Muster",1,"MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
+		clientData.add(new Client("Hans", "Muster",1,"MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
 		clientData.add(new Client("Ruth", "Mueller",2,"MMe","medecin","lll@gmail","063522",122,"IBM2","001122"));
 		clientData.add(new Client("Heinz", "Kurz",3,"MMe","medecin","lll@gmail","063522",13,"IBM3","001122"));
 		clientData.add(new Client("Cornelia", "Meier",4,"MMe","medecin","lll@gmail","063522",12,"IBM4","001122"));
@@ -61,7 +61,7 @@ public class MainApp extends Application {
 		representantData.add(new Representant("hfls", "Mueller",2,"MMe","medecin","lll@gmail","063522","IBM2","001122"));
 		representantData.add(new Representant("azerty", "Kurz",3,"MMe","medecin","lll@gmail","063522","IBM3","001122"));
 		
-		*/
+		
 	}
 
 	public ObservableList<Client> getClientData() {
@@ -295,12 +295,12 @@ public class MainApp extends Application {
 
 	}
 
-	/**
+	/*
 	 * Loads client data from the specified file. The current client data will
 	 * be replaced.
 	 * 
 	 * @param file
-	 */
+	 
 	public void loadClientDataFromFile(File file) {
 		try {
 			JAXBContext context = JAXBContext.newInstance(ClientListWrapper.class);
@@ -329,7 +329,7 @@ public class MainApp extends Application {
 	 * Saves the current Client data to the specified file.
 	 * 
 	 * @param file
-	 */
+	 
 	public void saveClientDataToFile(File file) {
 		try {
 			JAXBContext context = JAXBContext.newInstance(ClientListWrapper.class);
@@ -354,5 +354,5 @@ public class MainApp extends Application {
 			alert.showAndWait();
 		}
 	}
-
+*/
 }

@@ -177,6 +177,7 @@ private void showClientDetails(Client client) {
         tfFonction.setText(client.getFonction());
         tfTel.setText(client.getTel());
         tfMail.setText(client.getEmail());
+        tfCommande.setText(client.getNbCommande().toString());
         
         tfIdClient.setText(client.getIdentifiantC().toString());
         
@@ -217,6 +218,7 @@ private void showClientDetails(Client client) {
         tfFonction.setText("");
         tfTel.setText("");
         tfMail.setText("");
+        tfCommande.setText("");
         
         tfIdClient.setText("");
         //tfIdRepresentant.setText("");
@@ -239,13 +241,13 @@ public ClientOverviewController() {
 
 @FXML
 private void initialize() {
-    // Initialize the client table with the two columns.
+    // Initialize the client table with the columns.
     tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
     tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
     tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
     tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
     tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
-    //tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
+    tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
     tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
     
     

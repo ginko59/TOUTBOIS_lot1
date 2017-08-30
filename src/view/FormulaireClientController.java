@@ -25,6 +25,8 @@ public class FormulaireClientController {
 	private boolean okClicked = false;
 	public void setMainApp(MainApp mainApp) {
 	    this.mainApp = mainApp;
+	    // Add observable list data to the table
+	   
 	   
 	}
 
@@ -121,6 +123,7 @@ public class FormulaireClientController {
      */
     @FXML
     private void initialize() {
+    
     }
     /**
      * Sets the stage of this dialog.
@@ -228,7 +231,7 @@ public class FormulaireClientController {
 	        	client.setTel(tfTel.getText());
 	        	client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
 	        	//client.representant.setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
-	        	//client.setNbCommande(Integer.parseInt(tfCommande);
+	        	client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	client.setEnseigne(tfEnseigne.getText());
 	        	client.setSiret(tfSiret.getText());
 	        	 
