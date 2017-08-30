@@ -14,6 +14,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import model.Adresse;
 import model.Client;
 //import util.DateUtil;
 
@@ -230,20 +231,20 @@ public class FormulaireClientController {
 	        	client.setEmail(tfMail.getText());
 	        	client.setTel(tfTel.getText());
 	        	client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	        	//client.representant.setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	client.setEnseigne(tfEnseigne.getText());
 	        	client.setSiret(tfSiret.getText());
 	        	 
 	        	
-	            
-	        	/*client.getAdresse().setNum(Integer.parseInt(tfNum.getText()));
 	        	client.getAdresse().setVoie(tfVoie.getText());
-	        	client.adresse.setNomVoie(tfLibelle.getText());
-	        	client.adresse.setCp(Integer.parseInt(tfCP.getText()));
-	        	client.adresse.setVille(tfVille.getText());
-	        	client.adresse.setBp(Integer.parseInt(tfBoite.getText()));
-	        	client.adresse.setPays(tfPays.getText());*/
+	        	client.getAdresse().setNum(Integer.parseInt(tfNum.getText()));
+	        	client.getAdresse().setNomVoie(tfLibelle.getText());
+	        	client.getAdresse().setComplement(tfComplement.getText());
+	        	client.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
+	        	client.getAdresse().setVille(tfVille.getText());
+	        	client.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+	        	client.getAdresse().setPays(tfPays.getText());
 	                      
 	           
 

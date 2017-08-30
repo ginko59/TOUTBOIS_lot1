@@ -2,6 +2,7 @@ package model;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -15,7 +16,7 @@ public class Contact {
 	public StringProperty email;
 	public StringProperty tel;
 	public IntegerProperty nbCommande;
-	public Adresse adresse;
+	public Adresse adresse = new Adresse();
 	
 	
 	
@@ -78,6 +79,9 @@ public class Contact {
 	public void setNbCommande(Integer commande) {
 		this.nbCommande.set(commande);
 	}
+	
+	
+	
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
@@ -136,7 +140,7 @@ public class Contact {
 		this.email = new SimpleStringProperty(null);
 		this.tel = new SimpleStringProperty(null);
 		this.nbCommande = new SimpleIntegerProperty(0);
-		this.adresse = new Adresse();
+		//this.adresse = new SimpleStringProperty(null);
 		
 		
 	}

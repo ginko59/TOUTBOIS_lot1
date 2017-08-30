@@ -14,7 +14,7 @@ public class Adresse {
 	public IntegerProperty cp;
 	public StringProperty ville;
 	public StringProperty pays;
-	protected Contact contact;
+	//protected Contact contact = new Contact();
 	
 	public Integer getNum() {
 		return num.get();
@@ -65,6 +65,8 @@ public class Adresse {
 		this.pays.set(pays);
 	}
 	
+	
+	
 	public IntegerProperty numProperty() {
 		return num;
 	}
@@ -107,7 +109,7 @@ public class Adresse {
 	public Adresse() {
 		
 		
-		//this.contact.setAdresse(this);
+		
 		this.num = new SimpleIntegerProperty(0);
 		this.voie = new SimpleStringProperty(null);
 		this.nomVoie = new SimpleStringProperty(null);

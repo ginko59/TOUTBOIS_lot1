@@ -34,7 +34,7 @@ public class ClientOverviewController {
 	    clientTable.setItems(mainApp.getClientData());
 	}
 	 
-	
+	Adresse adresse = new Adresse();
 
 	@FXML
 	private Button bAjouter;
@@ -158,7 +158,7 @@ public class ClientOverviewController {
 	}
 	
 
-	Adresse adresse = new Adresse();
+	
 /**
  * Fills all text fields to show details about the person.
  * If the specified person is null, all text fields are cleared.

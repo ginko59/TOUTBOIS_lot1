@@ -15,7 +15,7 @@ public class Client extends Contact {
 
 	public Client() {
 			super();
-			this.adresse = null;
+			this.adresse = new Adresse();
 			this.representant = null;
 			this.identifiantC = new SimpleIntegerProperty(0);
 		}
@@ -60,14 +60,14 @@ public class Client extends Contact {
 		
 		
 		// Some initial dummy data, just for convenient testing.
-		this.adresse.voie = new SimpleStringProperty("some street");
-		this.adresse.cp = new SimpleIntegerProperty(1234);
-		this.adresse.ville = new SimpleStringProperty("some city");
-		this.adresse.bp = new SimpleIntegerProperty(1111);
-		this.adresse.complement= new SimpleStringProperty("ccc");
-		this.adresse.nomVoie= new SimpleStringProperty("tennis");
-		this.adresse.num = new SimpleIntegerProperty(11);
-		this.adresse.pays = new SimpleStringProperty("pays");
+		this.getAdresse().voie = new SimpleStringProperty("voie");
+		this.getAdresse().cp = new SimpleIntegerProperty(1234);
+		this.getAdresse().ville = new SimpleStringProperty("some city");
+		this.getAdresse().bp = new SimpleIntegerProperty(1111);
+		this.getAdresse().complement= new SimpleStringProperty("ccc");
+		this.getAdresse().nomVoie= new SimpleStringProperty("tennis");
+		this.getAdresse().num = new SimpleIntegerProperty(11);
+		this.getAdresse().pays = new SimpleStringProperty("pays");
 		
 		
 
