@@ -27,7 +27,7 @@ public class FormulaireClientController {
 	public void setMainApp(MainApp mainApp) {
 	    this.mainApp = mainApp;
 	    // Add observable list data to the table
-	   
+	    clientTable.setItems(mainApp.getClientData());
 	   
 	}
 
@@ -124,7 +124,21 @@ public class FormulaireClientController {
      */
     @FXML
     private void initialize() {
-    
+    	 // Initialize the client table with the columns.
+        tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
+        tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
+        tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
+        tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
+        tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
+        tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
+        tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
+       
+     // Clear person details.
+        showClientDetails(null);
+     
+        // Listen for selection changes and show the client details when changed.
+        clientTable.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showClientDetails(newValue));
     }
     /**
      * Sets the stage of this dialog.
@@ -224,6 +238,7 @@ public class FormulaireClientController {
 	    @FXML
 	    private void handleOk() {
 	        if (isInputValid()) {
+	        	
 	        	client.setPrenom(tfPrenom.getText());
 	        	client.setNom(tfNom.getText());
 	        	client.setCivilite(tfCivilite.getText());
@@ -253,12 +268,86 @@ public class FormulaireClientController {
 	            mainApp.getClientData().add(client);
 	        }
 	    }
+	    @FXML
+	    private void handleOkedit() {
+	        if (isInputValid()) {
+	        	Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
+	        	
+	        	selectedClient.setPrenom(tfPrenom.getText());
+	        	selectedClient.setNom(tfNom.getText());
+	        	selectedClient.setCivilite(tfCivilite.getText());
+	        	selectedClient.setFonction(tfFonction.getText());
+	        	selectedClient.setEmail(tfMail.getText());
+	        	selectedClient.setTel(tfTel.getText());
+	        	selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
+	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	selectedClient.setNbCommande(Integer.parseInt(tfCommande.getText()));
+	        	selectedClient.setEnseigne(tfEnseigne.getText());
+	        	selectedClient.setSiret(tfSiret.getText());
+	        	 
+	        	
+	        	selectedClient.getAdresse().setVoie(tfVoie.getText());
+	        	selectedClient.getAdresse().setNum(Integer.parseInt(tfNum.getText()));
+	        	selectedClient.getAdresse().setNomVoie(tfLibelle.getText());
+	        	selectedClient.getAdresse().setComplement(tfComplement.getText());
+	        	selectedClient.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
+	        	selectedClient.getAdresse().setVille(tfVille.getText());
+	        	selectedClient.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+	        	selectedClient.getAdresse().setPays(tfPays.getText());
+	                      
+	           
+
+	            okClicked = true;
+	            //dialogStage.close();
+	            //mainApp.getClientData().add(client);
+	        }
+	    }
+	    
+	    private void showClientDetails(Client client) {
+	        if (client != null) {
+	        	
+	        	Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
+	        	
+	            // Fill the textfield with info from the client object.
+	        	
+	        	tfEnseigne.setText(client.getEnseigne());
+	            tfSiret.setText(client.getSiret());
+	            tfCivilite.setText(client.getCivilite());
+	            tfPrenom.setText(client.getPrenom());
+	            tfNom.setText(client.getNom());
+	            tfFonction.setText(client.getFonction());
+	            tfTel.setText(client.getTel());
+	            tfMail.setText(client.getEmail());
+	            tfCommande.setText(client.getNbCommande().toString());
+	            
+	            tfIdClient.setText(client.getIdentifiantC().toString());
+	            
+	            tfPays.setText(client.getAdresse().getPays());
+	            tfNum.setText(client.getAdresse().getNum().toString());
+	        	tfVoie.setText(client.getAdresse().getVoie());
+	        	tfLibelle.setText(client.getAdresse().getNomVoie());
+	        	tfComplement.setText(client.getAdresse().getComplement());
+	        	tfBoite.setText(client.getAdresse().getBp().toString());
+	            tfCP.setText(client.getAdresse().getCp().toString());
+	            tfVille.setText(client.getAdresse().getVille());
+	            
+	        
+	            
+	            
+	        	
+	            //tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+
+	          
+	        }  
+	           
+	        }
 	    /**
 	     * Sets the client to be edited in the dialog.
 	     *
 	     */
 	   public void setClient(Client client) {
 	        this.client = client;
+
 /*
 	        tfEnseigne.setText(client.getEnseigne());
 	        tfSiret.setText(client.getSiret());
@@ -277,9 +366,10 @@ public class FormulaireClientController {
 	        tfVille.setText(client.adresse.getVille());
 	        tfPays.setText(client.adresse.getPays());
 	        tfIdClient.setText(Integer.toString(client.getIdentifiantC()));
-	       
-	        tfIdRepresentant.setText(Integer.toString(client.representant.getIdentifiantR()));
-	        */
+	        tfCommande.setText(Integer.toString(client.getNbCommande()));
+	       */
+	        //tfIdRepresentant.setText(Integer.toString(client.representant.getIdentifiantR()));
+	        
 	    }
 
 	    /**

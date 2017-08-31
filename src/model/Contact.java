@@ -139,7 +139,7 @@ public class Contact {
 		this.fonction = new SimpleStringProperty(null);
 		this.email = new SimpleStringProperty(null);
 		this.tel = new SimpleStringProperty(null);
-		this.nbCommande = new SimpleIntegerProperty(0);
+		this.nbCommande = new SimpleIntegerProperty();
 		//this.adresse = new SimpleStringProperty(null);
 		
 		

@@ -160,14 +160,14 @@ public class ClientOverviewController {
 
 	
 /**
- * Fills all text fields to show details about the person.
- * If the specified person is null, all text fields are cleared.
+ * Fills all text fields to show details about the client.
+ * If the specified client is null, all text fields are cleared.
  *
- * @param person the person or null
+ * @param person the client or null
  */
 private void showClientDetails(Client client) {
     if (client != null) {
-        // Fill the labels with info from the person object.
+        // Fill the textfield with info from the client object.
     	
     	tfEnseigne.setText(client.getEnseigne());
         tfSiret.setText(client.getSiret());
@@ -283,13 +283,23 @@ private void handleDeleteClient() {
 
 @FXML
 private void handleEditClient() {
+	
+	
     Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
-    if (selectedClient != null) {
+ 
+    	boolean okClicked = mainApp.showFormulaireClient(selectedClient);
         mainApp.showFormulaireClient(selectedClient);
-        showClientDetails(selectedClient);
+       
+        
+        
+        if (selectedClient != null) {
+        	showClientDetails(selectedClient);
+        	 
+        
         }
-
-    	else {
+        
+        if (okClicked) {
+    	/*else {
         // Nothing selected.
         Alert alert = new Alert(AlertType.WARNING);
         alert.initOwner(mainApp.getPrimaryStage());
@@ -297,7 +307,7 @@ private void handleEditClient() {
         alert.setHeaderText("No CLient Selected");
         alert.setContentText("Please select a client in the table.");
 
-        alert.showAndWait();
+        alert.showAndWait();*/
     }
 }
 /**

@@ -96,12 +96,12 @@ public class Adresse {
 	
 	public Adresse(Integer num, String voie, String nomVoie, String complement, Integer bp, Integer cp, String ville, String pays) {
 		super ();
-		this.num  = new SimpleIntegerProperty(0);
+		this.num  = new SimpleIntegerProperty();
 		this.voie =  new SimpleStringProperty(voie);
 		this.nomVoie = new SimpleStringProperty(nomVoie);
 		this.complement = new SimpleStringProperty(complement);
-		this.bp = new SimpleIntegerProperty(0);
-		this.cp  = new SimpleIntegerProperty(0);
+		//this.bp = new SimpleIntegerProperty();
+		//this.cp  = new SimpleIntegerProperty();
 		this.ville = new SimpleStringProperty(ville);
 		this.pays = new SimpleStringProperty(pays);
 	}
@@ -110,14 +110,14 @@ public class Adresse {
 		
 		
 		
-		this.num = new SimpleIntegerProperty(0);
-		this.voie = new SimpleStringProperty(null);
-		this.nomVoie = new SimpleStringProperty(null);
-		this.complement = new SimpleStringProperty(null);
-		this.bp = new SimpleIntegerProperty(0);
-		this.cp = new SimpleIntegerProperty(0);
-		this.ville = new SimpleStringProperty(null);
-		this.pays = new SimpleStringProperty(null);
+		this.num = new SimpleIntegerProperty();
+		this.voie = new SimpleStringProperty();
+		this.nomVoie = new SimpleStringProperty();
+		this.complement = new SimpleStringProperty();
+		this.bp = new SimpleIntegerProperty();
+		this.cp = new SimpleIntegerProperty();
+		this.ville = new SimpleStringProperty();
+		this.pays = new SimpleStringProperty();
 		
 		
 	}

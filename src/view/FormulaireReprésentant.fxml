@@ -205,7 +205,7 @@
                               <ButtonBar layoutX="347.0" layoutY="484.0" prefHeight="40.0" prefWidth="254.0">
                                  <buttons>
                                     <Button fx:id="bSauvegarder" alignment="CENTER" mnemonicParsing="false" text="Sauvegarder" />
-                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" onAction="#handlerepresentant" prefHeight="29.0" prefWidth="114.0" text="Annuler" />
+                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" onAction="#handlerepresentant" prefHeight="29.0" prefWidth="114.0" text="Retour" />
                                  </buttons>
                               </ButtonBar>
                               <TitledPane alignment="CENTER" animated="false" layoutX="320.0" layoutY="295.0" prefHeight="168.0" prefWidth="327.0" text="Compléments d'information">
