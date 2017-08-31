@@ -156,6 +156,12 @@ public class ClientOverviewController {
 				
 		
 	}
+	@FXML
+	private void formulaireEditClient(){
+		mainApp.showFormulaireEditClient(null);
+				
+		
+	}
 	
 
 	
@@ -287,8 +293,8 @@ private void handleEditClient() {
 	
     Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
  
-    	boolean okClicked = mainApp.showFormulaireClient(selectedClient);
-        mainApp.showFormulaireClient(selectedClient);
+    	boolean okClicked = mainApp.showFormulaireEditClient(selectedClient);
+        mainApp.showFormulaireEditClient(selectedClient);
        
         
         

@@ -232,8 +232,8 @@
                               </TitledPane>
                               <ButtonBar layoutX="347.0" layoutY="484.0" prefHeight="40.0" prefWidth="254.0">
                                  <buttons>
-                                    <Button fx:id="bSauvegarder" alignment="CENTER" mnemonicParsing="false" onAction="#handleOkedit" text="Sauvegarder" />
-                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" onAction="#handleclient" prefHeight="29.0" prefWidth="114.0" text="Annuler" />
+                                    <Button fx:id="bSauvegarder" alignment="CENTER" mnemonicParsing="false" onAction="#handleOk" text="Sauvegarder" />
+                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" onAction="#handleclient" prefHeight="29.0" prefWidth="114.0" text="Retour" />
                                  </buttons>
                               </ButtonBar>
                               <ImageView fitHeight="127.0" fitWidth="248.0" layoutX="384.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">

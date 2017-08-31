@@ -19,7 +19,7 @@ import model.Client;
 //import util.DateUtil;
 
 
-public class FormulaireClientController {
+public class FormulaireEditClientController {
 	private MainApp mainApp;
 	private Client client;
 	private Stage dialogStage;
@@ -134,11 +134,11 @@ public class FormulaireClientController {
         tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
        
      // Clear person details.
-        showClientDetails(null);
+        showClientDetailsEdit(null);
      
         // Listen for selection changes and show the client details when changed.
        clientTable.getSelectionModel().selectedItemProperty().addListener(
-               (observable, oldValue, newValue) -> showClientDetails(newValue));
+               (observable, oldValue, newValue) -> showClientDetailsEdit(newValue));
    }
     /**
      * Sets the stage of this dialog.
@@ -303,14 +303,14 @@ public class FormulaireClientController {
 	        }
 	    }
 	    
-	    private void showClientDetails(Client client) {
+	    private void showClientDetailsEdit(Client client) {
 	        if (client != null) {
 	        	
 	        	//Client client = clientTable.getSelectionModel().getSelectedItem();
 	        	
 	            // Fill the textfield with info from the client object.
 	        	
-	        	/*tfEnseigne.setText(client.getEnseigne());
+	        	tfEnseigne.setText(client.getEnseigne());
 	            tfSiret.setText(client.getSiret());
 	            tfCivilite.setText(client.getCivilite());
 	            tfPrenom.setText(client.getPrenom());
@@ -329,7 +329,7 @@ public class FormulaireClientController {
 	        	tfComplement.setText(client.getAdresse().getComplement());
 	        	tfBoite.setText(client.getAdresse().getBp().toString());
 	            tfCP.setText(client.getAdresse().getCp().toString());
-	            tfVille.setText(client.getAdresse().getVille());*/
+	            tfVille.setText(client.getAdresse().getVille());
 	            
 	        
 	            

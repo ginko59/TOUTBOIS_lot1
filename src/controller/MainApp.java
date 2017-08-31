@@ -28,10 +28,11 @@ import model.Contact;
 
 import model.Representant;
 import view.ClientOverviewController;
+import view.FormulaireClientController;
 import view.RepresentantOverviewController;
 import view.StartOverviewController;
 import view.ProspectOverviewController;
-import view.FormulaireClientController;
+import view.FormulaireEditClientController;
 import view.FormulaireProspectController;
 import view.FormulaireRepresentantController;
 
@@ -287,6 +288,30 @@ public class MainApp extends Application {
 
 			// Set client overview into the center of root layout.
 			rootLayout.setCenter(formulaireClient);
+			
+			return controller.isOkClicked();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+	public boolean showFormulaireEditClient(Client client) {
+		try {
+			// Load client formulaire.
+			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("../view/FormulaireEditClient.fxml"));
+			AnchorPane formulaireEditClient = (AnchorPane) loader.load();
+
+			// Give the controller access to the main app
+			FormulaireEditClientController controller = loader.getController();
+			controller.setMainApp(this);
+			controller.setClient(client);
+
+			// Set client overview into the center of root layout.
+			rootLayout.setCenter(formulaireEditClient);
 			return controller.isOkClicked();
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -21,15 +21,15 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="820.0" minWidth="692.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FormulaireProspectController">
+<AnchorPane minHeight="820.0" minWidth="692.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FormulaireEditClientController">
    <children>
-      <TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" prefHeight="820.0" prefWidth="692.0" text="Nouveau Prospect" textAlignment="CENTER">
+      <TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" prefHeight="820.0" prefWidth="692.0" text="Edit Client" textAlignment="CENTER">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="800.0">
                <children>
                   <MenuBar blendMode="MULTIPLY" layoutY="-3.0" prefHeight="35.0" prefWidth="692.0">
                      <menus>
-                        <Menu mnemonicParsing="false" text="Fichier">
+                        <Menu mnemonicParsing="false" text="Consulter">
                            <items>
                               <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
                               <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
@@ -52,6 +52,7 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Fichier">
                            <items>
+                              <MenuItem fx:id="fOpen" mnemonicParsing="false" onAction="#handleSave" text="Ouvrir" />
                               <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
                               <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
                            </items>
@@ -86,8 +87,8 @@
                                              <children>
                                                 <Label text="Enseigne" />
                                                 <Label text="Siret" GridPane.rowIndex="1" />
-                                                <TextField GridPane.columnIndex="1" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="tfEnseigne" GridPane.columnIndex="1" />
+                                                <TextField fx:id="tfSiret" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -118,12 +119,12 @@
                                                 <Label text="Fonction" GridPane.rowIndex="3" />
                                                 <Label text="Téléphone" GridPane.rowIndex="4" />
                                                 <Label text="Email" GridPane.rowIndex="5" />
-                                                <TextField GridPane.columnIndex="1" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <TextField fx:id="tfCivilite" GridPane.columnIndex="1" />
+                                                <TextField fx:id="tfNom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="tfPrenom" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <TextField fx:id="tfFonction" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <TextField fx:id="tfTel" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <TextField fx:id="tfMail" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -156,46 +157,73 @@
                                                 <Label text="Code postal" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                                                 <Label text="Ville" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                                                 <Label text="Pays" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                                                <TextField prefHeight="29.0" prefWidth="134.0" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfNum" prefHeight="29.0" prefWidth="134.0" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfVoie" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfLibelle" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                <TextField fx:id="tfComplement" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.rowIndex="3">
+                                                <TextField fx:id="tfBoite" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                <TextField fx:id="tfCP" GridPane.columnIndex="1" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                <TextField fx:id="tfVille" GridPane.columnIndex="2" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
-                                                <TextField GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                                <TextField fx:id="tfPays" GridPane.columnIndex="3" GridPane.rowIndex="3">
                                                    <GridPane.margin>
                                                       <Insets left="10.0" right="10.0" />
                                                    </GridPane.margin>
                                                 </TextField>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </TitledPane>
+                              <TitledPane alignment="CENTER" animated="false" layoutX="320.0" layoutY="295.0" prefHeight="127.0" prefWidth="329.0" text="Compléments d'information">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="303.0">
+                                       <children>
+                                          <GridPane layoutX="35.8" layoutY="38.8" prefHeight="97.0" prefWidth="327.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                             <children>
+                                                <Label text="Identifiant client" />
+                                                <Label text="Identifiant représentant" GridPane.rowIndex="1" />
+                                                <TextField fx:id="tfIdClient" GridPane.columnIndex="1" />
+                                                <TextField fx:id="tfIdRepresentant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label layoutX="10.0" layoutY="38.0" text="Nombre commandes" GridPane.rowIndex="2" />
+                                                <TextField fx:id="tfCommande" layoutX="161.0" layoutY="32.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                              </children>
                                           </GridPane>
                                        </children>
@@ -204,32 +232,11 @@
                               </TitledPane>
                               <ButtonBar layoutX="347.0" layoutY="484.0" prefHeight="40.0" prefWidth="254.0">
                                  <buttons>
-                                    <Button fx:id="bSauvegarder" alignment="CENTER" mnemonicParsing="false" text="Sauvegarder" />
-                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" onAction="#handleprospect" prefHeight="29.0" prefWidth="114.0" text="Retour" />
+                                    <Button fx:id="bSauvegarder" alignment="CENTER" mnemonicParsing="false" onAction="#handleOkedit" text="Sauvegarder" />
+                                    <Button fx:id="bAnnuler" layoutX="190.0" layoutY="16.0" minWidth="38.0" mnemonicParsing="false" onAction="#handleclient" prefHeight="29.0" prefWidth="114.0" text="Retour" />
                                  </buttons>
                               </ButtonBar>
-                              <TitledPane alignment="CENTER" animated="false" layoutX="322.0" layoutY="295.0" prefHeight="132.0" prefWidth="326.0" text="Compléments d'information">
-                                 <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="303.0">
-                                       <children>
-                                          <GridPane layoutX="25.8" layoutY="20.0" prefHeight="150.0" prefWidth="304.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                             <children>
-                                                <Label text="Date de dernière visite" />
-                                                <TextField GridPane.columnIndex="1" />
-                                             </children>
-                                          </GridPane>
-                                       </children>
-                                    </AnchorPane>
-                                 </content>
-                              </TitledPane>
-                              <ImageView fitHeight="127.0" fitWidth="248.0" layoutX="384.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="127.0" fitWidth="248.0" layoutX="384.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../ressources/logo.png" />
                                  </image>
@@ -238,15 +245,15 @@
                         </AnchorPane>
                         <AnchorPane minHeight="170.0" minWidth="0.0" prefHeight="151.0" prefWidth="663.0">
                            <children>
-                              <TableView layoutX="222.0" layoutY="-15.0" prefHeight="170.0" prefWidth="663.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <TableView fx:id="clientTable" layoutX="222.0" layoutY="-15.0" prefHeight="170.0" prefWidth="663.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <columns>
-                                    <TableColumn prefWidth="44.00000071525574" text="Id." />
-                                    <TableColumn minWidth="8.0" prefWidth="110.99999618530273" text="Enseigne" />
-                                    <TableColumn prefWidth="87.00001525878906" text="Nom" />
-                                    <TableColumn minWidth="0.0" prefWidth="89.00001525878906" text="Prénom" />
-                                    <TableColumn minWidth="0.0" prefWidth="104.0" text="Telephone" />
-                                    <TableColumn minWidth="0.0" prefWidth="117.00006103515625" text="Email" />
-                                    <TableColumn minWidth="0.0" prefWidth="140.0" text="Nb com." />
+                                    <TableColumn fx:id="tcId" prefWidth="44.00000071525574" text="Id." />
+                                    <TableColumn fx:id="tcEnseigne" minWidth="8.0" prefWidth="110.99999618530273" text="Enseigne" />
+                                    <TableColumn fx:id="tcNom" prefWidth="87.00001525878906" text="Nom" />
+                                    <TableColumn fx:id="tcPrenom" minWidth="0.0" prefWidth="89.00001525878906" text="Prénom" />
+                                    <TableColumn fx:id="tcTel" minWidth="0.0" prefWidth="104.0" text="Telephone" />
+                                    <TableColumn fx:id="tcMail" minWidth="0.0" prefWidth="117.00006103515625" text="Email" />
+                                    <TableColumn fx:id="tcNbCom" minWidth="0.0" prefWidth="140.0" text="Nb com." />
                                  </columns>
                               </TableView>
                            </children>
