@@ -9,7 +9,7 @@ public class Client extends Contact {
 	private static int compteurC = 1; 
 	public IntegerProperty identifiantC;
 	public Representant representant= new Representant();
-	public Adresse adresse= new Adresse() ;
+
 	
 	
 

@@ -13,14 +13,14 @@ public class Representant extends Contact {
 	public IntegerProperty identifiantR;
 	public FloatProperty tauxCommission;
 	public FloatProperty salaire;
-	public Adresse adresse= new Adresse() ;
+	
 	
 	public Representant() {
 		super();
 		this.adresse = new Adresse();
 		this.identifiantR =new SimpleIntegerProperty(compteurR);
-		this.salaire = new SimpleFloatProperty();
-		this.tauxCommission= new SimpleFloatProperty();
+		this.salaire = new SimpleFloatProperty(0);
+		this.tauxCommission= new SimpleFloatProperty(0);
 		compteurR++;
 	}
 	
