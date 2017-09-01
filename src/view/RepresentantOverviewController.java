@@ -22,6 +22,7 @@ public class RepresentantOverviewController {
 	    representantTable.setItems(mainApp.getRepresentantData());
 	   
 	}
+	Adresse adresse = new Adresse();
 	@FXML
 	private Button bAjouter;
 	@FXML
@@ -122,20 +123,32 @@ public class RepresentantOverviewController {
 	}
 	
 	@FXML
-	private void formulairerepresentant(){
-		mainApp.showFormulaireRepresentant();
+	private void formulaireRepresentant(){
+		mainApp.showFormulaireRepresentant(null);
+	}
+	
+	@FXML
+	private void formulaireEditrepresentant(){
+		mainApp.showFormulaireEditRepresentant(null);
 	}
 	@FXML
-	private void formulaiprospect(){
+	private void formulaireprospect(){
 		mainApp.showFormulaireProspect();
 	}
 	@FXML
-	private void formulaiclient(){
-		mainApp.showFormulaireClient(null);
+	private void formulaireClient(){
+		//mainApp.showFormulaireClient(null);
+	}
+	
+	@FXML
+	private void formulaireEditClient(){
+		mainApp.showFormulaireEditClient(null);
+				
+		
 	}
 	
 	
-	Adresse adresse = new Adresse();
+	
 	
 	private void showRepresentantDetails(Representant representant) {
 	    if (representant != null) {
@@ -242,6 +255,54 @@ public class RepresentantOverviewController {
 	        alert.showAndWait();
 	    }
 }
+	
+	@FXML
+	private void handleEditRepresentant() {
+		
+		
+	    Representant selectedRepresentant = representantTable.getSelectionModel().getSelectedItem();
+	 
+	    	boolean okClicked = mainApp.showFormulaireEditRepresentant(selectedRepresentant);
+	        mainApp.showFormulaireEditRepresentant(selectedRepresentant);
+	       
+	        
+	        
+	        if (selectedRepresentant != null) {
+	        	showRepresentantDetails(selectedRepresentant);
+	        	 
+	        
+	        }
+	        
+	        if (okClicked) {
+	    	/*else {
+	        // Nothing selected.
+	        Alert alert = new Alert(AlertType.WARNING);
+	        alert.initOwner(mainApp.getPrimaryStage());
+	        alert.setTitle("No Selection");
+	        alert.setHeaderText("No CLient Selected");
+	        alert.setContentText("Please select a client in the table.");
+
+	        alert.showAndWait();*/
+	    }
+	}
+	/**
+	 * Called when the user clicks the new button. Opens a dialog to edit
+	 * details for a new person.
+	 */
+	@FXML
+	private void handleNewRepresentant() {
+	    Representant tempRepresentant = new Representant();
+	    
+	    boolean okClicked = mainApp.showFormulaireRepresentant(tempRepresentant);
+	    
+	    if (okClicked) {
+	    	
+	        mainApp.getRepresentantData().add(tempRepresentant);
+	    }
+	}
+
+
+	
 }	
 
 

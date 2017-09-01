@@ -48,7 +48,7 @@ public class MainApp extends Application {
 	
 	public MainApp() {
 		// Add some sample data
-		clientData.add(new Client("Hans", "Muster",1,"MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
+	/*	clientData.add(new Client("Hans", "Muster",1,"MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
 		clientData.add(new Client("Ruth", "Mueller",2,"MMe","medecin","lll@gmail","063522",122,"IBM2","001122"));
 		clientData.add(new Client("Heinz", "Kurz",3,"MMe","medecin","lll@gmail","063522",13,"IBM3","001122"));
 		clientData.add(new Client("Cornelia", "Meier",4,"MMe","medecin","lll@gmail","063522",12,"IBM4","001122"));
@@ -62,7 +62,7 @@ public class MainApp extends Application {
 		representantData.add(new Representant("hfls", "Mueller",2,"MMe","medecin","lll@gmail","063522","IBM2","001122"));
 		representantData.add(new Representant("azerty", "Kurz",3,"MMe","medecin","lll@gmail","063522","IBM3","001122"));
 		
-		
+		*/
 	}
 
 	public ObservableList<Client> getClientData() {
@@ -216,20 +216,47 @@ public class MainApp extends Application {
 
 	}
 
-	public void showFormulaireRepresentant() {
+	public boolean showFormulaireRepresentant(Representant representant) {
 		try {
-			// Load person overview.
+			// Load representant overview.
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("../view/FormulaireReprésentant.fxml"));
+			loader.setLocation(MainApp.class.getResource("../view/FormulaireRepresentant.fxml"));
 			AnchorPane formulaireRepresentant = (AnchorPane) loader.load();
 			// Give the controller access to the main app
 			FormulaireRepresentantController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.setRepresentant(representant);
 
 			// Set person overview into the center of root layout.
 			rootLayout.setCenter(formulaireRepresentant);
+			return controller.isOkClicked();
 		} catch (IOException e) {
 			e.printStackTrace();
+			return false;
+		}
+
+	}
+	public boolean showFormulaireClient(Client client) {
+		try {
+			// Load client formulaire.
+			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("../view/FormulaireClient.fxml"));
+			AnchorPane formulaireClient = (AnchorPane) loader.load();
+
+			// Give the controller access to the main app
+			FormulaireClientController controller = loader.getController();
+			controller.setMainApp(this);
+			controller.setClient(client);
+
+			// Set client overview into the center of root layout.
+			rootLayout.setCenter(formulaireClient);
+			
+			return controller.isOkClicked();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
 		}
 
 	}
@@ -273,30 +300,7 @@ public class MainApp extends Application {
 		}
 	}
 
-	public boolean showFormulaireClient(Client client) {
-		try {
-			// Load client formulaire.
-			
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainApp.class.getResource("../view/FormulaireClient.fxml"));
-			AnchorPane formulaireClient = (AnchorPane) loader.load();
-
-			// Give the controller access to the main app
-			FormulaireClientController controller = loader.getController();
-			controller.setMainApp(this);
-			controller.setClient(client);
-
-			// Set client overview into the center of root layout.
-			rootLayout.setCenter(formulaireClient);
-			
-			return controller.isOkClicked();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			return false;
-		}
-
-	}
+	
 	public boolean showFormulaireEditClient(Client client) {
 		try {
 			// Load client formulaire.
@@ -318,6 +322,11 @@ public class MainApp extends Application {
 			return false;
 		}
 
+	}
+
+	public boolean showFormulaireEditRepresentant(Representant selectedRepresentant) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	/*

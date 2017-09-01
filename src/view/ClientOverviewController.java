@@ -144,7 +144,7 @@ public class ClientOverviewController {
 	
 	@FXML
 	private void formulairerepresentant(){
-		mainApp.showFormulaireRepresentant();
+		//mainApp.showFormulaireRepresentant();
 	}
 	@FXML
 	private void formulaireprospect(){
@@ -198,7 +198,7 @@ private void showClientDetails(Client client) {
         
         
     	
-        //tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+        tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
 
       
             

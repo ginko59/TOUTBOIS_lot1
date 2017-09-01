@@ -131,16 +131,16 @@ public class Contact {
 	
 	public Contact() {
 		
-		this.enseigne = new SimpleStringProperty(null);
-		this.siret = new SimpleStringProperty(null);
-		this.civilite = new SimpleStringProperty(null);
-		this.nom = new SimpleStringProperty(null);
-		this.prenom = new SimpleStringProperty(null);
-		this.fonction = new SimpleStringProperty(null);
-		this.email = new SimpleStringProperty(null);
-		this.tel = new SimpleStringProperty(null);
-		this.nbCommande = new SimpleIntegerProperty();
-		//this.adresse = new SimpleStringProperty(null);
+		this.enseigne = new SimpleStringProperty("");
+		this.siret = new SimpleStringProperty("");
+		this.civilite = new SimpleStringProperty("");
+		this.nom = new SimpleStringProperty("");
+		this.prenom = new SimpleStringProperty("");
+		this.fonction = new SimpleStringProperty("");
+		this.email = new SimpleStringProperty("");
+		this.tel = new SimpleStringProperty("");
+		this.nbCommande = new SimpleIntegerProperty(0);
+		//this.adresse = new Adresse();
 		
 		
 	}

@@ -246,7 +246,7 @@ public class FormulaireEditClientController {
 	        	client.setEmail(tfMail.getText());
 	        	client.setTel(tfTel.getText());
 	        	client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	client.setEnseigne(tfEnseigne.getText());
 	        	client.setSiret(tfSiret.getText());
@@ -280,7 +280,7 @@ public class FormulaireEditClientController {
 	        	selectedClient.setEmail(tfMail.getText());
 	        	selectedClient.setTel(tfTel.getText());
 	        	selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	selectedClient.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	selectedClient.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	selectedClient.setEnseigne(tfEnseigne.getText());
 	        	selectedClient.setSiret(tfSiret.getText());

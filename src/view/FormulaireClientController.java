@@ -140,6 +140,7 @@ public class FormulaireClientController {
        clientTable.getSelectionModel().selectedItemProperty().addListener(
                (observable, oldValue, newValue) -> showClientDetails(newValue));
    }
+    
     /**
      * Sets the stage of this dialog.
      *
@@ -165,7 +166,7 @@ public class FormulaireClientController {
 	
 	@FXML
 	private void formulairerepresentant(){
-		mainApp.showFormulaireRepresentant();
+		mainApp.showFormulaireRepresentant(null);
 	}
 	@FXML
 	private void formulaiprospect(){
@@ -245,7 +246,7 @@ public class FormulaireClientController {
 	        	client.setFonction(tfFonction.getText());
 	        	client.setEmail(tfMail.getText());
 	        	client.setTel(tfTel.getText());
-	        	client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
+	        	//client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
 	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	client.setEnseigne(tfEnseigne.getText());
@@ -279,8 +280,8 @@ public class FormulaireClientController {
 	        	selectedClient.setFonction(tfFonction.getText());
 	        	selectedClient.setEmail(tfMail.getText());
 	        	selectedClient.setTel(tfTel.getText());
-	        	selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	//selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
+	        	client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	selectedClient.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	selectedClient.setEnseigne(tfEnseigne.getText());
 	        	selectedClient.setSiret(tfSiret.getText());

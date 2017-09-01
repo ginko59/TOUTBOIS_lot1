@@ -45,7 +45,7 @@
                       </Menu>
                         <Menu mnemonicParsing="false" text="Ajouter">
                            <items>
-                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaireclient" text="Client" />
+                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#handleNewClient" text="Client" />
                               <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
                               <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaireprospect" text="Prospect" />
                            </items>

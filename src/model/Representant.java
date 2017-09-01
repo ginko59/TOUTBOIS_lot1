@@ -1,6 +1,6 @@
 package model;
 
-import javafx.beans.property.DoubleProperty;
+
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
@@ -9,10 +9,20 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Representant extends Contact {
+	private static int compteurR = 1; 
 	public IntegerProperty identifiantR;
 	public FloatProperty tauxCommission;
 	public FloatProperty salaire;
 	public Adresse adresse= new Adresse() ;
+	
+	public Representant() {
+		super();
+		this.adresse = new Adresse();
+		this.identifiantR =new SimpleIntegerProperty(compteurR);
+		this.salaire = new SimpleFloatProperty();
+		this.tauxCommission= new SimpleFloatProperty();
+		compteurR++;
+	}
 	
 	public Integer getIdentifiantR() {
 		return identifiantR.get();
@@ -31,6 +41,12 @@ public class Representant extends Contact {
 	}
 	public void setSalaire(float salaire) {
 		this.salaire.set(salaire);
+	}
+	public Adresse getAdresse() {
+		return adresse;
+	}	
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 	
 	public IntegerProperty identifiantRProperty(){
@@ -58,9 +74,8 @@ public class Representant extends Contact {
 		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
 		
 	}
-	public Representant() {
-		super();
-	}
+
+	
 	
 	
 	public Representant(String prenom, String nom, int identifiantC, String civilite, String fonction, String email, String tel, String enseigne, String siret) {
@@ -79,27 +94,25 @@ public class Representant extends Contact {
 			this.email= new SimpleStringProperty ( email);
 			this.tel= new SimpleStringProperty (tel);
 			
-			this.identifiantR = new SimpleIntegerProperty(11);
+			this.identifiantR = new SimpleIntegerProperty(0);
 			this.tauxCommission = new SimpleFloatProperty (0);
 			this.salaire = new SimpleFloatProperty (0);
 			
 			// Some initial dummy data, just for convenient testing.
-			this.adresse.voie = new SimpleStringProperty("some street");
-			this.adresse.cp = new SimpleIntegerProperty(1234);
-			this.adresse.ville = new SimpleStringProperty("some city");
-			this.adresse.bp = new SimpleIntegerProperty(1111);
-			this.adresse.complement= new SimpleStringProperty("ccc");
-			this.adresse.nomVoie= new SimpleStringProperty("tennis");
-			this.adresse.num = new SimpleIntegerProperty(11);
-			this.adresse.pays = new SimpleStringProperty("pays");
+			this.getAdresse().voie = new SimpleStringProperty("voie");
+			this.getAdresse().cp = new SimpleIntegerProperty(1234);
+			this.getAdresse().ville = new SimpleStringProperty("some city");
+			this.getAdresse().bp = new SimpleIntegerProperty(1111);
+			this.getAdresse().complement= new SimpleStringProperty("ccc");
+			this.getAdresse().nomVoie= new SimpleStringProperty("tennis");
+			this.getAdresse().num = new SimpleIntegerProperty(11);
+			this.getAdresse().pays = new SimpleStringProperty("pays");
 			
 	
 
 }
-	public Adresse getAdresse() {
-		return adresse;
-	}	
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
+
+	
+	
+	
 }

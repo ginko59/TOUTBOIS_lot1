@@ -62,11 +62,11 @@ public class FormulaireProspectController {
 		mainApp.showFormulaireRepresentant();
 	}
 	@FXML
-	private void formulaiprospect(){
+	private void formulaireprospect(){
 		mainApp.showFormulaireProspect();
 	}
 	@FXML
-	private void formulaiclient(){
+	private void formulaireClient(){
 		mainApp.showFormulaireClient();
 	}
 }
