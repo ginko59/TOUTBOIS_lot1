@@ -41,6 +41,8 @@ public class FormulaireClientController {
     private MenuItem fRepresentant;
     @FXML
     private MenuItem fProspect;
+    @FXML
+    private MenuItem fExit;
    
     @FXML
     private MenuItem aClient;

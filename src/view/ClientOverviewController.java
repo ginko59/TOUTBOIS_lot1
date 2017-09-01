@@ -23,17 +23,16 @@ import model.Client;
 
 //import util.DateUtil;
 
-
 public class ClientOverviewController {
-	
+
 	private MainApp mainApp;
 
 	public void setMainApp(MainApp mainApp) {
-	    this.mainApp = mainApp;
-	 // Add observable list data to the table
-	    clientTable.setItems(mainApp.getClientData());
+		this.mainApp = mainApp;
+		// Add observable list data to the table
+		clientTable.setItems(mainApp.getClientData());
 	}
-	 
+
 	Adresse adresse = new Adresse();
 
 	@FXML
@@ -48,6 +47,8 @@ public class ClientOverviewController {
 	private MenuItem fRepresentant;
 	@FXML
 	private MenuItem fProspect;
+	@FXML
+	private MenuItem fExit;
 
 	@FXML
 	private MenuItem aClient;
@@ -61,14 +62,14 @@ public class ClientOverviewController {
 	private MenuItem mRepresentant;
 	@FXML
 	private MenuItem mProspect;
-	
+
 	@FXML
-    private MenuItem fSave;
-    @FXML
-    private MenuItem fSaveAs;
-    @FXML
-    private MenuItem fOpen;
-	
+	private MenuItem fSave;
+	@FXML
+	private MenuItem fSaveAs;
+	@FXML
+	private MenuItem fOpen;
+
 	@FXML
 	private TextField tfEnseigne;
 	@FXML
@@ -107,7 +108,7 @@ public class ClientOverviewController {
 	private TextField tfIdRepresentant;
 	@FXML
 	private TextField tfCommande;
-	
+
 	@FXML
 	private TableView<Client> clientTable;
 	@FXML
@@ -124,216 +125,201 @@ public class ClientOverviewController {
 	private TableColumn<Client, String> tcMail;
 	@FXML
 	private TableColumn<Client, Integer> tcNbCom;
-	
-	
-	
-	
 
 	@FXML
-	private void handleclient(){
+	private void handleclient() {
 		mainApp.showClientOverview();
 	}
+
 	@FXML
-	private void handlerepresentant(){
+	private void handlerepresentant() {
 		mainApp.showrepresentantOverview();
 	}
+
 	@FXML
-	private void handleprospect(){
+	private void handleprospect() {
 		mainApp.showprospectOverview();
 	}
-	
+
 	@FXML
-	private void formulairerepresentant(){
-		//mainApp.showFormulaireRepresentant();
+	private void formulairerepresentant() {
+		// mainApp.showFormulaireRepresentant();
 	}
+
 	@FXML
-	private void formulaireprospect(){
+	private void formulaireprospect() {
 		mainApp.showFormulaireProspect();
 	}
+
 	@FXML
-	private void formulaireclient(){
+	private void formulaireclient() {
 		mainApp.showFormulaireClient(null);
-				
-		
+
 	}
+
 	@FXML
-	private void formulaireEditClient(){
+	private void formulaireEditClient() {
 		mainApp.showFormulaireEditClient(null);
-				
-		
+
 	}
-	
 
-	
-/**
- * Fills all text fields to show details about the client.
- * If the specified client is null, all text fields are cleared.
- *
- * @param person the client or null
- */
-private void showClientDetails(Client client) {
-    if (client != null) {
-        // Fill the textfield with info from the client object.
-    	
-    	tfEnseigne.setText(client.getEnseigne());
-        tfSiret.setText(client.getSiret());
-        tfCivilite.setText(client.getCivilite());
-        tfPrenom.setText(client.getPrenom());
-        tfNom.setText(client.getNom());
-        tfFonction.setText(client.getFonction());
-        tfTel.setText(client.getTel());
-        tfMail.setText(client.getEmail());
-        tfCommande.setText(client.getNbCommande().toString());
-        
-        tfIdClient.setText(client.getIdentifiantC().toString());
-        
-        tfPays.setText(client.getAdresse().getPays());
-        tfNum.setText(client.getAdresse().getNum().toString());
-    	tfVoie.setText(client.getAdresse().getVoie());
-    	tfLibelle.setText(client.getAdresse().getNomVoie());
-    	tfComplement.setText(client.getAdresse().getComplement());
-    	tfBoite.setText(client.getAdresse().getBp().toString());
-        tfCP.setText(client.getAdresse().getCp().toString());
-        tfVille.setText(client.getAdresse().getVille());
-        
-        
-    	
-        tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+	/**
+	 * Fills all text fields to show details about the client. If the specified
+	 * client is null, all text fields are cleared.
+	 *
+	 * @param person
+	 *            the client or null
+	 */
+	private void showClientDetails(Client client) {
+		if (client != null) {
+			// Fill the textfield with info from the client object.
 
-      
-            
-       
-    } else {
-        // Client is null, remove all the text.
-    	
-    	tfEnseigne.setText("");
-        tfSiret.setText("");
-    	
-    	tfNum.setText("");
-    	tfVoie.setText("");
-    	tfLibelle.setText("");
-    	tfComplement.setText("");
-    	tfBoite.setText("");
-        tfCP.setText("");
-        tfVille.setText("");
-        tfPays.setText("");
+			tfEnseigne.setText(client.getEnseigne());
+			tfSiret.setText(client.getSiret());
+			tfCivilite.setText(client.getCivilite());
+			tfPrenom.setText(client.getPrenom());
+			tfNom.setText(client.getNom());
+			tfFonction.setText(client.getFonction());
+			tfTel.setText(client.getTel());
+			tfMail.setText(client.getEmail());
+			tfCommande.setText(client.getNbCommande().toString());
 
-        tfCivilite.setText("");
-        tfPrenom.setText("");
-        tfNom.setText("");
-        tfFonction.setText("");
-        tfTel.setText("");
-        tfMail.setText("");
-        tfCommande.setText("");
-        
-        tfIdClient.setText("");
-        //tfIdRepresentant.setText("");
-    }
-}
+			tfIdClient.setText(client.getIdentifiantC().toString());
 
-/**
- * The constructor.
- * The constructor is called before the initialize() method.
- * @return 
- */
-public ClientOverviewController() {
-}
+			tfPays.setText(client.getAdresse().getPays());
+			tfNum.setText(client.getAdresse().getNum().toString());
+			tfVoie.setText(client.getAdresse().getVoie());
+			tfLibelle.setText(client.getAdresse().getNomVoie());
+			tfComplement.setText(client.getAdresse().getComplement());
+			tfBoite.setText(client.getAdresse().getBp().toString());
+			tfCP.setText(client.getAdresse().getCp().toString());
+			tfVille.setText(client.getAdresse().getVille());
 
-/**
- * Initializes the controller class. This method is automatically called
- * after the fxml file has been loaded.
- */
+			tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
 
+		} else {
+			// Client is null, remove all the text.
 
-@FXML
-private void initialize() {
-    // Initialize the client table with the columns.
-    tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
-    tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
-    tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
-    tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
-    tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
-    tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
-    tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
-    
-    
- // Clear person details.
-    showClientDetails(null);
- // Listen for selection changes and show the client details when changed.
-    clientTable.getSelectionModel().selectedItemProperty().addListener(
-            (observable, oldValue, newValue) -> showClientDetails(newValue));
-    
-    
-    
-}
-/**
- * Called when the user clicks on the delete button.
- */
-@FXML
-private void handleDeleteClient() {
-    int selectedIndex = clientTable.getSelectionModel().getSelectedIndex();
-    if (selectedIndex >= 0) {
-        clientTable.getItems().remove(selectedIndex);
-    } else {
-        // Nothing selected.
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.initOwner(mainApp.getPrimaryStage());
-        alert.setTitle("No Selection");
-        alert.setHeaderText("No client Selected");
-        alert.setContentText("Please select a client in the table.");
+			tfEnseigne.setText("");
+			tfSiret.setText("");
 
-        alert.showAndWait();
-    }
+			tfNum.setText("");
+			tfVoie.setText("");
+			tfLibelle.setText("");
+			tfComplement.setText("");
+			tfBoite.setText("");
+			tfCP.setText("");
+			tfVille.setText("");
+			tfPays.setText("");
 
-}
+			tfCivilite.setText("");
+			tfPrenom.setText("");
+			tfNom.setText("");
+			tfFonction.setText("");
+			tfTel.setText("");
+			tfMail.setText("");
+			tfCommande.setText("");
 
-@FXML
-private void handleEditClient() {
-	
-	
-    Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
- 
-    	boolean okClicked = mainApp.showFormulaireEditClient(selectedClient);
-        mainApp.showFormulaireEditClient(selectedClient);
-       
-        
-        
-        if (selectedClient != null) {
-        	showClientDetails(selectedClient);
-        	 
-        
-        }
-        
-        if (okClicked) {
-    	/*else {
-        // Nothing selected.
-        Alert alert = new Alert(AlertType.WARNING);
-        alert.initOwner(mainApp.getPrimaryStage());
-        alert.setTitle("No Selection");
-        alert.setHeaderText("No CLient Selected");
-        alert.setContentText("Please select a client in the table.");
+			tfIdClient.setText("");
+			// tfIdRepresentant.setText("");
+		}
+	}
 
-        alert.showAndWait();*/
-    }
-}
-/**
- * Called when the user clicks the new button. Opens a dialog to edit
- * details for a new person.
- */
-@FXML
-private void handleNewClient() {
-    Client tempClient = new Client();
-    boolean okClicked = mainApp.showFormulaireClient(tempClient);
-    
-    if (okClicked) {
-    	
-        mainApp.getClientData().add(tempClient);
-    }
-}
+	/**
+	 * The constructor. The constructor is called before the initialize()
+	 * method.
+	 * 
+	 * @return
+	 */
+	public ClientOverviewController() {
+	}
 
+	/**
+	 * Initializes the controller class. This method is automatically called
+	 * after the fxml file has been loaded.
+	 */
+
+	@FXML
+	private void initialize() {
+		// Initialize the client table with the columns.
+		tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
+		tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
+		tcId.setCellValueFactory(cellData -> (cellData.getValue()).identifiantCProperty().asObject());
+		tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
+		tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
+		tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
+		tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
+
+		// Clear person details.
+		showClientDetails(null);
+		// Listen for selection changes and show the client details when
+		// changed.
+		clientTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showClientDetails(newValue));
+
+	}
+
+	/**
+	 * Called when the user clicks on the delete button.
+	 */
+	@FXML
+	private void handleDeleteClient() {
+		int selectedIndex = clientTable.getSelectionModel().getSelectedIndex();
+		if (selectedIndex >= 0) {
+			clientTable.getItems().remove(selectedIndex);
+		} else {
+			// Nothing selected.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("No Selection");
+			alert.setHeaderText("No client Selected");
+			alert.setContentText("Please select a client in the table.");
+
+			alert.showAndWait();
+		}
+
+	}
+
+	@FXML
+	private void handleEditClient() {
+
+		Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
+
+		boolean okClicked = mainApp.showFormulaireEditClient(selectedClient);
+		mainApp.showFormulaireEditClient(selectedClient);
+
+		if (selectedClient != null) {
+			showClientDetails(selectedClient);
+
+		}
+
+		if (okClicked) {
+			/*
+			 * else { // Nothing selected. Alert alert = new
+			 * Alert(AlertType.WARNING);
+			 * alert.initOwner(mainApp.getPrimaryStage());
+			 * alert.setTitle("No Selection");
+			 * alert.setHeaderText("No CLient Selected");
+			 * alert.setContentText("Please select a client in the table.");
+			 * 
+			 * alert.showAndWait();
+			 */
+		}
+	}
+
+	/**
+	 * Called when the user clicks the new button. Opens a dialog to edit
+	 * details for a new person.
+	 */
+	@FXML
+	private void handleNewClient() {
+		Client tempClient = new Client();
+		boolean okClicked = mainApp.showFormulaireClient(tempClient);
+
+		if (okClicked) {
+
+			mainApp.getClientData().add(tempClient);
+		}
+	}
 
 }
-
-
-
-

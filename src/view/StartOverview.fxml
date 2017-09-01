@@ -20,7 +20,7 @@
                <children>
                   <MenuBar blendMode="MULTIPLY" layoutX="2.0" layoutY="-1.0" prefHeight="35.0" prefWidth="692.0">
                      <menus>
-                        <Menu mnemonicParsing="false" text="Fichier">
+                        <Menu mnemonicParsing="false" text="Consulter">
                            <items>
                               <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
                               <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
@@ -39,6 +39,14 @@
                               <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
                               <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
                               <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Fichier">
+                           <items>
+                              <MenuItem fx:id="fOpen" mnemonicParsing="false" onAction="#handleOpen" text="Ouvrir" />
+                              <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
+                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
+                              <MenuItem fx:id="fExit" mnemonicParsing="false" text="Exit" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">

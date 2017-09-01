@@ -45,6 +45,8 @@ public class ProspectOverviewController {
     private MenuItem fSaveAs;
     @FXML
     private MenuItem fOpen;
+    @FXML
+    private MenuItem fExit;
 
 	@FXML
 	private void handleclient(){

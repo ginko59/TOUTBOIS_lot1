@@ -23,10 +23,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import model.Adresse;
 import model.Client;
+import model.ClientListWrapper;
 //import model.ClientListWrapper;
 import model.Contact;
-
+import model.ProspectListWrapper;
 import model.Representant;
+import model.RepresentantListWrapper;
 import view.ClientOverviewController;
 import view.FormulaireClientController;
 import view.RepresentantOverviewController;
@@ -278,6 +280,26 @@ public class MainApp extends Application {
 			return null;
 		}
 	}
+	
+	public File getRepresentantFilePath() {
+		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+		String filePath = prefs.get("filePath", null);
+		if (filePath != null) {
+			return new File(filePath);
+		} else {
+			return null;
+		}
+	}
+	
+	public File getProspectFilePath() {
+		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+		String filePath = prefs.get("filePath", null);
+		if (filePath != null) {
+			return new File(filePath);
+		} else {
+			return null;
+		}
+	}
 
 	/**
 	 * Sets the file path of the currently loaded file. The path is persisted in
@@ -300,6 +322,38 @@ public class MainApp extends Application {
 			// primaryStage.setTitle("AddressApp");
 		}
 	}
+	
+	public void setRepresentantFilePath(File file) {
+		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+		if (file != null) {
+			prefs.put("filePath", file.getPath());
+
+			// Update the stage title.
+			// primaryStage.setTitle("AddressApp - " + file.getName());
+		} else {
+			prefs.remove("filePath");
+
+			// Update the stage title.
+			// primaryStage.setTitle("AddressApp");
+		}
+	}
+
+	
+	public void setProspectFilePath(File file) {
+		Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
+		if (file != null) {
+			prefs.put("filePath", file.getPath());
+
+			// Update the stage title.
+			// primaryStage.setTitle("AddressApp - " + file.getName());
+		} else {
+			prefs.remove("filePath");
+
+			// Update the stage title.
+			// primaryStage.setTitle("AddressApp");
+		}
+	}
+
 
 	
 	public boolean showFormulaireEditClient(Client client) {
@@ -347,12 +401,13 @@ public class MainApp extends Application {
 		}
 	
 	}
-
-	/*
+/**
+	
 	 * Loads client data from the specified file. The current client data will
 	 * be replaced.
 	 * 
 	 * @param file
+	 **/
 	 
 	public void loadClientDataFromFile(File file) {
 		try {
@@ -362,11 +417,59 @@ public class MainApp extends Application {
 			// Reading XML from the file and unmarshalling.
 			ClientListWrapper wrapper = (ClientListWrapper) um.unmarshal(file);
 
-			ClientData.clear();
-			ClientData.addAll(wrapper.getClients());
+			clientData.clear();
+			clientData.addAll(wrapper.getClients());
 
 			// Save the file path to the registry.
 			setClientFilePath(file);
+
+		} catch (Exception e) { // catches ANY exception
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setHeaderText("Could not load data");
+			alert.setContentText("Could not load data from file:\n" + file.getPath());
+
+			alert.showAndWait();
+		}
+	}
+	
+	public void loadRepresentantDataFromFile(File file) {
+		try {
+			JAXBContext context = JAXBContext.newInstance(RepresentantListWrapper.class);
+			Unmarshaller um = context.createUnmarshaller();
+
+			// Reading XML from the file and unmarshalling.
+			RepresentantListWrapper wrapper = (RepresentantListWrapper) um.unmarshal(file);
+
+			representantData.clear();
+			representantData.addAll(wrapper.getRepresentants());
+
+			// Save the file path to the registry.
+			setClientFilePath(file);
+
+		} catch (Exception e) { // catches ANY exception
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setHeaderText("Could not load data");
+			alert.setContentText("Could not load data from file:\n" + file.getPath());
+
+			alert.showAndWait();
+		}
+	}
+	
+	public void loadProspectDataFromFile(File file) {
+		try {
+			JAXBContext context = JAXBContext.newInstance(ProspectListWrapper.class);
+			Unmarshaller um = context.createUnmarshaller();
+
+			// Reading XML from the file and unmarshalling.
+			ProspectListWrapper wrapper = (ProspectListWrapper) um.unmarshal(file);
+
+			prospectData.clear();
+			prospectData.addAll(wrapper.getProspects());
+
+			// Save the file path to the registry.
+			setProspectFilePath(file);
 
 		} catch (Exception e) { // catches ANY exception
 			Alert alert = new Alert(AlertType.ERROR);
@@ -381,7 +484,7 @@ public class MainApp extends Application {
 	/**
 	 * Saves the current Client data to the specified file.
 	 * 
-	 * @param file
+	 * @param file**/
 	 
 	public void saveClientDataToFile(File file) {
 		try {
@@ -391,7 +494,7 @@ public class MainApp extends Application {
 
 			// Wrapping our client data.
 			ClientListWrapper wrapper = new ClientListWrapper();
-			wrapper.setClients(ClientData);
+			wrapper.setClients(clientData);
 
 			// Marshalling and saving XML to the file.
 			m.marshal(wrapper, file);
@@ -407,5 +510,56 @@ public class MainApp extends Application {
 			alert.showAndWait();
 		}
 	}
-*/
+
+	
+	public void saveRepresentantDataToFile(File file) {
+		try {
+			JAXBContext context = JAXBContext.newInstance(RepresentantListWrapper.class);
+			Marshaller m = context.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			// Wrapping our client data.
+			RepresentantListWrapper wrapper = new RepresentantListWrapper();
+			wrapper.setRepresentants(representantData);
+
+			// Marshalling and saving XML to the file.
+			m.marshal(wrapper, file);
+
+			// Save the file path to the registry.
+			setRepresentantFilePath(file);
+		} catch (Exception e) { // catches ANY exception
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setHeaderText("Could not save data");
+			alert.setContentText("Could not save data to file:\n" + file.getPath());
+
+			alert.showAndWait();
+		}
+	}
+
+	public void saveProspectDataToFile(File file) {
+		try {
+			JAXBContext context = JAXBContext.newInstance(ProspectListWrapper.class);
+			Marshaller m = context.createMarshaller();
+			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
+			// Wrapping our client data.
+			ProspectListWrapper wrapper = new ProspectListWrapper();
+			wrapper.setProspects(prospectData);
+
+			// Marshalling and saving XML to the file.
+			m.marshal(wrapper, file);
+
+			// Save the file path to the registry.
+			setClientFilePath(file);
+		} catch (Exception e) { // catches ANY exception
+			Alert alert = new Alert(AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setHeaderText("Could not save data");
+			alert.setContentText("Could not save data to file:\n" + file.getPath());
+
+			alert.showAndWait();
+		}
+	}
+
 }

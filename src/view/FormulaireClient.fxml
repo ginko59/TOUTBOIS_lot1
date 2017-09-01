@@ -23,50 +23,10 @@
 
 <AnchorPane minHeight="820.0" minWidth="692.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FormulaireClientController">
    <children>
-      <TitledPane alignment="CENTER" animated="false" contentDisplay="CENTER" prefHeight="820.0" prefWidth="692.0" text="Nouveau Client" textAlignment="CENTER">
+      <TitledPane fx:id="mExit" alignment="CENTER" animated="false" contentDisplay="CENTER" prefHeight="820.0" prefWidth="692.0" text="Nouveau Client" textAlignment="CENTER">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1000.0" prefWidth="800.0">
                <children>
-                  <MenuBar blendMode="MULTIPLY" layoutY="-3.0" prefHeight="35.0" prefWidth="692.0">
-                     <menus>
-                        <Menu mnemonicParsing="false" text="Consulter">
-                           <items>
-                              <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
-                              <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
-                              <MenuItem fx:id="fProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
-                           </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Modifier">
-                           <items>
-                              <MenuItem fx:id="mClient" mnemonicParsing="false" text="Client" />
-                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
-                              <MenuItem fx:id="mProspect" mnemonicParsing="false" text="Prospect" />
-                           </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Ajouter">
-                           <items>
-                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
-                              <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
-                              <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
-                           </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Fichier">
-                           <items>
-                              <MenuItem fx:id="fOpen" mnemonicParsing="false" onAction="#handleSave" text="Ouvrir" />
-                              <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
-                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
-                           </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
-                           <items>
-                              <MenuItem mnemonicParsing="false" text="About" />
-                           </items>
-                        </Menu>
-                     </menus>
-                     <effect>
-                        <ColorAdjust />
-                     </effect>
-                  </MenuBar>
                   <SplitPane dividerPositions="0.8125662778366913" layoutX="25.8" layoutY="13.8" orientation="VERTICAL" prefHeight="782.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0">
                      <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="506.0" prefWidth="663.0">
@@ -260,6 +220,47 @@
                         </AnchorPane>
                      </items>
                   </SplitPane>
+                  <MenuBar blendMode="MULTIPLY" layoutX="-1.0" layoutY="-3.0" prefHeight="35.0" prefWidth="692.0">
+                     <menus>
+                        <Menu mnemonicParsing="false" text="Consulter">
+                           <items>
+                              <MenuItem fx:id="fClient" mnemonicParsing="false" onAction="#handleclient" text="Client" />
+                              <MenuItem fx:id="fRepresentant" mnemonicParsing="false" onAction="#handlerepresentant" text="Représentant" />
+                              <MenuItem fx:id="fProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Modifier">
+                           <items>
+                              <MenuItem fx:id="mClient" mnemonicParsing="false" text="Client" />
+                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
+                              <MenuItem fx:id="mProspect" mnemonicParsing="false" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Ajouter">
+                           <items>
+                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
+                              <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
+                              <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Fichier">
+                           <items>
+                              <MenuItem fx:id="fOpen" mnemonicParsing="false" onAction="#handleOpen" text="Ouvrir" />
+                              <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
+                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
+                              <MenuItem fx:id="fExit" mnemonicParsing="false" text="Exit" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Help">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="About" />
+                           </items>
+                        </Menu>
+                     </menus>
+                     <effect>
+                        <ColorAdjust />
+                     </effect>
+                  </MenuBar>
                </children>
             </AnchorPane>
          </content>

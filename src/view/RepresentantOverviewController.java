@@ -17,11 +17,12 @@ public class RepresentantOverviewController {
 	private MainApp mainApp;
 
 	public void setMainApp(MainApp mainApp) {
-	    this.mainApp = mainApp;
-	    // Add observable list data to the table
-	    representantTable.setItems(mainApp.getRepresentantData());
-	   
+		this.mainApp = mainApp;
+		// Add observable list data to the table
+		representantTable.setItems(mainApp.getRepresentantData());
+
 	}
+
 	Adresse adresse = new Adresse();
 	@FXML
 	private Button bAjouter;
@@ -48,14 +49,14 @@ public class RepresentantOverviewController {
 	private MenuItem mRepresentant;
 	@FXML
 	private MenuItem mProspect;
-	
+
 	@FXML
-    private MenuItem fSave;
-    @FXML
-    private MenuItem fSaveAs;
-    @FXML
-    private MenuItem fOpen;
-	
+	private MenuItem fSave;
+	@FXML
+	private MenuItem fSaveAs;
+	@FXML
+	private MenuItem fOpen;
+
 	@FXML
 	private TextField tfEnseigne;
 	@FXML
@@ -88,14 +89,16 @@ public class RepresentantOverviewController {
 	private TextField tfTel;
 	@FXML
 	private TextField tfMail;
-	
+
 	@FXML
 	private TextField tfIdRepresentant;
 	@FXML
 	private TextField tfCommission;
 	@FXML
 	private TextField tfSalaire;
-	
+	@FXML
+	private MenuItem fExit;
+
 	@FXML
 	private TableView<Representant> representantTable;
 	@FXML
@@ -108,202 +111,187 @@ public class RepresentantOverviewController {
 	private TableColumn<Representant, String> tcTel;
 	@FXML
 	private TableColumn<Representant, String> tcMail;
-	
-    @FXML
-	private void handleclient(){
+
+	@FXML
+	private void handleclient() {
 		mainApp.showClientOverview();
 	}
+
 	@FXML
-	private void handlerepresentant(){
+	private void handlerepresentant() {
 		mainApp.showrepresentantOverview();
 	}
+
 	@FXML
-	private void handleprospect(){
+	private void handleprospect() {
 		mainApp.showprospectOverview();
 	}
-	
+
 	@FXML
-	private void formulaireRepresentant(){
+	private void formulaireRepresentant() {
 		mainApp.showFormulaireRepresentant(null);
 	}
-	
+
 	@FXML
-	private void formulaireEditrepresentant(){
+	private void formulaireEditrepresentant() {
 		mainApp.showFormulaireEditRepresentant(null);
 	}
+
 	@FXML
-	private void formulaireprospect(){
+	private void formulaireprospect() {
 		mainApp.showFormulaireProspect();
 	}
+
 	@FXML
-	private void formulaireClient(){
-		//mainApp.showFormulaireClient(null);
+	private void formulaireClient() {
+		// mainApp.showFormulaireClient(null);
 	}
-	
+
 	@FXML
-	private void formulaireEditClient(){
+	private void formulaireEditClient() {
 		mainApp.showFormulaireEditClient(null);
-				
-		
+
 	}
-	
-	
-	
-	
+
 	private void showRepresentantDetails(Representant representant) {
-	    if (representant != null) {
-	        // Fill the labels with info from the person object.
-	    	
-	    	tfEnseigne.setText(representant.getEnseigne());
-	        tfSiret.setText(representant.getSiret());
-	        tfCivilite.setText(representant.getCivilite());
-	        tfPrenom.setText(representant.getPrenom());
-	        tfNom.setText(representant.getNom());
-	        tfFonction.setText(representant.getFonction());
-	        tfTel.setText(representant.getTel());
-	        tfMail.setText(representant.getEmail());
-	        
-	        tfIdRepresentant.setText(representant.getIdentifiantR().toString());
-	        tfSalaire.setText(representant.getSalaire().toString());
-	        tfCommission.setText(representant.getTauxCommission().toString());
-	        
-	        tfVille.setText(representant.getAdresse().getVille());
-	        tfNum.setText(representant.getAdresse().getNum().toString());
-	    	tfVoie.setText(representant.getAdresse().getVoie());
-	    	tfLibelle.setText(representant.getAdresse().getNomVoie());
-	    	tfComplement.setText(representant.getAdresse().getComplement());
-	    	tfBoite.setText(representant.getAdresse().getBp().toString());
-	        tfCP.setText(representant.getAdresse().getCp().toString());
-	        
-	        tfPays.setText(representant.getAdresse().getPays());
-	      
+		if (representant != null) {
+			// Fill the labels with info from the person object.
 
-	        
-	    	
-	        
+			tfEnseigne.setText(representant.getEnseigne());
+			tfSiret.setText(representant.getSiret());
+			tfCivilite.setText(representant.getCivilite());
+			tfPrenom.setText(representant.getPrenom());
+			tfNom.setText(representant.getNom());
+			tfFonction.setText(representant.getFonction());
+			tfTel.setText(representant.getTel());
+			tfMail.setText(representant.getEmail());
 
-	      
-	            
-	       
-	    } else {
-	        // Client is null, remove all the text.
-	    	
-	    	tfEnseigne.setText("");
-	        tfSiret.setText("");
-	    	
-	    	tfNum.setText("");
-	    	tfVoie.setText("");
-	    	tfLibelle.setText("");
-	    	tfComplement.setText("");
-	    	tfBoite.setText("");
-	        tfCP.setText("");
-	        tfVille.setText("");
-	        tfPays.setText("");
+			tfIdRepresentant.setText(representant.getIdentifiantR().toString());
+			tfSalaire.setText(representant.getSalaire().toString());
+			tfCommission.setText(representant.getTauxCommission().toString());
 
-	        tfCivilite.setText("");
-	        tfPrenom.setText("");
-	        tfNom.setText("");
-	        tfFonction.setText("");
-	        tfTel.setText("");
-	        tfMail.setText("");
-	        
-	        
-	        tfIdRepresentant.setText("");
-	        tfSalaire.setText("");
-	        tfCommission.setText("");
-	    }
+			tfVille.setText(representant.getAdresse().getVille());
+			tfNum.setText(representant.getAdresse().getNum().toString());
+			tfVoie.setText(representant.getAdresse().getVoie());
+			tfLibelle.setText(representant.getAdresse().getNomVoie());
+			tfComplement.setText(representant.getAdresse().getComplement());
+			tfBoite.setText(representant.getAdresse().getBp().toString());
+			tfCP.setText(representant.getAdresse().getCp().toString());
+
+			tfPays.setText(representant.getAdresse().getPays());
+
+		} else {
+			// Client is null, remove all the text.
+
+			tfEnseigne.setText("");
+			tfSiret.setText("");
+
+			tfNum.setText("");
+			tfVoie.setText("");
+			tfLibelle.setText("");
+			tfComplement.setText("");
+			tfBoite.setText("");
+			tfCP.setText("");
+			tfVille.setText("");
+			tfPays.setText("");
+
+			tfCivilite.setText("");
+			tfPrenom.setText("");
+			tfNom.setText("");
+			tfFonction.setText("");
+			tfTel.setText("");
+			tfMail.setText("");
+
+			tfIdRepresentant.setText("");
+			tfSalaire.setText("");
+			tfCommission.setText("");
+		}
 	}
+
 	/**
-	 * The constructor.
-	 * The constructor is called before the initialize() method.
-	 * @return 
+	 * The constructor. The constructor is called before the initialize()
+	 * method.
+	 * 
+	 * @return
 	 */
 	public RepresentantOverviewController() {
 	}
-	
+
 	@FXML
 	private void initialize() {
-	    // Initialize the client table with the two columns.
-	    tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
-	    tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
-	    tcIdR.setCellValueFactory(cellData -> (cellData.getValue()).identifiantRProperty().asObject());
-	    tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
-	    tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
-	   
-	    
-	    
-	    
-	 // Clear person details.
-	    showRepresentantDetails(null);
-	 // Listen for selection changes and show the client details when changed.
-	    representantTable.getSelectionModel().selectedItemProperty().addListener(
-	    (observable, oldValue, newValue) -> showRepresentantDetails(newValue));
+		// Initialize the client table with the two columns.
+		tcPrenom.setCellValueFactory(cellData -> (cellData.getValue()).prenomProperty());
+		tcNom.setCellValueFactory(cellData -> (cellData.getValue()).nomProperty());
+		tcIdR.setCellValueFactory(cellData -> (cellData.getValue()).identifiantRProperty().asObject());
+		tcTel.setCellValueFactory(cellData -> (cellData.getValue()).telProperty());
+		tcMail.setCellValueFactory(cellData -> (cellData.getValue()).emailProperty());
+
+		// Clear person details.
+		showRepresentantDetails(null);
+		// Listen for selection changes and show the client details when
+		// changed.
+		representantTable.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> showRepresentantDetails(newValue));
 	}
+
 	@FXML
 	private void handleDeleteRepresentant() {
-	    int selectedIndex = representantTable.getSelectionModel().getSelectedIndex();
-	    if (selectedIndex >= 0) {
-	        representantTable.getItems().remove(selectedIndex);
-	    } else {
-	        // Nothing selected.
-	        Alert alert = new Alert(AlertType.WARNING);
-	        alert.initOwner(mainApp.getPrimaryStage());
-	        alert.setTitle("No Selection");
-	        alert.setHeaderText("No representant Selected");
-	        alert.setContentText("Please select a representant in the table.");
+		int selectedIndex = representantTable.getSelectionModel().getSelectedIndex();
+		if (selectedIndex >= 0) {
+			representantTable.getItems().remove(selectedIndex);
+		} else {
+			// Nothing selected.
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.initOwner(mainApp.getPrimaryStage());
+			alert.setTitle("No Selection");
+			alert.setHeaderText("No representant Selected");
+			alert.setContentText("Please select a representant in the table.");
 
-	        alert.showAndWait();
-	    }
-}
-	
+			alert.showAndWait();
+		}
+	}
+
 	@FXML
 	private void handleEditRepresentant() {
-		
-		
-	    Representant selectedRepresentant = representantTable.getSelectionModel().getSelectedItem();
-	 
-	    	boolean okClicked = mainApp.showFormulaireEditRepresentant(selectedRepresentant);
-	        mainApp.showFormulaireEditRepresentant(selectedRepresentant);
-	       
-	        
-	        
-	        if (selectedRepresentant != null) {
-	        	showRepresentantDetails(selectedRepresentant);
-	        	 
-	        
-	        }
-	        
-	        if (okClicked) {
-	    	/*else {
-	        // Nothing selected.
-	        Alert alert = new Alert(AlertType.WARNING);
-	        alert.initOwner(mainApp.getPrimaryStage());
-	        alert.setTitle("No Selection");
-	        alert.setHeaderText("No CLient Selected");
-	        alert.setContentText("Please select a client in the table.");
 
-	        alert.showAndWait();*/
-	    }
+		Representant selectedRepresentant = representantTable.getSelectionModel().getSelectedItem();
+
+		boolean okClicked = mainApp.showFormulaireEditRepresentant(selectedRepresentant);
+		mainApp.showFormulaireEditRepresentant(selectedRepresentant);
+
+		if (selectedRepresentant != null) {
+			showRepresentantDetails(selectedRepresentant);
+
+		}
+
+		if (okClicked) {
+			/*
+			 * else { // Nothing selected. Alert alert = new
+			 * Alert(AlertType.WARNING);
+			 * alert.initOwner(mainApp.getPrimaryStage());
+			 * alert.setTitle("No Selection");
+			 * alert.setHeaderText("No CLient Selected");
+			 * alert.setContentText("Please select a client in the table.");
+			 * 
+			 * alert.showAndWait();
+			 */
+		}
 	}
+
 	/**
 	 * Called when the user clicks the new button. Opens a dialog to edit
 	 * details for a new person.
 	 */
 	@FXML
 	private void handleNewRepresentant() {
-	    Representant tempRepresentant = new Representant();
-	    
-	    boolean okClicked = mainApp.showFormulaireRepresentant(tempRepresentant);
-	    
-	    if (okClicked) {
-	    	
-	        mainApp.getRepresentantData().add(tempRepresentant);
-	    }
+		Representant tempRepresentant = new Representant();
+
+		boolean okClicked = mainApp.showFormulaireRepresentant(tempRepresentant);
+
+		if (okClicked) {
+
+			mainApp.getRepresentantData().add(tempRepresentant);
+		}
 	}
 
-
-	
-}	
-
-
-
+}

@@ -58,6 +58,8 @@ public class FormulaireEditRepresentantController {
     private MenuItem fSaveAs;
     @FXML
     private MenuItem fOpen;
+    @FXML
+    private MenuItem fExit;
     
     @FXML
 	private TextField tfEnseigne;

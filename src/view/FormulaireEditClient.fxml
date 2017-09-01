@@ -52,9 +52,10 @@
                         </Menu>
                         <Menu mnemonicParsing="false" text="Fichier">
                            <items>
-                              <MenuItem fx:id="fOpen" mnemonicParsing="false" onAction="#handleSave" text="Ouvrir" />
+                              <MenuItem fx:id="fOpen" mnemonicParsing="false" onAction="#handleOpen" text="Ouvrir" />
                               <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
                               <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
+                              <MenuItem fx:id="fExit" mnemonicParsing="false" text="Exit" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">
