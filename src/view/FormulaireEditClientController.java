@@ -166,10 +166,10 @@ public class FormulaireEditClientController {
 		mainApp.showprospectOverview();
 	}
 	
-	@FXML
+	/*@FXML
 	private void formulairerepresentant(){
 		mainApp.showFormulaireRepresentant();
-		}
+		}*/
 	@FXML
 	private void formulaiprospect(){
 		mainApp.showFormulaireProspect();

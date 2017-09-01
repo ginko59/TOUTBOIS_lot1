@@ -6,7 +6,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Client extends Contact {
-	private static int compteurC = 1; 
+	private static int compteurC = 0; 
+
 	public IntegerProperty identifiantC;
 	public Representant representant= new Representant();
 
@@ -15,12 +16,13 @@ public class Client extends Contact {
 
 	public Client() {
 			super();
+			
 			this.adresse = new Adresse();
 			//this.representant = new Representant();
-			//this.identifiantC = new SimpleIntegerProperty(0);
 			
+		
 			this.identifiantC =new SimpleIntegerProperty(compteurC);
-			compteurC++;
+			
 
 		}
 	
@@ -67,11 +69,11 @@ public class Client extends Contact {
 		this.representant = representant;
 	}
 
-	public Client(String prenom, String nom, int identifiantC, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret) {
+	public Client(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret) {
 	//, Adresse adresse
 		this.prenom = new SimpleStringProperty(prenom);
 		this.nom = new SimpleStringProperty(nom);
-		//this.identifiantC = new SimpleIntegerProperty(identifiantC);
+		this.identifiantC = new SimpleIntegerProperty(compteurC);
 		this.civilite = new SimpleStringProperty(civilite);
 		this.fonction = new SimpleStringProperty (fonction);
 		this.email= new SimpleStringProperty ( email);

@@ -51,21 +51,21 @@ public class MainApp extends Application {
 	
 	public MainApp() {
 		// Add some sample data
-	/*	clientData.add(new Client("Hans", "Muster",1,"MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
-		clientData.add(new Client("Ruth", "Mueller",2,"MMe","medecin","lll@gmail","063522",122,"IBM2","001122"));
-		clientData.add(new Client("Heinz", "Kurz",3,"MMe","medecin","lll@gmail","063522",13,"IBM3","001122"));
-		clientData.add(new Client("Cornelia", "Meier",4,"MMe","medecin","lll@gmail","063522",12,"IBM4","001122"));
-		clientData.add(new Client("Werner", "Meyer",5,"MMe","medecin","lll@gmail","063522",17,"IBM5","001122"));
-		clientData.add(new Client("Lydia", "Kunz",6,"MMe","medecin","lll@gmail","063522",126,"IBM6","001122"));
-		clientData.add(new Client("Anna", "Best",7,"MMe","medecin","lll@gmail","063522",12,"IBM7","001122"));
-		clientData.add(new Client("Stefan", "Meier",8,"MMe","medecin","lll@gmail","063522",12,"IBM8","001122"));
-		clientData.add(new Client("Martin", "Mueller",9,"MMe","medecin","lll@gmail","063522",17,"IBM9","001122"));
+		clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
+		clientData.add(new Client("Ruth", "Mueller","MMe","medecin","lll@gmail","063522",122,"IBM2","001122"));
+		clientData.add(new Client("Heinz", "Kurz","MMe","medecin","lll@gmail","063522",13,"IBM3","001122"));
+		clientData.add(new Client("Cornelia", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM4","001122"));
+		clientData.add(new Client("Werner", "Meyer","MMe","medecin","lll@gmail","063522",17,"IBM5","001122"));
+		clientData.add(new Client("Lydia", "Kunz","MMe","medecin","lll@gmail","063522",126,"IBM6","001122"));
+		clientData.add(new Client("Anna", "Best","MMe","medecin","lll@gmail","063522",12,"IBM7","001122"));
+		clientData.add(new Client("Stefan", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM8","001122"));
+		clientData.add(new Client("Martin", "Mueller","MMe","medecin","lll@gmail","063522",17,"IBM9","001122"));
 		
 		representantData.add(new Representant("abcb", "Muster",1,"MMe","medecin","lll@gmail","063522","IBM1","001122"));
 		representantData.add(new Representant("hfls", "Mueller",2,"MMe","medecin","lll@gmail","063522","IBM2","001122"));
 		representantData.add(new Representant("azerty", "Kurz",3,"MMe","medecin","lll@gmail","063522","IBM3","001122"));
 		
-		*/
+		
 	}
 
 	public ObservableList<Client> getClientData() {
@@ -423,7 +423,8 @@ public class MainApp extends Application {
 			// Save the file path to the registry.
 			setClientFilePath(file);
 
-		} catch (Exception e) { // catches ANY exception
+		} catch (Exception e) { // catches ANY exception*
+			e.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText("Could not load data");
@@ -457,7 +458,7 @@ public class MainApp extends Application {
 		}
 	}
 	
-	public void loadProspectDataFromFile(File file) {
+	/*public void loadProspectDataFromFile(File file) {
 		try {
 			JAXBContext context = JAXBContext.newInstance(ProspectListWrapper.class);
 			Unmarshaller um = context.createUnmarshaller();
@@ -479,7 +480,7 @@ public class MainApp extends Application {
 
 			alert.showAndWait();
 		}
-	}
+	}*/
 
 	/**
 	 * Saves the current Client data to the specified file.
@@ -502,6 +503,7 @@ public class MainApp extends Application {
 			// Save the file path to the registry.
 			setClientFilePath(file);
 		} catch (Exception e) { // catches ANY exception
+			e.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText("Could not save data");
@@ -537,7 +539,7 @@ public class MainApp extends Application {
 		}
 	}
 
-	public void saveProspectDataToFile(File file) {
+	/*public void saveProspectDataToFile(File file) {
 		try {
 			JAXBContext context = JAXBContext.newInstance(ProspectListWrapper.class);
 			Marshaller m = context.createMarshaller();
@@ -560,6 +562,6 @@ public class MainApp extends Application {
 
 			alert.showAndWait();
 		}
-	}
+	}*/
 
 }

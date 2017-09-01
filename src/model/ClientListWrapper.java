@@ -12,6 +12,7 @@ public class ClientListWrapper {
 	private List<Client> clients;
 	
 //est un nom optionel que nous pouvons spécifier pour l'élément.
+	
     @XmlElement(name = "client")
     public List<Client> getClients() {
         return clients;
