@@ -27,25 +27,15 @@
                               <MenuItem fx:id="fProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Modifier">
-                           <items>
-                              <MenuItem fx:id="mClient" mnemonicParsing="false" text="Client" />
-                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
-                              <MenuItem fx:id="mProspect" mnemonicParsing="false" text="Prospect" />
-                           </items>
-                        </Menu>
                         <Menu mnemonicParsing="false" text="Ajouter">
                            <items>
-                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaiclient" text="Client" />
-                              <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#formulairerepresentant" text="Représentant" />
+                              <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#handleNewClient" text="Client" />
+                              <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#handleNewRepresentant" text="Représentant" />
                               <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Fichier">
                            <items>
-                              <MenuItem fx:id="fOpen" mnemonicParsing="false" onAction="#handleOpen" text="Ouvrir" />
-                              <MenuItem fx:id="fSave" mnemonicParsing="false" onAction="#handleSave" text="Enregistrer" />
-                              <MenuItem fx:id="fSaveAs" mnemonicParsing="false" onAction="#handleSaveAs" text="Enregistrer sous" />
                               <MenuItem fx:id="fExit" mnemonicParsing="false" text="Exit" />
                            </items>
                         </Menu>

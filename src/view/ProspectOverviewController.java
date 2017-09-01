@@ -4,6 +4,8 @@ import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import model.Client;
+import model.Representant;
 
 public class ProspectOverviewController {
 	private MainApp mainApp;
@@ -62,15 +64,15 @@ public class ProspectOverviewController {
 	}
 	
 	@FXML
-	private void formulairerepresentant(){
-		mainApp.showFormulaireRepresentant();
+	private void formulairerepresentant(Representant representant){
+		mainApp.showFormulaireRepresentant(representant);
 	}
 	@FXML
 	private void formulaiprospect(){
 		mainApp.showFormulaireProspect();
 	}
 	@FXML
-	private void formulaiclient(){
-		mainApp.showFormulaireClient();
+	private void formulaiclient(Client client){
+		mainApp.showFormulaireClient(client);
 	}
 }

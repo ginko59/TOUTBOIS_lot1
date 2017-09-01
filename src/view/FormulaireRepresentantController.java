@@ -196,9 +196,9 @@ public class FormulaireRepresentantController {
 		 
 		 @FXML
 		    private void handleSave() {
-		        File clientFile = mainApp.getClientFilePath();
-		        if (clientFile != null) {
-		            mainApp.saveClientDataToFile(clientFile);
+		        File representantFile = mainApp.getRepresentantFilePath();
+		        if (representantFile != null) {
+		            mainApp.saveRepresentantDataToFile(representantFile);
 		        }
 	}
 		 
@@ -222,9 +222,16 @@ public class FormulaireRepresentantController {
 		            if (!file.getPath().endsWith(".xml")) {
 		                file = new File(file.getPath() + ".xml");
 		            }
-		            mainApp.saveClientDataToFile(file);
+		            mainApp.saveRepresentantDataToFile(file);
 		        }
 		    } 
+		    /**
+		     * Closes the application.
+		     */
+		    @FXML
+		    private void handleExit() {
+		        System.exit(0);
+		    }
 		    
 		    /**
 		     * Returns true if the user clicked OK, false otherwise.

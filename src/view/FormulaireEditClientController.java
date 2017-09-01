@@ -168,7 +168,7 @@ public class FormulaireEditClientController {
 	@FXML
 	private void formulairerepresentant(){
 		mainApp.showFormulaireRepresentant();
-	}
+		}
 	@FXML
 	private void formulaiprospect(){
 		mainApp.showFormulaireProspect();
@@ -178,7 +178,7 @@ public class FormulaireEditClientController {
 		mainApp.showFormulaireProspect();
 	}
 	
-	 @FXML
+	  @FXML
 	    private void handleOpen() {
 	        FileChooser fileChooser = new FileChooser();
 
@@ -193,19 +193,23 @@ public class FormulaireEditClientController {
 	        if (file != null) {
 	            mainApp.loadClientDataFromFile(file);
 	        }
-	        
-	        
 	    }
-	 
-	 @FXML
+
+	    /**
+	     * Saves the file to the person file that is currently open. If there is no
+	     * open file, the "save as" dialog is shown.
+	     */
+	    @FXML
 	    private void handleSave() {
 	        File clientFile = mainApp.getClientFilePath();
 	        if (clientFile != null) {
 	            mainApp.saveClientDataToFile(clientFile);
+	        } else {
+	            handleSaveAs();
 	        }
-}
-	 
-	 /**
+	    }
+
+	    /**
 	     * Opens a FileChooser to let the user select a file to save to.
 	     */
 	    @FXML
@@ -227,7 +231,14 @@ public class FormulaireEditClientController {
 	            }
 	            mainApp.saveClientDataToFile(file);
 	        }
-	    } 
+	    }
+	    /**
+	     * Closes the application.
+	     */
+	    @FXML
+	    private void handleExit() {
+	        System.exit(0);
+	    }
 	    
 	    /**
 	     * Returns true if the user clicked OK, false otherwise.

@@ -1,5 +1,7 @@
 package view;
 
+import java.io.File;
+
 import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -9,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.FileChooser;
 import model.Adresse;
 import model.Client;
 import model.Representant;
@@ -56,6 +59,7 @@ public class RepresentantOverviewController {
 	private MenuItem fSaveAs;
 	@FXML
 	private MenuItem fOpen;
+	
 
 	@FXML
 	private TextField tfEnseigne;
@@ -293,5 +297,64 @@ public class RepresentantOverviewController {
 			mainApp.getRepresentantData().add(tempRepresentant);
 		}
 	}
+	 @FXML
+	    private void handleOpen() {
+	        FileChooser fileChooser = new FileChooser();
+
+	        // Set extension filter
+	        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+	                "XML files (*.xml)", "*.xml");
+	        fileChooser.getExtensionFilters().add(extFilter);
+
+	        // Show save file dialog
+	        File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
+
+	        if (file != null) {
+	            mainApp.loadRepresentantDataFromFile(file);
+	        }
+	        
+	        
+	    }
+	 
+	 @FXML
+	    private void handleSave() {
+	        File representantFile = mainApp.getRepresentantFilePath();
+	        if (representantFile != null) {
+	            mainApp.saveRepresentantDataToFile(representantFile);
+	        }
+}
+	 
+	 /**
+	     * Opens a FileChooser to let the user select a file to save to.
+	     */
+	    @FXML
+	    private void handleSaveAs() {
+	        FileChooser fileChooser = new FileChooser();
+
+	        // Set extension filter
+	        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
+	                "XML files (*.xml)", "*.xml");
+	        fileChooser.getExtensionFilters().add(extFilter);
+
+	        // Show save file dialog
+	        File file = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
+
+	        if (file != null) {
+	            // Make sure it has the correct extension
+	            if (!file.getPath().endsWith(".xml")) {
+	                file = new File(file.getPath() + ".xml");
+	            }
+	            mainApp.saveRepresentantDataToFile(file);
+	        }
+	    } 
+	    /**
+	     * Closes the application.
+	     */
+	    @FXML
+	    private void handleExit() {
+	        System.exit(0);
+	    }
+	    
+	
 
 }

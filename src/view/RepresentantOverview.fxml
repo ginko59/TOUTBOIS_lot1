@@ -36,13 +36,6 @@
                               <MenuItem fx:id="fProspect" mnemonicParsing="false" onAction="#handleprospect" text="Prospect" />
                            </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Modifier">
-                           <items>
-                              <MenuItem fx:id="mClient" mnemonicParsing="false" text="Client" />
-                              <MenuItem fx:id="mRepresentant" mnemonicParsing="false" text="Représentant" />
-                              <MenuItem fx:id="mProspect" mnemonicParsing="false" text="Prospect" />
-                           </items>
-                        </Menu>
                         <Menu mnemonicParsing="false" text="Ajouter">
                            <items>
                               <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#formulaireClient" text="Client" />
