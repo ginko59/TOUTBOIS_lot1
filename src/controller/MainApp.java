@@ -35,6 +35,7 @@ import view.ProspectOverviewController;
 import view.FormulaireEditClientController;
 import view.FormulaireProspectController;
 import view.FormulaireRepresentantController;
+import view.FormulaireEditRepresentantController;
 
 public class MainApp extends Application {
 
@@ -325,8 +326,26 @@ public class MainApp extends Application {
 	}
 
 	public boolean showFormulaireEditRepresentant(Representant selectedRepresentant) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			// Load client formulaire.
+			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("../view/FormulaireEditRepresentant.fxml"));
+			AnchorPane formulaireEditRepresentant = (AnchorPane) loader.load();
+
+			// Give the controller access to the main app
+			FormulaireEditRepresentantController controller = loader.getController();
+			controller.setMainApp(this);
+			controller.setRepresentant(selectedRepresentant);
+
+			// Set client overview into the center of root layout.
+			rootLayout.setCenter(formulaireEditRepresentant);
+			return controller.isOkClicked();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	
 	}
 
 	/*

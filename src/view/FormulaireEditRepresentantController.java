@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import model.Client;
 import model.Representant;
 
-public class FormulaireRepresentantController {
+public class FormulaireEditRepresentantController {
 	
 	private MainApp mainApp;
 	private Representant representant;
@@ -312,26 +312,30 @@ public class FormulaireRepresentantController {
 		        	
 		            // Fill the textfield with info from the client object.
 		        	
-		        	/*tfEnseigne.setText(client.getEnseigne());
-		            tfSiret.setText(client.getSiret());
-		            tfCivilite.setText(client.getCivilite());
-		            tfPrenom.setText(client.getPrenom());
-		            tfNom.setText(client.getNom());
-		            tfFonction.setText(client.getFonction());
-		            tfTel.setText(client.getTel());
-		            tfMail.setText(client.getEmail());
-		            tfCommande.setText(client.getNbCommande().toString());
+		        	tfEnseigne.setText(representant.getEnseigne());
+		            tfSiret.setText(representant.getSiret());
+		            tfCivilite.setText(representant.getCivilite());
+		            tfPrenom.setText(representant.getPrenom());
+		            tfNom.setText(representant.getNom());
+		            tfFonction.setText(representant.getFonction());
+		            tfTel.setText(representant.getTel());
+		            tfMail.setText(representant.getEmail());
+
+           
+		            tfIdRepresentant.setText(representant.getIdentifiantR().toString());
+		            tfSalaire.setText(representant.getSalaire().toString());
+		            tfCommission.setText(representant.getTauxCommission().toString());
 		            
-		            tfIdClient.setText(client.getIdentifiantC().toString());
+		            tfPays.setText(representant.getAdresse().getPays());
+		            tfNum.setText(representant.getAdresse().getNum().toString());
+		        	tfVoie.setText(representant.getAdresse().getVoie());
+		        	tfLibelle.setText(representant.getAdresse().getNomVoie());
+		        	tfComplement.setText(representant.getAdresse().getComplement());
+		        	tfBoite.setText(representant.getAdresse().getBp().toString());
+		            tfCP.setText(representant.getAdresse().getCp().toString());
+		            tfVille.setText(representant.getAdresse().getVille());
 		            
-		            tfPays.setText(client.getAdresse().getPays());
-		            tfNum.setText(client.getAdresse().getNum().toString());
-		        	tfVoie.setText(client.getAdresse().getVoie());
-		        	tfLibelle.setText(client.getAdresse().getNomVoie());
-		        	tfComplement.setText(client.getAdresse().getComplement());
-		        	tfBoite.setText(client.getAdresse().getBp().toString());
-		            tfCP.setText(client.getAdresse().getCp().toString());
-		            tfVille.setText(client.getAdresse().getVille());*/
+
 		            
 		        
 		            
