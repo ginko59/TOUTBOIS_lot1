@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 import model.Adresse;
 import model.Client;
 //import util.DateUtil;
+import model.Representant;
 
 
 public class FormulaireEditClientController {
@@ -440,6 +441,30 @@ public class FormulaireEditClientController {
 	            return false;
 	        }
 	    }
+	    /**
+		 * Called when the user clicks the new button. Opens a dialog to edit
+		 * details for a new person.
+		 */
+		@FXML
+		private void handleNewClient() {
+			Client tempClient = new Client();
+			boolean okClicked = mainApp.showFormulaireClient(tempClient);
+
+			if (okClicked) {
+
+				mainApp.getClientData().add(tempClient);
+			}
+		}
+		@FXML
+		private void handleNewRepresentant() {
+			Representant tempRepresentant = new Representant();
+			boolean okClicked = mainApp.showFormulaireRepresentant(tempRepresentant);
+
+			if (okClicked) {
+
+				mainApp.getRepresentantData().add(tempRepresentant);
+			}
+		}
 	    
 	        
 	    

@@ -23,6 +23,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Adresse;
 import model.Client;
+import model.Representant;
 
 //import util.DateUtil;
 
@@ -324,6 +325,16 @@ public class ClientOverviewController {
 		if (okClicked) {
 
 			mainApp.getClientData().add(tempClient);
+		}
+	}
+	@FXML
+	private void handleNewRepresentant() {
+		Representant tempRepresentant = new Representant();
+		boolean okClicked = mainApp.showFormulaireRepresentant(tempRepresentant);
+
+		if (okClicked) {
+
+			mainApp.getRepresentantData().add(tempRepresentant);
 		}
 	}
 	 @FXML

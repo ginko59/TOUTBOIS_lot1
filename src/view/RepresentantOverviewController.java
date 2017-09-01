@@ -355,6 +355,20 @@ public class RepresentantOverviewController {
 	        System.exit(0);
 	    }
 	    
-	
+	    /**
+		 * Called when the user clicks the new button. Opens a dialog to edit
+		 * details for a new person.
+		 */
+		@FXML
+		private void handleNewClient() {
+			Client tempClient = new Client();
+			boolean okClicked = mainApp.showFormulaireClient(tempClient);
+
+			if (okClicked) {
+
+				mainApp.getClientData().add(tempClient);
+			}
+		}
+		
 
 }
