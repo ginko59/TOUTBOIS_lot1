@@ -1,5 +1,9 @@
 package model;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlValue;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -7,46 +11,55 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Contact {
-	public StringProperty enseigne;
-	public StringProperty siret;
-	public StringProperty civilite;
-	public StringProperty nom;
-	public StringProperty prenom ;
-	public StringProperty fonction;
-	public StringProperty email;
-	public StringProperty tel;
-	public IntegerProperty nbCommande;
-	public Adresse adresse = new Adresse();
+	protected StringProperty enseigne;
+	protected StringProperty siret;
+	protected StringProperty civilite;
+	protected StringProperty nom;
+	protected StringProperty prenom ;
+	protected StringProperty fonction;
+	protected StringProperty email;
+	protected StringProperty tel;
+	protected IntegerProperty nbCommande;
+	protected Adresse adresse = new Adresse();
 	
 	
 	
 	public String getEnseigne() {
 		return enseigne.get();
 	}
+	
 	public String getSiret() {
 		return siret.get();
 	}
+	
 	public String getCivilite() {
 		return civilite.get();
 	}
+	
 	public String getNom() {
 		return nom.get();
 	}
+	
 	public String getPrenom() {
 		return prenom.get();
 	}
+	
 	public String getFonction() {
 		return fonction.get();
 	}
+	
 	public String getEmail() {
 		return email.get();
 	}
+	
 	public String getTel() {
 		return tel.get();
 	}
+	
 	public Integer getNbCommande() {
 		return nbCommande.get();
 	}
+	
 	public Adresse getAdresse() {
 		return adresse;
 	}
@@ -89,6 +102,7 @@ public class Contact {
 	public StringProperty enseigneProperty(){
 		return enseigne;
 			}
+	
 	public StringProperty siretProperty(){
 		return siret;
 	}

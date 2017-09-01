@@ -334,6 +334,8 @@ public class FormulaireEditClientController {
 	            tfMail.setText(client.getEmail());
 	            tfCommande.setText(client.getNbCommande().toString());
 	            
+	            tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+	            
 	            tfIdClient.setText(client.getIdentifiantC().toString());
 	            
 	            tfPays.setText(client.getAdresse().getPays());

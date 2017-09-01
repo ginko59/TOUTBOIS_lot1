@@ -1,5 +1,7 @@
 package model;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -8,19 +10,20 @@ import javafx.beans.property.StringProperty;
 public class Client extends Contact {
 	private static int compteurC = 0; 
 
-	public IntegerProperty identifiantC;
-	public Representant representant= new Representant();
+	private IntegerProperty identifiantC;
+	private Representant representant= new Representant();
 
 	
 	
 
 	public Client() {
+		
 			super();
-			
+
 			this.adresse = new Adresse();
 			//this.representant = new Representant();
 			
-		
+			compteurC ++;
 			this.identifiantC =new SimpleIntegerProperty(compteurC);
 			
 
@@ -29,18 +32,19 @@ public class Client extends Contact {
 	public Integer getIdentifiantC() {
 		return identifiantC.get();
 	}
-
+	
 	public Representant getRepresentant() {
 		return representant;
 	}
-
+	
 	public Adresse getAdresse() {
 		return adresse;
 	}
-
+	
 	public void setIdentifiantC(Integer identifiantC) {
 		this.identifiantC.set(identifiantC);
 	}
+	
 	public IntegerProperty identifiantCProperty(){
 		return identifiantC;
 	}
@@ -70,7 +74,8 @@ public class Client extends Contact {
 	}
 
 	public Client(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret) {
-	//, Adresse adresse
+	
+		compteurC++;
 		this.prenom = new SimpleStringProperty(prenom);
 		this.nom = new SimpleStringProperty(nom);
 		this.identifiantC = new SimpleIntegerProperty(compteurC);

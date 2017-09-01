@@ -1,42 +1,51 @@
 package model;
 
+import javax.xml.bind.annotation.XmlTransient;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Adresse {
-	public IntegerProperty num;
-	public StringProperty voie;
-	public StringProperty nomVoie;
-	public StringProperty complement;
-	public IntegerProperty bp;
-	public IntegerProperty cp;
-	public StringProperty ville;
-	public StringProperty pays;
-	//protected Contact contact = new Contact();
+	protected IntegerProperty num;
+	protected StringProperty voie;
+	protected StringProperty nomVoie;
+	protected StringProperty complement;
+	protected IntegerProperty bp;
+	protected IntegerProperty cp;
+	protected StringProperty ville;
+	protected StringProperty pays;
+	
 	
 	public Integer getNum() {
 		return num.get();
 	}
+	
 	public String getVoie() {
 		return voie.get();
 	}
+	
 	public String getNomVoie() {
 		return nomVoie.get();
 	}
+	
 	public String getComplement() {
 		return complement.get();
 	}
+	
 	public Integer getBp() {
 		return bp.get();
 	}
+	
 	public Integer getCp() {
 		return cp.get();
 	}
+	
 	public String getVille() {
 		return ville.get();
 	}
+	
 	public String getPays() {
 		return pays.get();
 	}

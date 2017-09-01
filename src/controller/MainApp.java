@@ -51,7 +51,11 @@ public class MainApp extends Application {
 	
 	public MainApp() {
 		// Add some sample data
-		clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
+		representantData.add(new Representant("abcb", "Muster","MMe","medecin","lll@gmail","063522","IBM1","001122"));
+		representantData.add(new Representant("hfls", "Mueller","MMe","medecin","lll@gmail","063522","IBM2","001122"));
+		representantData.add(new Representant("azerty", "Kurz","MMe","medecin","lll@gmail","063522","IBM3","001122"));
+		
+		/*clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
 		clientData.add(new Client("Ruth", "Mueller","MMe","medecin","lll@gmail","063522",122,"IBM2","001122"));
 		clientData.add(new Client("Heinz", "Kurz","MMe","medecin","lll@gmail","063522",13,"IBM3","001122"));
 		clientData.add(new Client("Cornelia", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM4","001122"));
@@ -59,11 +63,9 @@ public class MainApp extends Application {
 		clientData.add(new Client("Lydia", "Kunz","MMe","medecin","lll@gmail","063522",126,"IBM6","001122"));
 		clientData.add(new Client("Anna", "Best","MMe","medecin","lll@gmail","063522",12,"IBM7","001122"));
 		clientData.add(new Client("Stefan", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM8","001122"));
-		clientData.add(new Client("Martin", "Mueller","MMe","medecin","lll@gmail","063522",17,"IBM9","001122"));
+		clientData.add(new Client("Martin", "Mueller","MMe","medecin","lll@gmail","063522",17,"IBM9","001122"));*/
 		
-		representantData.add(new Representant("abcb", "Muster",1,"MMe","medecin","lll@gmail","063522","IBM1","001122"));
-		representantData.add(new Representant("hfls", "Mueller",2,"MMe","medecin","lll@gmail","063522","IBM2","001122"));
-		representantData.add(new Representant("azerty", "Kurz",3,"MMe","medecin","lll@gmail","063522","IBM3","001122"));
+		
 		
 		
 	}

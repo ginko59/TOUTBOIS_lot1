@@ -1,6 +1,8 @@
 package model;
 
 
+import javax.xml.bind.annotation.XmlTransient;
+
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
@@ -9,27 +11,30 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Representant extends Contact {
-	private static int compteurR = 1; 
-	public IntegerProperty identifiantR;
-	public FloatProperty tauxCommission;
-	public FloatProperty salaire;
+	private static int compteurR = 0; 
+	protected IntegerProperty identifiantR;
+	protected FloatProperty tauxCommission;
+	protected FloatProperty salaire;
 	
 	
 	public Representant() {
 		super();
+		compteurR++;
 		this.adresse = new Adresse();
 		this.identifiantR =new SimpleIntegerProperty(compteurR);
 		this.salaire = new SimpleFloatProperty(0);
 		this.tauxCommission= new SimpleFloatProperty(0);
-		compteurR++;
+		
 	}
 	
 	public Integer getIdentifiantR() {
 		return identifiantR.get();
 	}
+	
 	public Float getTauxCommission() {
 		return tauxCommission.get();
 	}
+	
 	public Float getSalaire() {
 		return salaire.get();
 	}
@@ -42,6 +47,7 @@ public class Representant extends Contact {
 	public void setSalaire(float salaire) {
 		this.salaire.set(salaire);
 	}
+	
 	public Adresse getAdresse() {
 		return adresse;
 	}	
@@ -78,7 +84,7 @@ public class Representant extends Contact {
 	
 	
 	
-	public Representant(String prenom, String nom, int identifiantC, String civilite, String fonction, String email, String tel, String enseigne, String siret) {
+	public Representant(String prenom, String nom, String civilite, String fonction, String email, String tel, String enseigne, String siret) {
 				
 			this.enseigne = new SimpleStringProperty(enseigne); 
 			this.siret = new SimpleStringProperty(siret);
@@ -86,7 +92,7 @@ public class Representant extends Contact {
 											
 			// Some initial dummy data, just for convenient testing.
 			
-			
+			compteurR++;
 			this.prenom = new SimpleStringProperty(prenom);
 			this.nom = new SimpleStringProperty(nom);
 			this.civilite = new SimpleStringProperty(civilite);
@@ -94,7 +100,7 @@ public class Representant extends Contact {
 			this.email= new SimpleStringProperty ( email);
 			this.tel= new SimpleStringProperty (tel);
 			
-			this.identifiantR = new SimpleIntegerProperty(0);
+			this.identifiantR = new SimpleIntegerProperty(compteurR);
 			this.tauxCommission = new SimpleFloatProperty (0);
 			this.salaire = new SimpleFloatProperty (0);
 			
