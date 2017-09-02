@@ -250,6 +250,8 @@ public class MainApp extends Application {
 		}
 
 	}
+	
+	
 	public boolean showFormulaireClient(Client client) {
 		try {
 			// Load client formulaire.
@@ -272,8 +274,9 @@ public class MainApp extends Application {
 			e.printStackTrace();
 			return false;
 		}
-
+		
 	}
+		
 
 	/**
 	 * Returns the client file preference, i.e. the file that was last opened.
@@ -596,5 +599,7 @@ public class MainApp extends Application {
 			alert.showAndWait();
 		}
 	}
+
+	
 
 }

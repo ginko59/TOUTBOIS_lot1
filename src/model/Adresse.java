@@ -12,7 +12,7 @@ public class Adresse {
 	protected StringProperty voie;
 	protected StringProperty nomVoie;
 	protected StringProperty complement;
-	protected IntegerProperty bp;
+	protected StringProperty bp;
 	protected IntegerProperty cp;
 	protected StringProperty ville;
 	protected StringProperty pays;
@@ -34,7 +34,7 @@ public class Adresse {
 		return complement.get();
 	}
 	
-	public Integer getBp() {
+	public String getBp() {
 		return bp.get();
 	}
 	
@@ -61,7 +61,7 @@ public class Adresse {
 	public void setComplement(String complement) {
 		this.complement.set(complement);
 	}
-	public void setBp(Integer bp) {
+	public void setBp(String bp) {
 		this.bp.set(bp);
 	}
 	public void setCp(Integer cp) {
@@ -88,7 +88,7 @@ public class Adresse {
 	public StringProperty complementProperty() {
 		return complement ;
 	}
-	public IntegerProperty bpProperty() {
+	public StringProperty bpProperty() {
 		return bp;
 	}
 	public IntegerProperty cpProperty () {
@@ -123,7 +123,7 @@ public class Adresse {
 		this.voie = new SimpleStringProperty();
 		this.nomVoie = new SimpleStringProperty();
 		this.complement = new SimpleStringProperty();
-		this.bp = new SimpleIntegerProperty();
+		this.bp = new SimpleStringProperty();
 		this.cp = new SimpleIntegerProperty();
 		this.ville = new SimpleStringProperty();
 		this.pays = new SimpleStringProperty();

@@ -338,6 +338,7 @@ public class ClientOverviewController {
 			mainApp.getRepresentantData().add(tempRepresentant);
 		}
 	}
+
 	 @FXML
 	    private void handleNew() {
 	        mainApp.getClientData().clear();

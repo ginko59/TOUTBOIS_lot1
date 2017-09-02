@@ -268,7 +268,7 @@ public class FormulaireEditRepresentantController {
 		        	representant.getAdresse().setComplement(tfComplement.getText());
 		        	representant.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 		        	representant.getAdresse().setVille(tfVille.getText());
-		        	representant.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+		        	representant.getAdresse().setBp(tfBoite.getText());
 		        	representant.getAdresse().setPays(tfPays.getText());
 		                      
 		           
@@ -303,7 +303,7 @@ public class FormulaireEditRepresentantController {
 		        	selectedRepresentant.getAdresse().setComplement(tfComplement.getText());
 		        	selectedRepresentant.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 		        	selectedRepresentant.getAdresse().setVille(tfVille.getText());
-		        	selectedRepresentant.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+		        	selectedRepresentant.getAdresse().setBp(tfBoite.getText());
 		        	selectedRepresentant.getAdresse().setPays(tfPays.getText());
 		                      
 		           
@@ -418,6 +418,16 @@ public class FormulaireEditRepresentantController {
 		                Integer.parseInt(tfCP.getText());
 		            } catch (NumberFormatException e) {
 		                errorMessage += "code postal non valide (must be an integer)!\n";
+		            }
+		        }
+		        if (tfCommission.getText() == null || tfCommission.getText().length() == 0) {
+		            errorMessage += "taux non valide!\n";
+		        } else {
+		            // try to parse the postal code into an int.
+		            try {
+		                Float.parseFloat(tfCommission.getText());
+		            } catch (NumberFormatException e) {
+		                errorMessage += "taux non valide (must be a Float)!\n";
 		            }
 		        }
 

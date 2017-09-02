@@ -275,7 +275,7 @@ public class FormulaireEditProspectController {
 	        	prospect.getAdresse().setComplement(tfComplement.getText());
 	        	prospect.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	prospect.getAdresse().setVille(tfVille.getText());
-	        	prospect.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+	        	prospect.getAdresse().setBp(tfBoite.getText());
 	        	prospect.getAdresse().setPays(tfPays.getText());
 	                      
 	           
@@ -309,7 +309,7 @@ public class FormulaireEditProspectController {
 	        	selectedProspect.getAdresse().setComplement(tfComplement.getText());
 	        	selectedProspect.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	selectedProspect.getAdresse().setVille(tfVille.getText());
-	        	selectedProspect.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+	        	selectedProspect.getAdresse().setBp(tfBoite.getText());
 	        	selectedProspect.getAdresse().setPays(tfPays.getText());
 	                      
 	           

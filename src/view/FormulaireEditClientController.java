@@ -16,6 +16,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Adresse;
 import model.Client;
+import model.Prospect;
 //import util.DateUtil;
 import model.Representant;
 
@@ -273,7 +274,7 @@ public class FormulaireEditClientController {
 	        	client.getAdresse().setComplement(tfComplement.getText());
 	        	client.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	client.getAdresse().setVille(tfVille.getText());
-	        	client.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+	        	client.getAdresse().setBp(tfBoite.getText());
 	        	client.getAdresse().setPays(tfPays.getText());
 	                      
 	           
@@ -307,7 +308,7 @@ public class FormulaireEditClientController {
 	        	selectedClient.getAdresse().setComplement(tfComplement.getText());
 	        	selectedClient.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	selectedClient.getAdresse().setVille(tfVille.getText());
-	        	selectedClient.getAdresse().setBp(Integer.parseInt(tfBoite.getText()));
+	        	selectedClient.getAdresse().setBp(tfBoite.getText());
 	        	selectedClient.getAdresse().setPays(tfPays.getText());
 	                      
 	           
@@ -447,6 +448,17 @@ public class FormulaireEditClientController {
 				mainApp.getRepresentantData().add(tempRepresentant);
 			}
 		}
+		@FXML
+		private void handleNewProspect() {
+			Prospect tempProspect = new Prospect();
+			boolean okClicked = mainApp.showFormulaireProspect(tempProspect);
+
+			if (okClicked) {
+
+				mainApp.getProspectData().add(tempProspect);
+			}
+		}
+		
 	    
 	        
 	    
