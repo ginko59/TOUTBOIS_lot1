@@ -143,7 +143,7 @@ public class RepresentantOverviewController {
 
 	@FXML
 	private void formulaireprospect() {
-		mainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect(null);
 	}
 
 	@FXML

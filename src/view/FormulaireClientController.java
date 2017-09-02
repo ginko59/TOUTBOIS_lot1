@@ -173,11 +173,11 @@ public class FormulaireClientController {
 	}
 	@FXML
 	private void formulaiprospect(){
-		mainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect(null);
 	}
 	@FXML
 	private void formulaiclient(){
-		mainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect(null);
 	}
 	
 	 

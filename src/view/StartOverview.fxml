@@ -31,12 +31,12 @@
                            <items>
                               <MenuItem fx:id="aClient" mnemonicParsing="false" onAction="#handleNewClient" text="Client" />
                               <MenuItem fx:id="aRepresentant" mnemonicParsing="false" onAction="#handleNewRepresentant" text="Représentant" />
-                              <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#formulaiprospect" text="Prospect" />
+                              <MenuItem fx:id="aProspect" mnemonicParsing="false" onAction="#handleNewClient" text="Prospect" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Fichier">
                            <items>
-                              <MenuItem fx:id="fExit" mnemonicParsing="false" text="Exit" />
+                              <MenuItem fx:id="fExit" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
                            </items>
                         </Menu>
                         <Menu mnemonicParsing="false" text="Help">

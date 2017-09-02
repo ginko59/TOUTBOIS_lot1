@@ -10,6 +10,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import model.Client;
+import model.Prospect;
 import model.Representant;
 
 public class StartOverviewController {
@@ -72,7 +73,7 @@ public class StartOverviewController {
 	}*/
 	@FXML
 	private void formulaiprospect(){
-		mainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect(null);
 	}
 	@FXML
 	private void formulaiclient(){
@@ -102,8 +103,16 @@ public class StartOverviewController {
 		}
 	}
 	
+	@FXML
+	private void handleNewProspect() {
+		Prospect tempProspect = new Prospect();
+		boolean okClicked = mainApp.showFormulaireProspect(tempProspect);
 
-    
+		if (okClicked) {
+
+			mainApp.getProspectData().add(tempProspect);
+		}
+	}
 
     
 

@@ -172,11 +172,12 @@ public class FormulaireEditClientController {
 		}*/
 	@FXML
 	private void formulaiprospect(){
-		mainApp.showFormulaireProspect();
+		//mainApp.showFormulaireProspect();
 	}
 	@FXML
 	private void formulaiclient(){
-		mainApp.showFormulaireProspect();
+		
+		//mainApp.showFormulaireClient();
 	}
 	
 	  @FXML
@@ -369,27 +370,6 @@ public class FormulaireEditClientController {
 	   public void setClient(Client client) {
 	        this.client = client;
 
-/*
-	        tfEnseigne.setText(client.getEnseigne());
-	        tfSiret.setText(client.getSiret());
-	        tfPrenom.setText(client.getPrenom());
-	        tfNom.setText(client.getNom());
-	        tfCivilite.setText(client.getCivilite());
-	        tfFonction.setText(client.getFonction());
-	        tfTel.setText(client.getTel());
-	        tfMail.setText(client.getEmail());
-	        tfNum.setText(Integer.toString(client.adresse.getNum()));
-	        tfVoie.setText(client.adresse.getVoie());
-	        tfLibelle.setText(client.adresse.getNomVoie());
-	        tfComplement.setText(client.adresse.getComplement());
-	        tfBoite.setText(Integer.toString(client.adresse.getBp()));
-	        tfCP.setText(Integer.toString(client.adresse.getCp()));
-	        tfVille.setText(client.adresse.getVille());
-	        tfPays.setText(client.adresse.getPays());
-	        tfIdClient.setText(Integer.toString(client.getIdentifiantC()));
-	        tfCommande.setText(Integer.toString(client.getNbCommande()));
-	       */
-	        //tfIdRepresentant.setText(Integer.toString(client.representant.getIdentifiantR()));
 	        
 	    }
 

@@ -139,7 +139,7 @@ public class FormulaireRepresentantController {
 
 	@FXML
 	private void formulaireprospect(){
-		mainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect(null);
 	}
 	@FXML
 	private void formulaireclient(){

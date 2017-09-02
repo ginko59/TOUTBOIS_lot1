@@ -51,7 +51,7 @@ public class ClientOverviewController {
 	private MenuItem fRepresentant;
 	@FXML
 	private MenuItem fProspect;
-	
+
 	@FXML
 	private MenuItem aClient;
 	@FXML
@@ -64,15 +64,16 @@ public class ClientOverviewController {
 	private MenuItem mRepresentant;
 	@FXML
 	private MenuItem mProspect;
+	
+	@FXML
+    private MenuItem fSave;
+    @FXML
+    private MenuItem fSaveAs;
+    @FXML
+    private MenuItem fOpen;
+    @FXML
+    private MenuItem fExit;
 
-	@FXML
-	private MenuItem fSave;
-	@FXML
-	private MenuItem fSaveAs;
-	@FXML
-	private MenuItem fOpen;
-	@FXML
-	private MenuItem fExit;
 
 	
 
@@ -154,7 +155,7 @@ public class ClientOverviewController {
 
 	@FXML
 	private void formulaireprospect() {
-		mainApp.showFormulaireProspect();
+		mainApp.showFormulaireProspect(null);
 	}
 
 	@FXML

@@ -26,6 +26,7 @@ import model.Client;
 import model.ClientListWrapper;
 //import model.ClientListWrapper;
 import model.Contact;
+import model.Prospect;
 import model.ProspectListWrapper;
 import model.Representant;
 import model.RepresentantListWrapper;
@@ -35,6 +36,7 @@ import view.RepresentantOverviewController;
 import view.StartOverviewController;
 import view.ProspectOverviewController;
 import view.FormulaireEditClientController;
+import view.FormulaireEditProspectController;
 import view.FormulaireProspectController;
 import view.FormulaireRepresentantController;
 import view.FormulaireEditRepresentantController;
@@ -48,6 +50,7 @@ public class MainApp extends Application {
 	 */
 	private ObservableList<Client> clientData = FXCollections.observableArrayList();
 	private ObservableList<Representant> representantData = FXCollections.observableArrayList();
+	private ObservableList<Prospect> prospectData = FXCollections.observableArrayList();
 	
 	public MainApp() {
 		// Add some sample data
@@ -72,6 +75,10 @@ public class MainApp extends Application {
 
 	public ObservableList<Client> getClientData() {
 		return clientData;
+	}
+	
+	public ObservableList<Prospect> getProspectData() {
+		return prospectData;
 	}
 	
 	public ObservableList<Representant> getRepresentantData() {
@@ -203,7 +210,7 @@ public class MainApp extends Application {
 
 	}
 
-	public void showFormulaireProspect() {
+	public boolean showFormulaireProspect(Prospect prospect) {
 		try {
 			// Load person overview.
 			FXMLLoader loader = new FXMLLoader();
@@ -212,11 +219,13 @@ public class MainApp extends Application {
 			// Give the controller access to the main app
 			FormulaireProspectController controller = loader.getController();
 			controller.setMainApp(this);
-
+			controller.setProspect(prospect);
 			// Set person overview into the center of root layout.
 			rootLayout.setCenter(formulaireProspect);
+			return controller.isOkClicked();
 		} catch (IOException e) {
 			e.printStackTrace();
+			return false;
 		}
 
 	}
@@ -403,6 +412,28 @@ public class MainApp extends Application {
 		}
 	
 	}
+	public boolean showFormulaireEditProspect(Prospect selectedProspect) {
+		try {
+			// Load client formulaire.
+			
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("../view/FormulaireEditProspect.fxml"));
+			AnchorPane formulaireEditProspect = (AnchorPane) loader.load();
+
+			// Give the controller access to the main app
+			FormulaireEditProspectController controller = loader.getController();
+			controller.setMainApp(this);
+			controller.setProspect(selectedProspect);
+
+			// Set client overview into the center of root layout.
+			rootLayout.setCenter(formulaireEditProspect);
+			return controller.isOkClicked();
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	
+	}
 /**
 	
 	 * Loads client data from the specified file. The current client data will
@@ -460,7 +491,7 @@ public class MainApp extends Application {
 		}
 	}
 	
-	/*public void loadProspectDataFromFile(File file) {
+	public void loadProspectDataFromFile(File file) {
 		try {
 			JAXBContext context = JAXBContext.newInstance(ProspectListWrapper.class);
 			Unmarshaller um = context.createUnmarshaller();
@@ -482,7 +513,7 @@ public class MainApp extends Application {
 
 			alert.showAndWait();
 		}
-	}*/
+	}
 
 	/**
 	 * Saves the current Client data to the specified file.
@@ -541,7 +572,7 @@ public class MainApp extends Application {
 		}
 	}
 
-	/*public void saveProspectDataToFile(File file) {
+	public void saveProspectDataToFile(File file) {
 		try {
 			JAXBContext context = JAXBContext.newInstance(ProspectListWrapper.class);
 			Marshaller m = context.createMarshaller();
@@ -564,6 +595,6 @@ public class MainApp extends Application {
 
 			alert.showAndWait();
 		}
-	}*/
+	}
 
 }
