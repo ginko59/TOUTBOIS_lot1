@@ -209,6 +209,8 @@ public class FormulaireProspectController {
 			// client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 			prospect.setEnseigne(tfEnseigne.getText());
 			prospect.setSiret(tfSiret.getText());
+			prospect.setDateVisite(DateUtil.parse(tfDate.getText()));
+			//prospect.setPromptText("dd.MM.yyyy");
 
 			prospect.getAdresse().setVoie(tfVoie.getText());
 			prospect.getAdresse().setNum(Integer.parseInt(tfNum.getText()));
@@ -223,6 +225,8 @@ public class FormulaireProspectController {
 			// dialogStage.close();
 			mainApp.getProspectData().add(prospect);
 			mainApp.showprospectOverview();
+			
+			
 		}
 	}
 
@@ -308,7 +312,7 @@ public class FormulaireProspectController {
 	 */
 	public void setProspect(Prospect prospect) {
 		this.prospect = prospect;
-		tfDate.setText(DateUtil.format(prospect.getBirthday()));
+		tfDate.setText(DateUtil.format(prospect.getDate()));
 		tfDate.setPromptText("dd.mm.yyyy");
 
 	}

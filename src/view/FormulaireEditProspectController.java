@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import model.Client;
 import model.Prospect;
 import model.Representant;
+import util.DateUtil;
 
 public class FormulaireEditProspectController {
 	private MainApp mainApp;
@@ -105,7 +106,8 @@ public class FormulaireEditProspectController {
 	private TextField tfIdRepresentant;
 	@FXML
 	private TextField tfCommande;
-	
+	@FXML
+	private TextField tfDate; 
 	@FXML
 	private TableView<Prospect> prospectTable;
 	//@FXML
@@ -267,6 +269,7 @@ public class FormulaireEditProspectController {
 	        	prospect.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	prospect.setEnseigne(tfEnseigne.getText());
 	        	prospect.setSiret(tfSiret.getText());
+	        	prospect.setDateVisite(DateUtil.parse(tfDate.getText()));
 	        	 
 	        	
 	        	prospect.getAdresse().setVoie(tfVoie.getText());
@@ -277,6 +280,7 @@ public class FormulaireEditProspectController {
 	        	prospect.getAdresse().setVille(tfVille.getText());
 	        	prospect.getAdresse().setBp(tfBoite.getText());
 	        	prospect.getAdresse().setPays(tfPays.getText());
+	        	
 	                      
 	           
 
@@ -297,7 +301,7 @@ public class FormulaireEditProspectController {
 	        	selectedProspect.setEmail(tfMail.getText());
 	        	selectedProspect.setTel(tfTel.getText());
 	        	
-	        	selectedProspect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	//selectedProspect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	//selectedProspect.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	selectedProspect.setEnseigne(tfEnseigne.getText());
 	        	selectedProspect.setSiret(tfSiret.getText());
@@ -337,7 +341,7 @@ public class FormulaireEditProspectController {
 	            tfMail.setText(prospect.getEmail());
 	            //tfCommande.setText(client.getNbCommande().toString());
 	            
-	            tfIdRepresentant.setText(prospect.getRepresentant().getIdentifiantR().toString());
+	            //tfIdRepresentant.setText(prospect.getRepresentant().getIdentifiantR().toString());
 	            
 	            //tfIdClient.setText(client.getIdentifiantC().toString());
 	            
@@ -349,6 +353,8 @@ public class FormulaireEditProspectController {
 	        	tfBoite.setText(prospect.getAdresse().getBp().toString());
 	            tfCP.setText(prospect.getAdresse().getCp().toString());
 	            tfVille.setText(prospect.getAdresse().getVille());
+	            tfDate.setText(DateUtil.format(prospect.getDate()));
+				tfDate.setPromptText("dd.MM.yyyy");
 	         
 	                             
 	        	

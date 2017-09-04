@@ -14,6 +14,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import model.Adresse;
 import model.Client;
+import model.Prospect;
 import model.Representant;
 
 public class RepresentantOverviewController {
@@ -367,6 +368,16 @@ public class RepresentantOverviewController {
 			if (okClicked) {
 
 				mainApp.getClientData().add(tempClient);
+			}
+		}
+		@FXML
+		private void handleNewProspect() {
+			Prospect tempProspect = new Prospect();
+			boolean okClicked = mainApp.showFormulaireProspect(tempProspect);
+
+			if (okClicked) {
+
+				mainApp.getProspectData().add(tempProspect);
 			}
 		}
 		

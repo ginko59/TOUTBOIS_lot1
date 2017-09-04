@@ -33,12 +33,12 @@ public LocalDate getDateVisite() {
 	return dateVisite.get();
 }
 
-public ObjectProperty<LocalDate> birthdayProperty() {
+public ObjectProperty<LocalDate>dateProperty() {
     return dateVisite;
 }
 
 @XmlJavaTypeAdapter(LocalDateAdapter.class)
-public LocalDate getBirthday() {
+public LocalDate getDate() {
     return dateVisite.get();
 }
 
