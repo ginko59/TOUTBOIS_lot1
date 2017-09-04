@@ -24,7 +24,7 @@ public Prospect() {
 	this.adresse = new Adresse();
 	//this.representant = new Representant();
 	
-	this.dateVisite  = new SimpleObjectProperty<LocalDate>(null);
+	this.dateVisite  = new SimpleObjectProperty<LocalDate>(LocalDate.of(1999, 2, 21));
 
 }
 
@@ -42,7 +42,7 @@ public LocalDate getDate() {
     return dateVisite.get();
 }
 
-public void setDateVisite(LocalDate dateVisite) {
+public void setDate(LocalDate dateVisite) {
 	this.dateVisite.set(dateVisite);
 }
 
