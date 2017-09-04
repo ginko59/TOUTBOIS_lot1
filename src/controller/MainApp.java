@@ -26,6 +26,7 @@ import model.Client;
 import model.ClientListWrapper;
 //import model.ClientListWrapper;
 import model.Contact;
+import model.Pays;
 import model.Prospect;
 import model.ProspectListWrapper;
 import model.Representant;
@@ -52,6 +53,9 @@ public class MainApp extends Application {
 	private ObservableList<Representant> representantData = FXCollections.observableArrayList();
 	private ObservableList<Prospect> prospectData = FXCollections.observableArrayList();
 	
+	private ObservableList<Pays> paysData = FXCollections.observableArrayList();
+	
+	
 	public MainApp() {
 		// Add some sample data
 		representantData.add(new Representant("abcb", "Muster","MMe","medecin","lll@gmail","063522","IBM1","001122"));
@@ -68,6 +72,17 @@ public class MainApp extends Application {
 		clientData.add(new Client("Stefan", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM8","001122"));
 		clientData.add(new Client("Martin", "Mueller","MMe","medecin","lll@gmail","063522",17,"IBM9","001122"));*/
 		
+		/*System.out.println("avant chargement");*/
+			paysData.add(new Pays(1, "France"));
+	        paysData.add(new Pays(2, "United Kingdom"));
+	        paysData.add(new Pays(3, "Germany"));
+	        paysData.add(new Pays(4, "Italy"));
+	        paysData.add(new Pays(5, "Spain"));
+	       /* System.out.println("apres chargement");*/
+	        for (int i=0; i<paysData.size();i++)
+	        {
+	        	System.out.println(paysData.get(i).toString());
+	        }
 		
 		
 		
@@ -85,6 +100,9 @@ public class MainApp extends Application {
 		return representantData;
 	}
 	
+	 public ObservableList<Pays> getPaysData() {
+	        return paysData;
+	    }
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -368,7 +386,9 @@ public class MainApp extends Application {
 		}
 	}
 
-
+	public void setPaysData(ObservableList<Pays> paysData) {
+		this.paysData = paysData;
+	}
 	
 	public boolean showFormulaireEditClient(Client client) {
 		try {

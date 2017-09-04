@@ -6,6 +6,7 @@ import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -105,7 +106,8 @@ public class FormulaireEditRepresentantController {
 	@FXML
 	private TextField tfCommission;
 	
-	
+	 @FXML
+	    private ComboBox paysCombobox;
 	
 	@FXML
 	private TableView<Representant> representantTable;
@@ -270,7 +272,7 @@ public class FormulaireEditRepresentantController {
 		        	representant.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 		        	representant.getAdresse().setVille(tfVille.getText());
 		        	representant.getAdresse().setBp(tfBoite.getText());
-		        	representant.getAdresse().setPays(tfPays.getText());
+		        	//representant.getAdresse().setPays(tfPays.getText());
 		                      
 		           
 
@@ -281,7 +283,9 @@ public class FormulaireEditRepresentantController {
 		    }
 		    @FXML
 		    private void handleOkedit() {
-		        if (isInputValid()) {
+		    	String s;
+		    	String t[];
+		    	if (isInputValid()) {
 		        	Representant selectedRepresentant = representantTable.getSelectionModel().getSelectedItem();
 		        	
 		        	selectedRepresentant.setPrenom(tfPrenom.getText());
@@ -305,8 +309,12 @@ public class FormulaireEditRepresentantController {
 		        	selectedRepresentant.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 		        	selectedRepresentant.getAdresse().setVille(tfVille.getText());
 		        	selectedRepresentant.getAdresse().setBp(tfBoite.getText());
-		        	selectedRepresentant.getAdresse().setPays(tfPays.getText());
-		                      
+		        	//selectedRepresentant.getAdresse().setPays(tfPays.getText());
+		        	s = paysCombobox.getValue().toString();
+		             System.out.println("s = "+s);
+		             t=s.split(" ");
+		             System.out.println("t = "+t[0]);
+		             selectedRepresentant.getAdresse().setPaysCode(Integer.parseInt(t[0]));   
 		           
 
 		            okClicked = true;
@@ -316,7 +324,8 @@ public class FormulaireEditRepresentantController {
 		    }
 		    
 		    private void showRepresentantDetails(Representant representant) {
-		        if (representant != null) {
+		    	int i;
+		    	if (representant != null) {
 		        	
 		        	//Client client = clientTable.getSelectionModel().getSelectedItem();
 		        	
@@ -336,7 +345,7 @@ public class FormulaireEditRepresentantController {
 		            tfSalaire.setText(representant.getSalaire().toString());
 		            tfCommission.setText(representant.getTauxCommission().toString());
 		            
-		            tfPays.setText(representant.getAdresse().getPays());
+		           // tfPays.setText(representant.getAdresse().getPays());
 		            tfNum.setText(representant.getAdresse().getNum().toString());
 		        	tfVoie.setText(representant.getAdresse().getVoie());
 		        	tfLibelle.setText(representant.getAdresse().getNomVoie());
@@ -344,7 +353,10 @@ public class FormulaireEditRepresentantController {
 		        	tfBoite.setText(representant.getAdresse().getBp().toString());
 		            tfCP.setText(representant.getAdresse().getCp().toString());
 		            tfVille.setText(representant.getAdresse().getVille());
+		           
 		            
+		            i = representant.getAdresse().getPaysCode();
+		            tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
 
 		            
 		        

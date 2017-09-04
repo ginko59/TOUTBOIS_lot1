@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -86,6 +87,7 @@ public class FormulaireEditClientController {
 	private TextField tfVille;
 	@FXML
 	private TextField tfPays;
+	
 	@FXML
 	private TextField tfCivilite;
 	@FXML
@@ -104,6 +106,9 @@ public class FormulaireEditClientController {
 	private TextField tfIdRepresentant;
 	@FXML
 	private TextField tfCommande;
+	
+    @FXML
+    private ComboBox paysCombobox;
 	
 	@FXML
 	private TableView<Client> clientTable;
@@ -253,7 +258,10 @@ public class FormulaireEditClientController {
 	    }
 	    @FXML
 	    private void handleOk() {
-	        if (isInputValid()) {
+	        
+	    	String s;
+	    	String t[];
+	    	if (isInputValid()) {
 	        	
 	        	client.setPrenom(tfPrenom.getText());
 	        	client.setNom(tfNom.getText());
@@ -275,9 +283,15 @@ public class FormulaireEditClientController {
 	        	client.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	client.getAdresse().setVille(tfVille.getText());
 	        	client.getAdresse().setBp(tfBoite.getText());
-	        	client.getAdresse().setPays(tfPays.getText());
+	        //	client.getAdresse().setPays(tfPays.getText());
 	                      
-	           
+	        	
+	        	
+	        	s = paysCombobox.getValue().toString();
+	            System.out.println("s = "+s);
+	            t=s.split(" ");
+	            System.out.println("t = "+t[0]);
+	            client.getAdresse().setPaysCode(Integer.parseInt(t[0]));
 
 	            okClicked = true;
 	            //dialogStage.close();
@@ -286,6 +300,8 @@ public class FormulaireEditClientController {
 	    }
 	    @FXML
 	    private void handleOkedit() {
+	    	String s;
+	    	String t[];
 	        if (isInputValid()) {
 	        	Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
 	        	
@@ -309,9 +325,13 @@ public class FormulaireEditClientController {
 	        	selectedClient.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	selectedClient.getAdresse().setVille(tfVille.getText());
 	        	selectedClient.getAdresse().setBp(tfBoite.getText());
-	        	selectedClient.getAdresse().setPays(tfPays.getText());
+	        	//selectedClient.getAdresse().setPays(tfPays.getText());
 	                      
-	           
+	        	s = paysCombobox.getValue().toString();
+	            System.out.println("s = "+s);
+	            t=s.split(" ");
+	            System.out.println("t = "+t[0]);
+	            selectedClient.getAdresse().setPaysCode(Integer.parseInt(t[0]));
 
 	            okClicked = true;
 	            //dialogStage.close();
@@ -320,7 +340,8 @@ public class FormulaireEditClientController {
 	    }
 	    
 	    private void showClientDetailsEdit(Client client) {
-	        if (client != null) {
+	    	int i;
+	    	if (client != null) {
 	        	
 	        	//Client client = clientTable.getSelectionModel().getSelectedItem();
 	        	
@@ -340,7 +361,7 @@ public class FormulaireEditClientController {
 	            
 	            tfIdClient.setText(client.getIdentifiantC().toString());
 	            
-	            tfPays.setText(client.getAdresse().getPays());
+	           //tfpays.setText(client.getAdresse().getPays());
 	            tfNum.setText(client.getAdresse().getNum().toString());
 	        	tfVoie.setText(client.getAdresse().getVoie());
 	        	tfLibelle.setText(client.getAdresse().getNomVoie());
@@ -348,9 +369,12 @@ public class FormulaireEditClientController {
 	        	tfBoite.setText(client.getAdresse().getBp().toString());
 	            tfCP.setText(client.getAdresse().getCp().toString());
 	            tfVille.setText(client.getAdresse().getVille());
+	           
 	            
+	            i = client.getAdresse().getPaysCode();
+	            tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
 	        
-	            
+	        
 	            
 	        	
 	            //tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());

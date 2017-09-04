@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -104,6 +105,8 @@ public class FormulaireClientController {
 	private TextField tfIdRepresentant;
 	@FXML
 	private TextField tfCommande;
+	 @FXML
+	    private ComboBox paysCombobox;
 	
 	@FXML
 	private TableView<Client> clientTable;
@@ -181,6 +184,8 @@ public class FormulaireClientController {
 	    }
 	    @FXML
 	    private void handleOk() {
+	    	String s;
+	    	String t[];
 	        if (isInputValid()) {
 	        	
 	        	client.setPrenom(tfPrenom.getText());
@@ -203,8 +208,13 @@ public class FormulaireClientController {
 	        	client.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	client.getAdresse().setVille(tfVille.getText());
 	        	client.getAdresse().setBp(tfBoite.getText());
-	        	client.getAdresse().setPays(tfPays.getText());
-	                      
+	        	//client.getAdresse().setPays(tfPays.getText());
+	        	 
+	        	s = paysCombobox.getValue().toString();
+	             System.out.println("s = "+s);
+	             t=s.split(" ");
+	             System.out.println("t = "+t[0]);
+	             client.getAdresse().setPaysCode(Integer.parseInt(t[0])); 
 	           
 
 	            okClicked = true;
@@ -276,7 +286,8 @@ public class FormulaireClientController {
 	        	selectedClient.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	selectedClient.getAdresse().setVille(tfVille.getText());
 	        	selectedClient.getAdresse().setBp(tfBoite.getText());
-	        	selectedClient.getAdresse().setPays(tfPays.getText());
+	        
+	        	//selectedClient.getAdresse().setPays(tfPays.getText());
 	                      
 	           
 

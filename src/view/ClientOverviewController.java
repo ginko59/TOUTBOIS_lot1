@@ -6,6 +6,7 @@ import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -116,6 +117,9 @@ public class ClientOverviewController {
 	private TextField tfIdRepresentant;
 	@FXML
 	private TextField tfCommande;
+	 @FXML
+	    private ComboBox paysCombobox;
+	
 
 	@FXML
 	private TableView<Client> clientTable;
@@ -179,6 +183,7 @@ public class ClientOverviewController {
 	 *            the client or null
 	 */
 	private void showClientDetails(Client client) {
+		int i;
 		if (client != null) {
 			// Fill the textfield with info from the client object.
 
@@ -194,7 +199,7 @@ public class ClientOverviewController {
 
 			tfIdClient.setText(client.getIdentifiantC().toString());
 
-			tfPays.setText(client.getAdresse().getPays());
+			//tfPays.setText(client.getAdresse().getPays());
 			tfNum.setText(client.getAdresse().getNum().toString());
 			tfVoie.setText(client.getAdresse().getVoie());
 			tfLibelle.setText(client.getAdresse().getNomVoie());
@@ -202,8 +207,10 @@ public class ClientOverviewController {
 			tfBoite.setText(client.getAdresse().getBp().toString());
 			tfCP.setText(client.getAdresse().getCp().toString());
 			tfVille.setText(client.getAdresse().getVille());
-
 			tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+						
+			 i = client.getAdresse().getPaysCode();
+	        tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
 
 		} else {
 			// Client is null, remove all the text.
@@ -218,7 +225,7 @@ public class ClientOverviewController {
 			tfBoite.setText("");
 			tfCP.setText("");
 			tfVille.setText("");
-			tfPays.setText("");
+			//tfPays.setText("");
 
 			tfCivilite.setText("");
 			tfPrenom.setText("");
@@ -230,6 +237,9 @@ public class ClientOverviewController {
 
 			tfIdClient.setText("");
 			// tfIdRepresentant.setText("");
+			
+			tfPays.setText("");
+			  //paysCombobox.setItems(mainApp.getPaysData());
 		}
 	}
 

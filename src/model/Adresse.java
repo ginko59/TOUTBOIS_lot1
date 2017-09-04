@@ -15,7 +15,7 @@ public class Adresse {
 	protected StringProperty bp;
 	protected IntegerProperty cp;
 	protected StringProperty ville;
-	protected StringProperty pays;
+	protected IntegerProperty paysCode;
 	
 	
 	public Integer getNum() {
@@ -46,9 +46,9 @@ public class Adresse {
 		return ville.get();
 	}
 	
-	public String getPays() {
+	/*public String getPays() {
 		return pays.get();
-	}
+	}*/
 	public void setNum(Integer num) {
 		this.num.set(num);
 	}
@@ -70,9 +70,9 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville.set(ville);
 	}
-	public void setPays(String pays) {
+	/*public void setPays(String pays) {
 		this.pays.set(pays);
-	}
+	}*/
 	
 	
 	
@@ -97,9 +97,23 @@ public class Adresse {
 	public StringProperty villeProperty() {
 		return ville;
 	}
-	public StringProperty paysProperty() {
+	/*public StringProperty paysProperty() {
 		return pays ;
-	}
+	}*/
+	
+	
+	
+	  public int getPaysCode() {
+	        return paysCode.get();
+	    }
+
+	    public void setPaysCode(int paysCode) {
+	        this.paysCode.set(paysCode);
+	    }
+
+	    public IntegerProperty paysCodeProperty() {
+	        return paysCode;
+	    }
 	
 	
 	
@@ -112,9 +126,13 @@ public class Adresse {
 		//this.bp = new SimpleIntegerProperty();
 		//this.cp  = new SimpleIntegerProperty();
 		this.ville = new SimpleStringProperty(ville);
-		this.pays = new SimpleStringProperty(pays);
+		//
+		this.paysCode  = new SimpleIntegerProperty(01);
+	
 	}
 	
+	
+
 	public Adresse() {
 		
 		
@@ -126,7 +144,7 @@ public class Adresse {
 		this.bp = new SimpleStringProperty();
 		this.cp = new SimpleIntegerProperty();
 		this.ville = new SimpleStringProperty();
-		this.pays = new SimpleStringProperty();
+		this.paysCode = new SimpleIntegerProperty();
 		
 		
 	}

@@ -6,6 +6,7 @@ import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -105,7 +106,8 @@ public class FormulaireRepresentantController {
 	@FXML
 	private TextField tfCommission;
 	
-	
+	 @FXML
+	    private ComboBox paysCombobox;
 	
 	@FXML
 	private TableView<Representant> representantTable;

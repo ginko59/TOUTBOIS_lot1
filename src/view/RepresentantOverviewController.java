@@ -6,6 +6,7 @@ import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -116,6 +117,9 @@ public class RepresentantOverviewController {
 	private TableColumn<Representant, String> tcTel;
 	@FXML
 	private TableColumn<Representant, String> tcMail;
+	
+	 @FXML
+	    private ComboBox paysCombobox;
 
 	@FXML
 	private void handleclient() {
@@ -159,6 +163,7 @@ public class RepresentantOverviewController {
 	}
 
 	private void showRepresentantDetails(Representant representant) {
+		int i;
 		if (representant != null) {
 			// Fill the labels with info from the person object.
 
@@ -183,7 +188,9 @@ public class RepresentantOverviewController {
 			tfBoite.setText(representant.getAdresse().getBp().toString());
 			tfCP.setText(representant.getAdresse().getCp().toString());
 
-			tfPays.setText(representant.getAdresse().getPays());
+		//	tfPays.setText(representant.getAdresse().getPays());
+			 i = representant.getAdresse().getPaysCode();
+		        tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
 
 		} else {
 			// Client is null, remove all the text.
@@ -198,6 +205,7 @@ public class RepresentantOverviewController {
 			tfBoite.setText("");
 			tfCP.setText("");
 			tfVille.setText("");
+			
 			tfPays.setText("");
 
 			tfCivilite.setText("");

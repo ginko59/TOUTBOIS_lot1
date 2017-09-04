@@ -112,7 +112,9 @@ public class Representant extends Contact {
 			this.getAdresse().complement= new SimpleStringProperty("ccc");
 			this.getAdresse().nomVoie= new SimpleStringProperty("tennis");
 			this.getAdresse().num = new SimpleIntegerProperty(11);
-			this.getAdresse().pays = new SimpleStringProperty("pays");
+			
+						
+			this.getAdresse().paysCode = new SimpleIntegerProperty(01);
 			
 	
 
