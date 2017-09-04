@@ -209,7 +209,7 @@ public class FormulaireProspectController {
 			// client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 			prospect.setEnseigne(tfEnseigne.getText());
 			prospect.setSiret(tfSiret.getText());
-			prospect.setDateVisite(DateUtil.parse(tfDate.getText()));
+			prospect.setDate(DateUtil.parse(tfDate.getText()));
 			
 		
 
