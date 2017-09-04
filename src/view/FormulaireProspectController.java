@@ -205,7 +205,7 @@ public class FormulaireProspectController {
 			prospect.setEmail(tfMail.getText());
 			prospect.setTel(tfTel.getText());
 			// client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-			// client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+			prospect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 			// client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 			prospect.setEnseigne(tfEnseigne.getText());
 			prospect.setSiret(tfSiret.getText());
@@ -280,7 +280,7 @@ public class FormulaireProspectController {
 			selectedProspect.setEmail(tfMail.getText());
 			selectedProspect.setTel(tfTel.getText());
 			// selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-			client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+			selectedProspect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 			// selectedClient.setNbCommande(Integer.parseInt(tfCommande.getText()));
 			selectedProspect.setEnseigne(tfEnseigne.getText());
 			selectedProspect.setSiret(tfSiret.getText());

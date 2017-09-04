@@ -341,7 +341,7 @@ public class FormulaireEditProspectController {
 	            tfMail.setText(prospect.getEmail());
 	            //tfCommande.setText(client.getNbCommande().toString());
 	            
-	            //tfIdRepresentant.setText(prospect.getRepresentant().getIdentifiantR().toString());
+	            tfIdRepresentant.setText(prospect.getRepresentant().getIdentifiantR().toString());
 	            
 	            //tfIdClient.setText(client.getIdentifiantC().toString());
 	            

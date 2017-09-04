@@ -182,7 +182,7 @@ public class ProspectOverviewController {
 			tfDate.setText(DateUtil.format(prospect.getDate()));
 			tfDate.setPromptText("dd.MM.yyyy");
 
-			//tfIdRepresentant.setText(prospect.getRepresentant().getIdentifiantR().toString());
+			tfIdRepresentant.setText(prospect.getRepresentant().getIdentifiantR().toString());
 
 		} else {
 			// Client is null, remove all the text.
@@ -198,17 +198,18 @@ public class ProspectOverviewController {
 			tfCP.setText("");
 			tfVille.setText("");
 			tfPays.setText("");
-
+			tfDate.setText("");
 			tfCivilite.setText("");
 			tfPrenom.setText("");
 			tfNom.setText("");
 			tfFonction.setText("");
 			tfTel.setText("");
 			tfMail.setText("");
+			tfIdRepresentant.setText("");
 			//tfCommande.setText("");
 
 			//tfIdClient.setText("");
-			// tfIdRepresentant.setText("");
+			tfIdRepresentant.setText("");
 		}
 	}
 	/**

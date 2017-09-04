@@ -22,9 +22,9 @@ public Prospect() {
 	super();
 
 	this.adresse = new Adresse();
-	//this.representant = new Representant();
+	this.representant = new Representant();
 	
-	this.dateVisite  = new SimpleObjectProperty<LocalDate>(null);
+	this.dateVisite  = new SimpleObjectProperty<LocalDate>();
 
 }
 
