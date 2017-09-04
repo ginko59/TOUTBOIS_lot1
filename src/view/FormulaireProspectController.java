@@ -210,7 +210,8 @@ public class FormulaireProspectController {
 			prospect.setEnseigne(tfEnseigne.getText());
 			prospect.setSiret(tfSiret.getText());
 			prospect.setDateVisite(DateUtil.parse(tfDate.getText()));
-			//prospect.setPromptText("dd.MM.yyyy");
+			
+		
 
 			prospect.getAdresse().setVoie(tfVoie.getText());
 			prospect.getAdresse().setNum(Integer.parseInt(tfNum.getText()));

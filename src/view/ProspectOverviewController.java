@@ -178,6 +178,7 @@ public class ProspectOverviewController {
 			tfBoite.setText(prospect.getAdresse().getBp().toString());
 			tfCP.setText(prospect.getAdresse().getCp().toString());
 			tfVille.setText(prospect.getAdresse().getVille());
+			System.out.println(DateUtil.format(prospect.getDate()));
 			tfDate.setText(DateUtil.format(prospect.getDate()));
 			tfDate.setPromptText("dd.MM.yyyy");
 

@@ -14,7 +14,7 @@ import javafx.beans.property.StringProperty;
 
 public class Prospect extends Contact {
 	
-protected ObjectProperty<LocalDate> dateVisite;
+protected final ObjectProperty<LocalDate> dateVisite;
 private Representant representant= new Representant();
 
 public Prospect() {
@@ -24,7 +24,7 @@ public Prospect() {
 	this.adresse = new Adresse();
 	//this.representant = new Representant();
 	
-	this.dateVisite  = new SimpleObjectProperty<LocalDate>(LocalDate.of(2000, 1, 11));
+	this.dateVisite  = new SimpleObjectProperty<LocalDate>(null);
 
 }
 
@@ -59,28 +59,43 @@ public void setAdresse(Adresse adresse) {
 }
 
 
-public Prospect(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom,
-		StringProperty prenom, StringProperty fonction, StringProperty email, StringProperty tel, int nbCommande,
-		Adresse adresse) {
-	super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
+
 	// TODO Auto-generated constructor stub
-}
 
 
-public Prospect(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom,
-		StringProperty prenom, StringProperty fonction, StringProperty email, StringProperty tel, int nbCommande,
-		Adresse adresse, ObjectProperty<LocalDate> dateVisite, Representant representant) {
-	super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
-	this.dateVisite = dateVisite;
-	this.representant = representant;
-}
 
-public Prospect(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret) {
+
+
+/**
+	 * @param enseigne
+	 * @param siret
+	 * @param civilite
+	 * @param nom
+	 * @param prenom
+	 * @param fonction
+	 * @param email
+	 * @param tel
+	 * @param nbCommande
+	 * @param adresse
+	 * @param dateVisite
+	 * @param representant
+	 */
+	public Prospect(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom,
+			StringProperty prenom, StringProperty fonction, StringProperty email, StringProperty tel, int nbCommande,
+			Adresse adresse, ObjectProperty<LocalDate> dateVisite, Representant representant) {
+		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
+		this.dateVisite = dateVisite;
+		this.representant = representant;
+		
+	}
+
+
+/*public Prospect(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret, LocalDate dateVisite) {
 	
 	
 	this.prenom = new SimpleStringProperty(prenom);
 	this.nom = new SimpleStringProperty(nom);
-	this.dateVisite  = new SimpleObjectProperty<LocalDate>(LocalDate.of(2000, 1, 11));
+	this.dateVisite  = new SimpleObjectProperty<LocalDate>(dateVisite);
 	this.civilite = new SimpleStringProperty(civilite);
 	this.fonction = new SimpleStringProperty (fonction);
 	this.email= new SimpleStringProperty ( email);
@@ -106,7 +121,7 @@ public Prospect(String prenom, String nom, String civilite, String fonction, Str
 	
 	
 
-}
+}*/
 }
 
 

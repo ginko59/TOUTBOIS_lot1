@@ -509,6 +509,7 @@ public class MainApp extends Application {
 			setProspectFilePath(file);
 
 		} catch (Exception e) { // catches ANY exception
+			e.printStackTrace();
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText("Could not load data");

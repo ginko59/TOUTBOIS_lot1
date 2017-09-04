@@ -3,28 +3,26 @@ package model;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlList;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 // définit le nom de l'élément racine.
 
 @XmlRootElement(name = "client")
 public class ClientListWrapper {
-	
 
 	private List<Client> clients;
-	
-//est un nom optionel que nous pouvons spécifier pour l'élément.
-	
-    @XmlElement(name = "clients")
-    
-    public List<Client> getClients() {
-        return clients;
-    }
 
-    public void setClients(List<Client> clients) {
-    	
+	// est un nom optionel que nous pouvons spécifier pour l'élément.
 
-        this.clients = clients;
-    }
+	@XmlElement(name = "clients")
+
+	public List<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(List<Client> clients) {
+
+		this.clients = clients;
+	}
 }

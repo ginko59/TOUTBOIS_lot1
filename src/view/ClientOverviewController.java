@@ -229,7 +229,7 @@ public class ClientOverviewController {
 			tfCommande.setText("");
 
 			tfIdClient.setText("");
-			// tfIdRepresentant.setText("");
+			tfIdRepresentant.setText("");
 		}
 	}
 
