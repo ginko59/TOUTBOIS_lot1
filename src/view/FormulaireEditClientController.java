@@ -310,10 +310,60 @@ public class FormulaireEditClientController {
 	        	selectedClient.getAdresse().setVille(tfVille.getText());
 	        	selectedClient.getAdresse().setBp(tfBoite.getText());
 	        	selectedClient.getAdresse().setPays(tfPays.getText());
+	        	
+	        	if(selectedClient.getNbCommande()<1);
+	        	{
+	        		Prospect prospect = new Prospect();
+	        		
+	        		prospect.setNbCommande(Integer.parseInt(tfCommande.getText()));
+		        	
+	        		prospect.setPrenom(tfPrenom.getText());
+	        		prospect.setNom(tfNom.getText());
+	        		prospect.setCivilite(tfCivilite.getText());
+	        		prospect.setFonction(tfFonction.getText());
+	        		prospect.setEmail(tfMail.getText());
+	        		prospect.setTel(tfTel.getText());
+		        	
+	        		prospect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        		prospect.setNbCommande(Integer.parseInt(tfCommande.getText()));
+	        		prospect.setEnseigne(tfEnseigne.getText());
+	        		prospect.setSiret(tfSiret.getText());
+		        	 
+		        	
+	        		prospect.getAdresse().setVoie(tfVoie.getText());
+	        		prospect.getAdresse().setNum(Integer.parseInt(tfNum.getText()));
+	        		prospect.getAdresse().setNomVoie(tfLibelle.getText());
+	        		prospect.getAdresse().setComplement(tfComplement.getText());
+	        		prospect.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
+	        		prospect.getAdresse().setVille(tfVille.getText());
+	        		prospect.getAdresse().setBp(tfBoite.getText());
+	        		prospect.getAdresse().setPays(tfPays.getText());
+	        		
+		        	  mainApp.getProspectData().add(prospect);
+		        	  
+		        	  int selectedIndex = clientTable.getSelectionModel().getSelectedIndex();
+		      		if (selectedIndex >= 0) {
+		      			
+		      			clientTable.getItems().remove(selectedIndex);
+		      			 okClicked = true;
+		      			mainApp.showprospectOverview();
+		      		} else {
+		      			// Nothing selected.
+		      			Alert alert = new Alert(AlertType.WARNING);
+		      			alert.initOwner(mainApp.getPrimaryStage());
+		      			alert.setTitle("No Selection");
+		      			alert.setHeaderText("No client Selected");
+		      			alert.setContentText("Please select a client in the table.");
+
+		      			alert.showAndWait();
+		      		}
+
+		      	}
 	                      
 	           
 
 	            okClicked = true;
+	            mainApp.showClientOverview();
 	            //dialogStage.close();
 	            //mainApp.getClientData().add(client);
 	        }
