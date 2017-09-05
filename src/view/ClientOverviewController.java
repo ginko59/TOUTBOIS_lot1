@@ -179,6 +179,7 @@ public class ClientOverviewController {
 	 *            the client or null
 	 */
 	private void showClientDetails(Client client) {
+		int i;
 		if (client != null) {
 			// Fill the textfield with info from the client object.
 
@@ -202,8 +203,11 @@ public class ClientOverviewController {
 			tfBoite.setText(client.getAdresse().getBp().toString());
 			tfCP.setText(client.getAdresse().getCp().toString());
 			tfVille.setText(client.getAdresse().getVille());
+			
+            i = client.getIdentifiantR();
+            tfIdRepresentant.setText(Integer.toString(i)+" "+mainApp.getRepresentantData().get(i-1).getNom());
 
-			tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+			//tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
 
 		} else {
 			// Client is null, remove all the text.
@@ -323,7 +327,7 @@ public class ClientOverviewController {
 	private void handleNewClient() {
 		Client tempClient = new Client();
 		boolean okClicked = mainApp.showFormulaireClient(tempClient);
-
+		 
 		if (okClicked) {
 
 			mainApp.getClientData().add(tempClient);
@@ -343,6 +347,8 @@ public class ClientOverviewController {
 	private void handleNewProspect() {
 		Prospect tempProspect = new Prospect();
 		boolean okClicked = mainApp.showFormulaireProspect(tempProspect);
+		System.out.println("test2");
+ 	  
 
 		if (okClicked) {
 

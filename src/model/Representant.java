@@ -9,9 +9,10 @@ import javafx.beans.property.SimpleFloatProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 public class Representant extends Contact {
-	private static int compteurR = 0; 
+	protected static int compteurR = 0; 
 	protected IntegerProperty identifiantR;
 	protected FloatProperty tauxCommission;
 	protected FloatProperty salaire;
@@ -26,6 +27,33 @@ public class Representant extends Contact {
 		this.tauxCommission= new SimpleFloatProperty(0);
 		
 	}
+	public Representant(String prenom, String nom) {
+		super();
+		compteurR++;
+		this.nom = new SimpleStringProperty(nom);
+		this.prenom = new SimpleStringProperty(prenom);
+		this.identifiantR =new SimpleIntegerProperty(compteurR);
+        this.salaire = new SimpleFloatProperty(0);
+		this.tauxCommission= new SimpleFloatProperty(0);
+		this.enseigne = new SimpleStringProperty("ToutBois"); 
+		this.siret = new SimpleStringProperty("01000155456");
+        this.civilite= new SimpleStringProperty("");
+        this.fonction= new SimpleStringProperty("");
+        this.email= new SimpleStringProperty("");
+        this.tel= new SimpleStringProperty("");
+        this.nbCommande= new SimpleIntegerProperty(0);
+        this.getAdresse().bp= new SimpleStringProperty("");
+        this.getAdresse().cp= new SimpleIntegerProperty(00000);
+        this.getAdresse().voie= new SimpleStringProperty("");
+        this.getAdresse().nomVoie= new SimpleStringProperty("");
+        this.getAdresse().complement= new SimpleStringProperty("");
+        this.getAdresse().ville= new SimpleStringProperty("");
+        this.getAdresse().pays= new SimpleStringProperty("");
+        this.getAdresse().num= new SimpleIntegerProperty(0);
+        
+        
+ }
+ 
 	
 	public Integer getIdentifiantR() {
 		return identifiantR.get();
@@ -117,6 +145,11 @@ public class Representant extends Contact {
 	
 
 }
+
+	@Override
+	public String toString() {
+		return "Representant [identifiantR=" + identifiantR + ", nom=" + nom + ", prenom=" + prenom + "]";
+	}
 
 	
 	

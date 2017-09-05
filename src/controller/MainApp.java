@@ -54,11 +54,19 @@ public class MainApp extends Application {
 	
 	public MainApp() {
 		// Add some sample data
-		/*representantData.add(new Representant("abcb", "Muster","MMe","medecin","lll@gmail","063522","IBM1","001122"));
-		representantData.add(new Representant("hfls", "Mueller","MMe","medecin","lll@gmail","063522","IBM2","001122"));
-		representantData.add(new Representant("azerty", "Kurz","MMe","medecin","lll@gmail","063522","IBM3","001122"));
+		 System.out.println("avant chargement");
+		 representantData.add(new Representant("bernard", "France"));
+		 representantData.add(new Representant("claude", "United Kingdom"));
+		 representantData.add(new Representant("jean", "Germany"));
+		 representantData.add(new Representant("cyril", "Italy"));
+		 representantData.add(new Representant("kevin", "Spain"));
+		 System.out.println("apres chargement");
+		 for (int i=0; i<representantData.size();i++)
+	        {
+	        	System.out.println(representantData.get(i).toString());
+	        }
 		
-		clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
+		/*clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
 		clientData.add(new Client("Ruth", "Mueller","MMe","medecin","lll@gmail","063522",122,"IBM2","001122"));
 		clientData.add(new Client("Heinz", "Kurz","MMe","medecin","lll@gmail","063522",13,"IBM3","001122"));
 		clientData.add(new Client("Cornelia", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM4","001122"));

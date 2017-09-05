@@ -4,9 +4,11 @@ import java.io.File;
 
 import controller.MainApp;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -26,13 +28,15 @@ public class FormulaireClientController {
 	private Client client;
 	private Stage dialogStage;
 	private boolean okClicked = false;
+	
 	public void setMainApp(MainApp mainApp) {
 	    this.mainApp = mainApp;
 	    // Add observable list data to the table
 	    clientTable.setItems(mainApp.getClientData());
 	   
 	}
-
+	@FXML
+    private ComboBox<Representant> representantCombo;
 	@FXML
     private Button bSauvegarder;
     @FXML
@@ -137,8 +141,9 @@ public class FormulaireClientController {
         tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
         tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
        
+       
      // Clear person details.
-        showClientDetails(null);
+        showClientDetails(client);
      
         // Listen for selection changes and show the client details when changed.
        clientTable.getSelectionModel().selectedItemProperty().addListener(
@@ -221,7 +226,11 @@ public class FormulaireClientController {
 		private void handleNewClient() {
 			Client tempClient = new Client();
 			boolean okClicked = mainApp.showFormulaireClient(tempClient);
-
+			System.out.println("test2");
+	    	   for (int i=0; i<mainApp.getRepresentantData().size();i++)
+	           {
+	           	System.out.println(mainApp.getRepresentantData().get(i).toString());
+	           }
 			if (okClicked) {
 
 				mainApp.getClientData().add(tempClient);
@@ -263,7 +272,7 @@ public class FormulaireClientController {
 	        	selectedClient.setEmail(tfMail.getText());
 	        	selectedClient.setTel(tfTel.getText());
 	        	//selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	        	client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	selectedClient.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	selectedClient.setEnseigne(tfEnseigne.getText());
 	        	selectedClient.setSiret(tfSiret.getText());
@@ -286,44 +295,17 @@ public class FormulaireClientController {
 	        }
 	    }
 	    
-	    private void showClientDetails(Client client) {
-	        if (client != null) {
-	        	
-	        	//Client client = clientTable.getSelectionModel().getSelectedItem();
-	        	
-	            // Fill the textfield with info from the client object.
-	        	
-	        	/*tfEnseigne.setText(client.getEnseigne());
-	            tfSiret.setText(client.getSiret());
-	            tfCivilite.setText(client.getCivilite());
-	            tfPrenom.setText(client.getPrenom());
-	            tfNom.setText(client.getNom());
-	            tfFonction.setText(client.getFonction());
-	            tfTel.setText(client.getTel());
-	            tfMail.setText(client.getEmail());
-	            tfCommande.setText(client.getNbCommande().toString());
-	            
-	            tfIdClient.setText(client.getIdentifiantC().toString());
-	            
-	            tfPays.setText(client.getAdresse().getPays());
-	            tfNum.setText(client.getAdresse().getNum().toString());
-	        	tfVoie.setText(client.getAdresse().getVoie());
-	        	tfLibelle.setText(client.getAdresse().getNomVoie());
-	        	tfComplement.setText(client.getAdresse().getComplement());
-	        	tfBoite.setText(client.getAdresse().getBp().toString());
-	            tfCP.setText(client.getAdresse().getCp().toString());
-	            tfVille.setText(client.getAdresse().getVille());*/
-	            
-	        
-	            
-	            
-	        	
-	            //tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
-
+	
+		private void showClientDetails(Client client) {
+			representantCombo.getSelectionModel().select(0);
+			representantCombo.setItems(mainApp.getRepresentantData());
+		    
 	          
-	        }  
+	    	   }
+	    
+	        
 	           
-	        }
+	        
 	    
 	    
 	   
@@ -336,6 +318,7 @@ public class FormulaireClientController {
 	   public void setClient(Client client) {
 	        this.client = client;
 
+	  
 /*
 	        tfEnseigne.setText(client.getEnseigne());
 	        tfSiret.setText(client.getSiret());

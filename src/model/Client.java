@@ -3,6 +3,7 @@ package model;
 import javax.xml.bind.annotation.XmlTransient;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -10,10 +11,9 @@ import javafx.beans.property.StringProperty;
 public class Client extends Contact {
 	private static int compteurC = 0; 
 
-	private IntegerProperty identifiantC;
-	private Representant representant= new Representant();
-
-	
+ final IntegerProperty identifiantC;
+    protected final IntegerProperty identifiantR;
+    
 	
 
 	public Client() {
@@ -25,6 +25,8 @@ public class Client extends Contact {
 			
 			compteurC ++;
 			this.identifiantC =new SimpleIntegerProperty(compteurC);
+			this.identifiantR  = new SimpleIntegerProperty(01);
+			
 			
 
 		}
@@ -33,9 +35,7 @@ public class Client extends Contact {
 		return identifiantC.get();
 	}
 	
-	public Representant getRepresentant() {
-		return representant;
-	}
+	
 	
 	public Adresse getAdresse() {
 		return adresse;
@@ -49,29 +49,24 @@ public class Client extends Contact {
 		return identifiantC;
 	}
 
-	public void setRepresentant(Representant representant) {
-		this.representant = representant;
-	}
+	
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
 	}
+	public int getIdentifiantR() {
+        return identifiantR.get();
+    }
 
+    public void setIdentifiantR(int identifiantR) {
+        this.identifiantR.set(identifiantR);
+    }
+
+    public IntegerProperty IdentifuantRProperty() {
+        return identifiantR;
+    }
 	
-	public Client(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom,
-			StringProperty prenom, StringProperty fonction, StringProperty email, StringProperty tel, int nbCommande,
-			Adresse adresse) {
-		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
-		
-	}
-
-	public Client(StringProperty enseigne, StringProperty siret, StringProperty civilite, StringProperty nom,
-			StringProperty prenom, StringProperty fonction, StringProperty email, StringProperty tel, int nbCommande,
-			Adresse adresse, SimpleIntegerProperty identifiantC, Representant representant) {
-		super(enseigne, siret, civilite, nom, prenom, fonction, email, tel, nbCommande, adresse);
-		//this.identifiantC = identifiantC;
-		this.representant = representant;
-	}
+	
 
 	public Client(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret) {
 	
@@ -86,7 +81,7 @@ public class Client extends Contact {
 		this.nbCommande = new SimpleIntegerProperty(nbCommande);
 		this.enseigne = new SimpleStringProperty(enseigne); 
 		this.siret = new SimpleStringProperty(siret);
-		this.representant.identifiantR =new SimpleIntegerProperty(representant.getIdentifiantR());
+		this.identifiantR =new SimpleIntegerProperty(01);
 		
 		
 		
