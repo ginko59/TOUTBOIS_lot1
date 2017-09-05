@@ -1,8 +1,6 @@
 package model;
 
 
-import javax.xml.bind.annotation.XmlTransient;
-
 import javafx.beans.property.FloatProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleFloatProperty;
@@ -114,7 +112,7 @@ public class Representant extends Contact {
 			this.getAdresse().num = new SimpleIntegerProperty(11);
 			
 						
-			this.getAdresse().paysCode = new SimpleIntegerProperty(01);
+			this.getAdresse().pays = new SimpleStringProperty();
 			
 	
 

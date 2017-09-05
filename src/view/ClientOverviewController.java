@@ -209,8 +209,8 @@ public class ClientOverviewController {
 			tfVille.setText(client.getAdresse().getVille());
 			tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
 						
-			 i = client.getAdresse().getPaysCode();
-	        tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
+			// i = client.getAdresse().getPaysCode();
+	        //tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
 
 		} else {
 			// Client is null, remove all the text.
@@ -238,8 +238,8 @@ public class ClientOverviewController {
 			tfIdClient.setText("");
 			// tfIdRepresentant.setText("");
 			
-			tfPays.setText("");
-			  //paysCombobox.setItems(mainApp.getPaysData());
+			//tfPays.setText("");
+			 // paysCombobox.setItems(mainApp.getPaysData());
 		}
 	}
 

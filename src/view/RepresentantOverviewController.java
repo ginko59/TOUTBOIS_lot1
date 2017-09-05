@@ -19,6 +19,7 @@ import model.Prospect;
 import model.Representant;
 
 public class RepresentantOverviewController {
+	
 	private MainApp mainApp;
 
 	public void setMainApp(MainApp mainApp) {
@@ -189,8 +190,8 @@ public class RepresentantOverviewController {
 			tfCP.setText(representant.getAdresse().getCp().toString());
 
 		//	tfPays.setText(representant.getAdresse().getPays());
-			 i = representant.getAdresse().getPaysCode();
-		        tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
+			/* i = representant.getAdresse().getPaysCode();
+		        tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());*/
 
 		} else {
 			// Client is null, remove all the text.

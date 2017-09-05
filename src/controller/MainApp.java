@@ -58,9 +58,9 @@ public class MainApp extends Application {
 	
 	public MainApp() {
 		// Add some sample data
-		representantData.add(new Representant("abcb", "Muster","MMe","medecin","lll@gmail","063522","IBM1","001122"));
+	/*	representantData.add(new Representant("abcb", "Muster","MMe","medecin","lll@gmail","063522","IBM1","001122"));
 		representantData.add(new Representant("hfls", "Mueller","MMe","medecin","lll@gmail","063522","IBM2","001122"));
-		representantData.add(new Representant("azerty", "Kurz","MMe","medecin","lll@gmail","063522","IBM3","001122"));
+		representantData.add(new Representant("azerty", "Kurz","MMe","medecin","lll@gmail","063522","IBM3","001122"));*/
 		
 		/*clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122"));
 		clientData.add(new Client("Ruth", "Mueller","MMe","medecin","lll@gmail","063522",122,"IBM2","001122"));
@@ -72,18 +72,7 @@ public class MainApp extends Application {
 		clientData.add(new Client("Stefan", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM8","001122"));
 		clientData.add(new Client("Martin", "Mueller","MMe","medecin","lll@gmail","063522",17,"IBM9","001122"));*/
 		
-		/*System.out.println("avant chargement");*/
-			paysData.add(new Pays(1, "France"));
-	        paysData.add(new Pays(2, "United Kingdom"));
-	        paysData.add(new Pays(3, "Germany"));
-	        paysData.add(new Pays(4, "Italy"));
-	        paysData.add(new Pays(5, "Spain"));
-	       /* System.out.println("apres chargement");*/
-	        for (int i=0; i<paysData.size();i++)
-	        {
-	        	System.out.println(paysData.get(i).toString());
-	        }
-		
+	
 		
 		
 	}

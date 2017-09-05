@@ -3,7 +3,8 @@ package view;
 import java.io.File;
 
 import controller.MainApp;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -15,7 +16,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.Adresse;
 import model.Client;
 import model.Prospect;
 //import util.DateUtil;
@@ -23,6 +23,9 @@ import model.Representant;
 
 
 public class FormulaireClientController {
+	
+	private ObservableList<String> paysDataList = FXCollections.observableArrayList("France","Italy","Belgique","Suisse");
+
 	private MainApp mainApp;
 	private Client client;
 	private Stage dialogStage;
@@ -106,7 +109,7 @@ public class FormulaireClientController {
 	@FXML
 	private TextField tfCommande;
 	 @FXML
-	    private ComboBox paysCombobox;
+	    private ComboBox<String> paysCombobox;
 	
 	@FXML
 	private TableView<Client> clientTable;
@@ -146,7 +149,14 @@ public class FormulaireClientController {
         // Listen for selection changes and show the client details when changed.
        clientTable.getSelectionModel().selectedItemProperty().addListener(
                (observable, oldValue, newValue) -> showClientDetails(newValue));
-   }
+       
+   
+
+       //Initialize the ComboBox
+       paysCombobox.setValue("France");
+       paysCombobox.setItems(paysDataList);
+    
+    }
     
     /**
      * Sets the stage of this dialog.
@@ -184,8 +194,7 @@ public class FormulaireClientController {
 	    }
 	    @FXML
 	    private void handleOk() {
-	    	String s;
-	    	String t[];
+	    
 	        if (isInputValid()) {
 	        	
 	        	client.setPrenom(tfPrenom.getText());
@@ -208,13 +217,14 @@ public class FormulaireClientController {
 	        	client.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	client.getAdresse().setVille(tfVille.getText());
 	        	client.getAdresse().setBp(tfBoite.getText());
+	        	client.getAdresse().setPays((String) paysCombobox.getValue());
 	        	//client.getAdresse().setPays(tfPays.getText());
 	        	 
-	        	s = paysCombobox.getValue().toString();
+	        /*	s = paysCombobox.getValue().toString();
 	             System.out.println("s = "+s);
 	             t=s.split(" ");
 	             System.out.println("t = "+t[0]);
-	             client.getAdresse().setPaysCode(Integer.parseInt(t[0])); 
+	             client.getAdresse().setPaysCode(Integer.parseInt(t[0])); */
 	           
 
 	            okClicked = true;
@@ -287,7 +297,7 @@ public class FormulaireClientController {
 	        	selectedClient.getAdresse().setVille(tfVille.getText());
 	        	selectedClient.getAdresse().setBp(tfBoite.getText());
 	        
-	        	//selectedClient.getAdresse().setPays(tfPays.getText());
+	        	selectedClient.getAdresse().setPays((String) paysCombobox.getValue());
 	                      
 	           
 

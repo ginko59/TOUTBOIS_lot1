@@ -3,6 +3,8 @@ package view;
 import java.io.File;
 
 import controller.MainApp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -19,6 +21,9 @@ import model.Prospect;
 import model.Representant;
 
 public class FormulaireRepresentantController {
+	private ObservableList<String> paysDataList = FXCollections.observableArrayList("France","Italy","Belgique","Suisse");
+
+    
 	
 	private MainApp mainApp;
 	private Representant representant;
@@ -107,7 +112,7 @@ public class FormulaireRepresentantController {
 	private TextField tfCommission;
 	
 	 @FXML
-	    private ComboBox paysCombobox;
+	    private ComboBox<String> paysCombobox;
 	
 	@FXML
 	private TableView<Representant> representantTable;
@@ -164,7 +169,10 @@ public class FormulaireRepresentantController {
 	        // Listen for selection changes and show the client details when changed.
 	       representantTable.getSelectionModel().selectedItemProperty().addListener(
 	               (observable, oldValue, newValue) -> showRepresentantDetails(newValue));
-	   }
+	     //Initialize the ComboBox
+	       paysCombobox.setValue("France");
+	       paysCombobox.setItems(paysDataList); 
+	 }
 	 
 	  /**
 	     * Sets the stage of this dialog.
@@ -272,7 +280,7 @@ public class FormulaireRepresentantController {
 		        	representant.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 		        	representant.getAdresse().setVille(tfVille.getText());
 		        	representant.getAdresse().setBp(tfBoite.getText());
-		        	representant.getAdresse().setPays(tfPays.getText());
+		        	representant.getAdresse().setPays((String) paysCombobox.getValue());
 		                      
 		           
 
@@ -308,7 +316,7 @@ public class FormulaireRepresentantController {
 		        	selectedRepresentant.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 		        	selectedRepresentant.getAdresse().setVille(tfVille.getText());
 		        	selectedRepresentant.getAdresse().setBp(tfBoite.getText());
-		        	selectedRepresentant.getAdresse().setPays(tfPays.getText());
+		        	selectedRepresentant.getAdresse().setPays((String) paysCombobox.getValue());
 		                      
 		           
 

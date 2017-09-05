@@ -3,9 +3,12 @@ package view;
 import java.io.File;
 
 import controller.MainApp;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,12 +22,17 @@ import model.Representant;
 import util.DateUtil;
 
 public class FormulaireEditProspectController {
+	private ObservableList<String> paysDataList = FXCollections.observableArrayList("France","Italy","Belgique","Suisse");
+
 	private MainApp mainApp;
 	private Prospect prospect;
 	private Stage dialogStage;
 	private boolean okClicked = false;
 	
 	public void setMainApp(MainApp mainApp) {
+		
+		ObservableList<String> paysDataList = FXCollections.observableArrayList("France","Italy","Belgique","Suisse");
+
 	    this.mainApp = mainApp;
 	    // Add observable list data to the table
 	    prospectTable.setItems(mainApp.getProspectData());
@@ -58,7 +66,8 @@ public class FormulaireEditProspectController {
     private MenuItem mRepresentant;
     @FXML
     private MenuItem mProspect;
-    
+    @FXML
+    private ComboBox<String> paysCombobox;
     @FXML
     private MenuItem fSave;
     @FXML
@@ -147,6 +156,13 @@ public class FormulaireEditProspectController {
 		prospectTable.getSelectionModel().selectedItemProperty()
 				.addListener((observable, oldValue, newValue) -> showProspectDetailsEdit(newValue));
 
+		 //Initialize the ComboBox
+	       paysCombobox.setValue("France");
+	       paysCombobox.setItems(paysDataList);
+
+	       //Initialize the ComboBox
+	       paysCombobox.setValue("France");
+	       paysCombobox.setItems(paysDataList);
 	}
     /**
      * Sets the stage of this dialog.
@@ -279,7 +295,7 @@ public class FormulaireEditProspectController {
 	        	prospect.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	prospect.getAdresse().setVille(tfVille.getText());
 	        	prospect.getAdresse().setBp(tfBoite.getText());
-	        	prospect.getAdresse().setPays(tfPays.getText());
+	        	prospect.getAdresse().setPays(paysCombobox.getValue());
 	        	
 	                      
 	           
@@ -314,7 +330,7 @@ public class FormulaireEditProspectController {
 	        	selectedProspect.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	selectedProspect.getAdresse().setVille(tfVille.getText());
 	        	selectedProspect.getAdresse().setBp(tfBoite.getText());
-	        	selectedProspect.getAdresse().setPays(tfPays.getText());
+	        	selectedProspect.getAdresse().setPays(paysCombobox.getValue());
 	                      
 	           
 
@@ -345,7 +361,7 @@ public class FormulaireEditProspectController {
 	            
 	            //tfIdClient.setText(client.getIdentifiantC().toString());
 	            
-	            tfPays.setText(prospect.getAdresse().getPays());
+	          //  tfPays.setText(prospect.getAdresse().setPaysCode(paysCombobox.getValue());
 	            tfNum.setText(prospect.getAdresse().getNum().toString());
 	        	tfVoie.setText(prospect.getAdresse().getVoie());
 	        	tfLibelle.setText(prospect.getAdresse().getNomVoie());

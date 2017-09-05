@@ -4,6 +4,8 @@ import java.io.File;
 
 import controller.MainApp;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -17,20 +19,28 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Adresse;
 import model.Client;
+import model.Pays;
 import model.Prospect;
 //import util.DateUtil;
 import model.Representant;
 
 
 public class FormulaireEditClientController {
+	private ObservableList<String> paysDataList = FXCollections.observableArrayList("France","Italy","Belgique","Suisse");
+	//private ObservableList<String> paysData = FXCollections.observableArrayList();
+
 	private MainApp mainApp;
+	
 	private Client client;
 	private Stage dialogStage;
 	private boolean okClicked = false;
+	
 	public void setMainApp(MainApp mainApp) {
 	    this.mainApp = mainApp;
 	    // Add observable list data to the table
 	    clientTable.setItems(mainApp.getClientData());
+	    
+		
 	   
 	}
 
@@ -108,7 +118,7 @@ public class FormulaireEditClientController {
 	private TextField tfCommande;
 	
     @FXML
-    private ComboBox paysCombobox;
+    private ComboBox<String> paysCombobox;
 	
 	@FXML
 	private TableView<Client> clientTable;
@@ -142,12 +152,19 @@ public class FormulaireEditClientController {
         tcNbCom.setCellValueFactory(cellData -> (cellData.getValue()).nbCommandeProperty().asObject());
         tcEnseigne.setCellValueFactory(cellData -> (cellData.getValue()).enseigneProperty());
        
-     // Clear person details.
+     // Clear client details.
         showClientDetailsEdit(null);
      
         // Listen for selection changes and show the client details when changed.
        clientTable.getSelectionModel().selectedItemProperty().addListener(
                (observable, oldValue, newValue) -> showClientDetailsEdit(newValue));
+       
+       //Initialize the ComboBox
+       paysCombobox.setValue("France");
+       paysCombobox.setItems(paysDataList);
+
+     
+       
    }
     /**
      * Sets the stage of this dialog.
@@ -259,8 +276,7 @@ public class FormulaireEditClientController {
 	    @FXML
 	    private void handleOk() {
 	        
-	    	String s;
-	    	String t[];
+	    	
 	    	if (isInputValid()) {
 	        	
 	        	client.setPrenom(tfPrenom.getText());
@@ -283,15 +299,16 @@ public class FormulaireEditClientController {
 	        	client.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	client.getAdresse().setVille(tfVille.getText());
 	        	client.getAdresse().setBp(tfBoite.getText());
+	        	client.getAdresse().setPays(paysCombobox.getValue());
 	        //	client.getAdresse().setPays(tfPays.getText());
 	                      
 	        	
 	        	
-	        	s = paysCombobox.getValue().toString();
+	        /*	s = paysCombobox.getValue().toString();
 	            System.out.println("s = "+s);
 	            t=s.split(" ");
 	            System.out.println("t = "+t[0]);
-	            client.getAdresse().setPaysCode(Integer.parseInt(t[0]));
+	            client.getAdresse().setPaysCode(Integer.parseInt(t[0]));*/
 
 	            okClicked = true;
 	            //dialogStage.close();
@@ -300,8 +317,7 @@ public class FormulaireEditClientController {
 	    }
 	    @FXML
 	    private void handleOkedit() {
-	    	String s;
-	    	String t[];
+	    	
 	        if (isInputValid()) {
 	        	Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
 	        	
@@ -325,13 +341,13 @@ public class FormulaireEditClientController {
 	        	selectedClient.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
 	        	selectedClient.getAdresse().setVille(tfVille.getText());
 	        	selectedClient.getAdresse().setBp(tfBoite.getText());
-	        	//selectedClient.getAdresse().setPays(tfPays.getText());
+	        	selectedClient.getAdresse().setPays(paysCombobox.getValue());
 	                      
-	        	s = paysCombobox.getValue().toString();
+	        /*	s = paysCombobox.getValue().toString();
 	            System.out.println("s = "+s);
 	            t=s.split(" ");
 	            System.out.println("t = "+t[0]);
-	            selectedClient.getAdresse().setPaysCode(Integer.parseInt(t[0]));
+	            selectedClient.getAdresse().setPaysCode(Integer.parseInt(t[0]));*/
 
 	            okClicked = true;
 	            //dialogStage.close();
@@ -340,7 +356,7 @@ public class FormulaireEditClientController {
 	    }
 	    
 	    private void showClientDetailsEdit(Client client) {
-	    	int i;
+	    
 	    	if (client != null) {
 	        	
 	        	//Client client = clientTable.getSelectionModel().getSelectedItem();
@@ -371,8 +387,8 @@ public class FormulaireEditClientController {
 	            tfVille.setText(client.getAdresse().getVille());
 	           
 	            
-	            i = client.getAdresse().getPaysCode();
-	            tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
+	         //   i = client.getAdresse().getPaysCode();
+	          //  tfPays.setText(Integer.toString(i)+" "+mainApp.getPaysData().get(i-1).getPays());
 	        
 	        
 	            
