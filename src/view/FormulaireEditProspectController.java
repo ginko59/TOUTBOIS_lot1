@@ -294,6 +294,8 @@ public class FormulaireEditProspectController {
 	        if (isInputValid()) {
 	        	Prospect selectedProspect = prospectTable.getSelectionModel().getSelectedItem();
 	        	
+	        	selectedProspect.setNbCommande(Integer.parseInt(tfCommande.getText()));
+	        	
 	        	selectedProspect.setPrenom(tfPrenom.getText());
 	        	selectedProspect.setNom(tfNom.getText());
 	        	selectedProspect.setCivilite(tfCivilite.getText());
@@ -302,7 +304,7 @@ public class FormulaireEditProspectController {
 	        	selectedProspect.setTel(tfTel.getText());
 	        	
 	        	//selectedProspect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
-	        	//selectedProspect.setNbCommande(Integer.parseInt(tfCommande.getText()));
+	        	selectedProspect.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	selectedProspect.setEnseigne(tfEnseigne.getText());
 	        	selectedProspect.setSiret(tfSiret.getText());
 	        	 
@@ -315,14 +317,61 @@ public class FormulaireEditProspectController {
 	        	selectedProspect.getAdresse().setVille(tfVille.getText());
 	        	selectedProspect.getAdresse().setBp(tfBoite.getText());
 	        	selectedProspect.getAdresse().setPays(tfPays.getText());
-	                      
-	           
+	                     	           
+	        	if(selectedProspect.getNbCommande()>0);
+	        	{
+	        		Client client = new Client();
+	        		
+	        		client.setNbCommande(Integer.parseInt(tfCommande.getText()));
+		        	
+	        		client.setPrenom(tfPrenom.getText());
+	        		client.setNom(tfNom.getText());
+	        		client.setCivilite(tfCivilite.getText());
+	        		client.setFonction(tfFonction.getText());
+	        		client.setEmail(tfMail.getText());
+	        		client.setTel(tfTel.getText());
+		        	
+	        		client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        		client.setNbCommande(Integer.parseInt(tfCommande.getText()));
+	        		client.setEnseigne(tfEnseigne.getText());
+	        		client.setSiret(tfSiret.getText());
+		        	 
+		        	
+	        		client.getAdresse().setVoie(tfVoie.getText());
+	        		client.getAdresse().setNum(Integer.parseInt(tfNum.getText()));
+	        		client.getAdresse().setNomVoie(tfLibelle.getText());
+	        		client.getAdresse().setComplement(tfComplement.getText());
+	        		client.getAdresse().setCp(Integer.parseInt(tfCP.getText()));
+	        		client.getAdresse().setVille(tfVille.getText());
+	        		client.getAdresse().setBp(tfBoite.getText());
+		        	client.getAdresse().setPays(tfPays.getText());
+	        		
+		        	  mainApp.getClientData().add(client);
+		        	  
+		        	  int selectedIndex = prospectTable.getSelectionModel().getSelectedIndex();
+		      		if (selectedIndex >= 0) {
+		      			prospectTable.getItems().remove(selectedIndex);
+		      			 okClicked = true;
+		      			mainApp.showClientOverview();
+		      		} else {
+		      			// Nothing selected.
+		      			Alert alert = new Alert(AlertType.WARNING);
+		      			alert.initOwner(mainApp.getPrimaryStage());
+		      			alert.setTitle("No Selection");
+		      			alert.setHeaderText("No client Selected");
+		      			alert.setContentText("Please select a client in the table.");
 
+		      			alert.showAndWait();
+		      		}
+
+		      	}
+	        	}
 	            okClicked = true;
 	            //dialogStage.close();
 	            //mainApp.getClientData().add(client);
+	            mainApp.showprospectOverview();
 	        }
-	    }
+	    
 	    
 	    private void showProspectDetailsEdit(Prospect prospect) {
 	        if (prospect != null) {
