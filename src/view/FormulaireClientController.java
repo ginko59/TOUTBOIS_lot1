@@ -36,6 +36,7 @@ public class FormulaireClientController {
 	    clientTable.setItems(mainApp.getClientData());
 	   // representantCombo.setItems(mainApp.getRepresentantData());
 	    representantCombo.getItems().addAll(mainApp.getRepresentantData());
+	    representantCombo.getSelectionModel().select(0);
 	    
 	   
 	   

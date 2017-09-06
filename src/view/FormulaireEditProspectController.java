@@ -6,6 +6,7 @@ import controller.MainApp;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -28,13 +29,15 @@ public class FormulaireEditProspectController {
 	    this.mainApp = mainApp;
 	    // Add observable list data to the table
 	    prospectTable.setItems(mainApp.getProspectData());
+	    representantCombo.getItems().addAll(mainApp.getRepresentantData());
 	   
 	}
 	public void setProspect(Prospect Prospect) {
 		this.prospect = prospect;
 		
 	}
-
+	@FXML
+    private ComboBox<Representant> representantCombo;
 	@FXML
     private Button bSauvegarder;
     @FXML
@@ -292,6 +295,8 @@ public class FormulaireEditProspectController {
 	    @FXML
 	    private void handleOkedit() {
 	        if (isInputValid()) {
+	        	String s;
+	        	String t[];
 	        	Prospect selectedProspect = prospectTable.getSelectionModel().getSelectedItem();
 	        	
 	        	selectedProspect.setNbCommande(Integer.parseInt(tfCommande.getText()));
@@ -331,7 +336,7 @@ public class FormulaireEditProspectController {
 	        		client.setEmail(tfMail.getText());
 	        		client.setTel(tfTel.getText());
 		        	
-	        		client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        		//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        		client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        		client.setEnseigne(tfEnseigne.getText());
 	        		client.setSiret(tfSiret.getText());
@@ -345,6 +350,11 @@ public class FormulaireEditProspectController {
 	        		client.getAdresse().setVille(tfVille.getText());
 	        		client.getAdresse().setBp(tfBoite.getText());
 		        	client.getAdresse().setPays(tfPays.getText());
+		        	s = representantCombo.getValue().toString();
+		            System.out.println("s = "+s);
+		            t=s.split(" ");
+		            System.out.println("t = "+t[0]);
+		            client.setIdentifiantR(Integer.parseInt(t[0]));
 	        		
 		        	  mainApp.getClientData().add(client);
 		        	  

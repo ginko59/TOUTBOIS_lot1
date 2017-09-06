@@ -67,16 +67,16 @@ public class MainApp extends Application {
 	        	System.out.println(representantData.get(i).toString());
 	        }
 		
-		clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122",1));
-		clientData.add(new Client("Ruth", "Mueller","MMe","medecin","lll@gmail","063522",122,"IBM2","001122",1));
-		clientData.add(new Client("Heinz", "Kurz","MMe","medecin","lll@gmail","063522",13,"IBM3","001122",3));
-		clientData.add(new Client("Cornelia", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM4","001122",4));
-		clientData.add(new Client("Werner", "Meyer","MMe","medecin","lll@gmail","063522",17,"IBM5","001122",2));
-		clientData.add(new Client("Lydia", "Kunz","MMe","medecin","lll@gmail","063522",126,"IBM6","001122",1));
-		clientData.add(new Client("Anna", "Best","MMe","medecin","lll@gmail","063522",12,"IBM7","001122",3));
-		clientData.add(new Client("Stefan", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM8","001122",2));
-		clientData.add(new Client("Martin", "Mueller","MMe","medecin","lll@gmail","063522",17,"IBM9","001122",1));
-		
+		/*clientData.add(new Client("Hans", "Muster","MMe","medecin","lll@gmail","063522",121,"IBM1","001122",1,1));
+		clientData.add(new Client("Ruth", "Mueller","MMe","medecin","lll@gmail","063522",122,"IBM2","001122",2,2));
+		clientData.add(new Client("Heinz", "Kurz","MMe","medecin","lll@gmail","063522",13,"IBM3","001122",3,3));
+		clientData.add(new Client("Cornelia", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM4","001122",4,4));
+		clientData.add(new Client("Werner", "Meyer","MMe","medecin","lll@gmail","063522",17,"IBM5","001122",2,5));
+		clientData.add(new Client("Lydia", "Kunz","MMe","medecin","lll@gmail","063522",126,"IBM6","001122",1,6));
+		clientData.add(new Client("Anna", "Best","MMe","medecin","lll@gmail","063522",12,"IBM7","001122",3,7));
+		clientData.add(new Client("Stefan", "Meier","MMe","medecin","lll@gmail","063522",12,"IBM8","001122",2,8));
+		clientData.add(new Client("Martin", "Mueller","MMe","medecin","lll@gmail","063522",17,"IBM9","001122",1,9));
+		*/
 		
 	}
 

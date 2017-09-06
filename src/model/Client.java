@@ -68,12 +68,12 @@ public class Client extends Contact {
 	
 	
 
-	public Client(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret, int identifiantR) {
+	public Client(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret, int identifiantR,int identifiantC) {
 	
-		compteurC++;
+		//compteurC++;
 		this.prenom = new SimpleStringProperty(prenom);
 		this.nom = new SimpleStringProperty(nom);
-		this.identifiantC = new SimpleIntegerProperty(compteurC);
+		//this.identifiantC = new SimpleIntegerProperty(compteurC);
 		this.civilite = new SimpleStringProperty(civilite);
 		this.fonction = new SimpleStringProperty (fonction);
 		this.email= new SimpleStringProperty ( email);
@@ -82,6 +82,7 @@ public class Client extends Contact {
 		this.enseigne = new SimpleStringProperty(enseigne); 
 		this.siret = new SimpleStringProperty(siret);
 		this.identifiantR =new SimpleIntegerProperty(identifiantR);
+		this.identifiantC = new  SimpleIntegerProperty(identifiantC);
 		
 		
 		

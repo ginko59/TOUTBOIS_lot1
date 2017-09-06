@@ -3,10 +3,11 @@ package view;
 import java.io.File;
 
 import controller.MainApp;
-import javafx.beans.property.SimpleIntegerProperty;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -14,7 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import model.Adresse;
+
 import model.Client;
 import model.Prospect;
 //import util.DateUtil;
@@ -30,9 +31,12 @@ public class FormulaireEditClientController {
 	    this.mainApp = mainApp;
 	    // Add observable list data to the table
 	    clientTable.setItems(mainApp.getClientData());
+	    representantCombo.getItems().addAll(mainApp.getRepresentantData());
+	    
 	   
 	}
-
+	@FXML
+    private ComboBox<Representant> representantCombo;
 	@FXML
     private Button bSauvegarder;
     @FXML
@@ -254,6 +258,8 @@ public class FormulaireEditClientController {
 	    @FXML
 	    private void handleOk() {
 	        if (isInputValid()) {
+	        	String s;
+	        	String t[];
 	        	
 	        	client.setPrenom(tfPrenom.getText());
 	        	client.setNom(tfNom.getText());
@@ -261,8 +267,8 @@ public class FormulaireEditClientController {
 	        	client.setFonction(tfFonction.getText());
 	        	client.setEmail(tfMail.getText());
 	        	client.setTel(tfTel.getText());
-	        	client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	        	client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	//client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
+	        	//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	client.setEnseigne(tfEnseigne.getText());
 	        	client.setSiret(tfSiret.getText());
@@ -276,7 +282,12 @@ public class FormulaireEditClientController {
 	        	client.getAdresse().setVille(tfVille.getText());
 	        	client.getAdresse().setBp(tfBoite.getText());
 	        	client.getAdresse().setPays(tfPays.getText());
-	                      
+	        	s = representantCombo.getValue().toString();
+	            System.out.println("s = "+s);
+	            t=s.split(" ");
+	            System.out.println("t = "+t[0]);
+	            client.setIdentifiantR(Integer.parseInt(t[0]));
+	             
 	           
 
 	            okClicked = true;
@@ -287,6 +298,8 @@ public class FormulaireEditClientController {
 	    @FXML
 	    private void handleOkedit() {
 	        if (isInputValid()) {
+	        	String s;
+	        	String t[];
 	        	Client selectedClient = clientTable.getSelectionModel().getSelectedItem();
 	        	
 	        	selectedClient.setPrenom(tfPrenom.getText());
@@ -295,8 +308,8 @@ public class FormulaireEditClientController {
 	        	selectedClient.setFonction(tfFonction.getText());
 	        	selectedClient.setEmail(tfMail.getText());
 	        	selectedClient.setTel(tfTel.getText());
-	        	selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-	        	selectedClient.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        	//selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
+	        	//selectedClient.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        	selectedClient.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        	selectedClient.setEnseigne(tfEnseigne.getText());
 	        	selectedClient.setSiret(tfSiret.getText());
@@ -311,7 +324,15 @@ public class FormulaireEditClientController {
 	        	selectedClient.getAdresse().setBp(tfBoite.getText());
 	        	selectedClient.getAdresse().setPays(tfPays.getText());
 	        	
-	        	if(selectedClient.getNbCommande()<1);
+	        	s = representantCombo.getValue().toString();
+	            System.out.println("s = "+s);
+	            t=s.split(" ");
+	            System.out.println("t = "+t[0]);
+	            selectedClient.setIdentifiantR(Integer.parseInt(t[0]));
+	                    
+	        
+	            
+	        	if(selectedClient.getNbCommande()==0)
 	        	{
 	        		Prospect prospect = new Prospect();
 	        		
@@ -324,7 +345,7 @@ public class FormulaireEditClientController {
 	        		prospect.setEmail(tfMail.getText());
 	        		prospect.setTel(tfTel.getText());
 		        	
-	        		prospect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        		//prospect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 	        		prospect.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        		prospect.setEnseigne(tfEnseigne.getText());
 	        		prospect.setSiret(tfSiret.getText());
@@ -358,7 +379,7 @@ public class FormulaireEditClientController {
 		      			alert.showAndWait();
 		      		}
 
-		      	}
+		      	
 	                      
 	           
 
@@ -368,6 +389,7 @@ public class FormulaireEditClientController {
 	            //mainApp.getClientData().add(client);
 	        }
 	    }
+	        }
 	    
 	    private void showClientDetailsEdit(Client client) {
 	        if (client != null) {
@@ -386,7 +408,7 @@ public class FormulaireEditClientController {
 	            tfMail.setText(client.getEmail());
 	            tfCommande.setText(client.getNbCommande().toString());
 	            
-	            tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+	            //tfIdRepresentant.setText(Integer.parseInt(client.getIdentifiantR()));
 	            
 	            tfIdClient.setText(client.getIdentifiantC().toString());
 	            
@@ -398,8 +420,11 @@ public class FormulaireEditClientController {
 	        	tfBoite.setText(client.getAdresse().getBp().toString());
 	            tfCP.setText(client.getAdresse().getCp().toString());
 	            tfVille.setText(client.getAdresse().getVille());
+	            representantCombo.setItems(mainApp.getRepresentantData());
+	            representantCombo.getSelectionModel().select(client.getIdentifiantR()-1);
 	            
-	        
+	           
+	             
 	            
 	            
 	        	
