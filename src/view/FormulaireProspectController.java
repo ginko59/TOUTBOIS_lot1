@@ -333,7 +333,7 @@ public class FormulaireProspectController {
 			errorMessage += "nom non valide!\n";
 		}
 		if (tfLibelle.getText() == null || tfLibelle.getText().length() == 0) {
-			errorMessage += "rue non Valide!\n";
+			errorMessage += "Libellé voie non Valide!\n";
 		}
 
 		if (tfCP.getText() == null || tfCP.getText().length() == 0) {
