@@ -68,7 +68,7 @@ public class Client extends Contact {
 	
 	
 
-	public Client(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret) {
+	public Client(String prenom, String nom, String civilite, String fonction, String email, String tel, int nbCommande, String enseigne, String siret, int identifiantR) {
 	
 		compteurC++;
 		this.prenom = new SimpleStringProperty(prenom);
@@ -81,7 +81,7 @@ public class Client extends Contact {
 		this.nbCommande = new SimpleIntegerProperty(nbCommande);
 		this.enseigne = new SimpleStringProperty(enseigne); 
 		this.siret = new SimpleStringProperty(siret);
-		this.identifiantR =new SimpleIntegerProperty();
+		this.identifiantR =new SimpleIntegerProperty(identifiantR);
 		
 		
 		

@@ -34,8 +34,10 @@ public class FormulaireClientController {
 	   
 	    // Add observable list data to the table
 	    clientTable.setItems(mainApp.getClientData());
-	    representantCombo.setItems(mainApp.getRepresentantData());
+	   // representantCombo.setItems(mainApp.getRepresentantData());
+	    representantCombo.getItems().addAll(mainApp.getRepresentantData());
 	    
+	   
 	   
 	}
 	@FXML
@@ -190,6 +192,8 @@ public class FormulaireClientController {
 	    @FXML
 	    private void handleOk() {
 	        if (isInputValid()) {
+	        	String s;
+	        	String t[];
 	        	
 	        	client.setPrenom(tfPrenom.getText());
 	        	client.setNom(tfNom.getText());
@@ -212,8 +216,16 @@ public class FormulaireClientController {
 	        	client.getAdresse().setVille(tfVille.getText());
 	        	client.getAdresse().setBp(tfBoite.getText());
 	        	client.getAdresse().setPays(tfPays.getText());
-	                      
-	           
+	            
+	        	
+	        	s = representantCombo.getValue().toString();
+	            System.out.println("s = "+s);
+	            t=s.split(" ");
+	            System.out.println("t = "+t[0]);
+	            client.setIdentifiantR(Integer.parseInt(t[0]));
+	            
+	       
+	    
 
 	            okClicked = true;
 	            //dialogStage.close();

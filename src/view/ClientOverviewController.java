@@ -204,8 +204,8 @@ public class ClientOverviewController {
 			tfCP.setText(client.getAdresse().getCp().toString());
 			tfVille.setText(client.getAdresse().getVille());
 			
-            i = client.getIdentifiantR();
-            tfIdRepresentant.setText(Integer.toString(i)+" "+mainApp.getRepresentantData().get(i).getNom());
+            //i = client.getIdentifiantR();
+			tfIdRepresentant.setText(Integer.toString(client.getIdentifiantR()));
 
 			
 
