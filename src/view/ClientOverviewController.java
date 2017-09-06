@@ -205,9 +205,9 @@ public class ClientOverviewController {
 			tfVille.setText(client.getAdresse().getVille());
 			
             i = client.getIdentifiantR();
-            tfIdRepresentant.setText(Integer.toString(i)+" "+mainApp.getRepresentantData().get(i-1).getNom());
+            tfIdRepresentant.setText(Integer.toString(i)+" "+mainApp.getRepresentantData().get(i).getNom());
 
-			//tfIdRepresentant.setText(client.getRepresentant().getIdentifiantR().toString());
+			
 
 		} else {
 			// Client is null, remove all the text.

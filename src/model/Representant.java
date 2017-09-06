@@ -148,7 +148,7 @@ public class Representant extends Contact {
 
 	@Override
 	public String toString() {
-		return "Representant [identifiantR=" + identifiantR + ", nom=" + nom + ", prenom=" + prenom + "]";
+		return " id=" + identifiantR + nom + prenom  ;
 	}
 
 	

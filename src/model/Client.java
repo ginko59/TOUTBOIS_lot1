@@ -25,8 +25,8 @@ public class Client extends Contact {
 			
 			compteurC ++;
 			this.identifiantC =new SimpleIntegerProperty(compteurC);
-			this.identifiantR  = new SimpleIntegerProperty(01);
-			
+			this.identifiantR  = new SimpleIntegerProperty();
+		
 			
 
 		}
@@ -81,7 +81,7 @@ public class Client extends Contact {
 		this.nbCommande = new SimpleIntegerProperty(nbCommande);
 		this.enseigne = new SimpleStringProperty(enseigne); 
 		this.siret = new SimpleStringProperty(siret);
-		this.identifiantR =new SimpleIntegerProperty(01);
+		this.identifiantR =new SimpleIntegerProperty();
 		
 		
 		

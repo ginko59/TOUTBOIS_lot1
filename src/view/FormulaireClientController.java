@@ -31,8 +31,11 @@ public class FormulaireClientController {
 	
 	public void setMainApp(MainApp mainApp) {
 	    this.mainApp = mainApp;
+	   
 	    // Add observable list data to the table
 	    clientTable.setItems(mainApp.getClientData());
+	    representantCombo.setItems(mainApp.getRepresentantData());
+	    
 	   
 	}
 	@FXML
@@ -143,11 +146,11 @@ public class FormulaireClientController {
        
        
      // Clear person details.
-        showClientDetails(client);
+       /* showClientDetails(client);
      
         // Listen for selection changes and show the client details when changed.
        clientTable.getSelectionModel().selectedItemProperty().addListener(
-               (observable, oldValue, newValue) -> showClientDetails(newValue));
+               (observable, oldValue, newValue) -> showClientDetails(newValue));*/
    }
     
     /**
@@ -296,12 +299,12 @@ public class FormulaireClientController {
 	    }
 	    
 	
-		private void showClientDetails(Client client) {
-			representantCombo.getSelectionModel().select(0);
+		/*private void showClientDetails(Client client) {
+			
 			representantCombo.setItems(mainApp.getRepresentantData());
-		    
+			representantCombo.getSelectionModel().select(0);
 	          
-	    	   }
+	    	   }*/
 	    
 	        
 	           
