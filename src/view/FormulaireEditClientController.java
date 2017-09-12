@@ -329,6 +329,7 @@ public class FormulaireEditClientController {
 	            t=s.split(" ");
 	            System.out.println("t = "+t[0]);
 	            selectedClient.setIdentifiantR(Integer.parseInt(t[0]));
+	            mainApp.showClientOverview();
 	                    
 	        
 	            

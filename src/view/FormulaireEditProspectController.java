@@ -113,8 +113,7 @@ public class FormulaireEditProspectController {
 	private TextField tfDate; 
 	@FXML
 	private TableView<Prospect> prospectTable;
-	//@FXML
-	//private TableColumn<Prospect, Integer> tcId;
+	
 	@FXML
 	private TableColumn<Prospect, String> tcEnseigne;
 	@FXML
@@ -125,8 +124,7 @@ public class FormulaireEditProspectController {
 	private TableColumn<Prospect, String> tcTel;
 	@FXML
 	private TableColumn<Prospect, String> tcMail;
-	//@FXML
-	//private TableColumn<Prospect, Integer> tcNbCom;
+	
 	
 	 /**
      * Initializes the controller class. This method is automatically called
@@ -174,10 +172,7 @@ public class FormulaireEditProspectController {
 		mainApp.showprospectOverview();
 	}
 	
-	/*@FXML
-	private void formulairerepresentant(){
-		mainApp.showFormulaireRepresentant();
-		}*/
+	
 	@FXML
 	private void formulaiprospect(){
 		mainApp.showFormulaireProspect(null);
@@ -260,6 +255,8 @@ public class FormulaireEditProspectController {
 	    @FXML
 	    private void handleOk() {
 	        if (isInputValid()) {
+	        	String s;
+	        	String t[];
 	        	
 	        	prospect.setPrenom(tfPrenom.getText());
 	        	prospect.setNom(tfNom.getText());
@@ -283,6 +280,11 @@ public class FormulaireEditProspectController {
 	        	prospect.getAdresse().setVille(tfVille.getText());
 	        	prospect.getAdresse().setBp(tfBoite.getText());
 	        	prospect.getAdresse().setPays(tfPays.getText());
+	        	s = representantCombo.getValue().toString();
+	            System.out.println("s = "+s);
+	            t=s.split(" ");
+	            System.out.println("t = "+t[0]);
+	            prospect.setIdentifiantR(Integer.parseInt(t[0]));
 	        	
 	                      
 	           
@@ -322,6 +324,12 @@ public class FormulaireEditProspectController {
 	        	selectedProspect.getAdresse().setVille(tfVille.getText());
 	        	selectedProspect.getAdresse().setBp(tfBoite.getText());
 	        	selectedProspect.getAdresse().setPays(tfPays.getText());
+	        	s = representantCombo.getValue().toString();
+	            System.out.println("s = "+s);
+	            t=s.split(" ");
+	            System.out.println("t = "+t[0]);
+	            selectedProspect.setIdentifiantR(Integer.parseInt(t[0]));
+	            mainApp.showClientOverview();
 	                     	           
 	        	if(selectedProspect.getNbCommande()>0);
 	        	{
@@ -336,7 +344,7 @@ public class FormulaireEditProspectController {
 	        		client.setEmail(tfMail.getText());
 	        		client.setTel(tfTel.getText());
 		        	
-	        		//client.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+	        		
 	        		client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 	        		client.setEnseigne(tfEnseigne.getText());
 	        		client.setSiret(tfSiret.getText());
@@ -414,6 +422,9 @@ public class FormulaireEditProspectController {
 	            tfVille.setText(prospect.getAdresse().getVille());
 	            tfDate.setText(DateUtil.format(prospect.getDate()));
 				tfDate.setPromptText("dd.MM.yyyy");
+				 representantCombo.setItems(mainApp.getRepresentantData());
+		            representantCombo.getSelectionModel().select(client.getIdentifiantR()-1);
+		            
 	         
 	                             
 	        	

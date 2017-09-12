@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -31,9 +32,13 @@ public class FormulaireProspectController {
 		this.mainApp = mainApp;
 		// Add observable list data to the table
 		tableProspect.setItems(mainApp.getProspectData());
+		
+		representantCombo.getItems().addAll(mainApp.getRepresentantData());
+	    representantCombo.getSelectionModel().select(0);
 
 	}
-
+	@FXML
+    private ComboBox<Representant> representantCombo;
 	@FXML
 	private Button bSauvegarder;
 	@FXML
@@ -197,7 +202,8 @@ public class FormulaireProspectController {
 	@FXML
 	private void handleOk() {
 		if (isInputValid()) {
-
+			String s;
+        	String t[];
 			prospect.setPrenom(tfPrenom.getText());
 			prospect.setNom(tfNom.getText());
 			prospect.setCivilite(tfCivilite.getText());
@@ -205,7 +211,7 @@ public class FormulaireProspectController {
 			prospect.setEmail(tfMail.getText());
 			prospect.setTel(tfTel.getText());
 			// client.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-			prospect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+			//prospect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 			// client.setNbCommande(Integer.parseInt(tfCommande.getText()));
 			prospect.setEnseigne(tfEnseigne.getText());
 			prospect.setSiret(tfSiret.getText());
@@ -221,6 +227,13 @@ public class FormulaireProspectController {
 			prospect.getAdresse().setVille(tfVille.getText());
 			prospect.getAdresse().setBp(tfBoite.getText());
 			prospect.getAdresse().setPays(tfPays.getText());
+			
+
+        	s = representantCombo.getValue().toString();
+            System.out.println("s = "+s);
+            t=s.split(" ");
+            System.out.println("t = "+t[0]);
+            prospect.setIdentifiantR(Integer.parseInt(t[0]));
 
 			okClicked = true;
 			// dialogStage.close();
@@ -239,7 +252,11 @@ public class FormulaireProspectController {
 	private void handleNewClient() {
 		Client tempClient = new Client();
 		boolean okClicked = mainApp.showFormulaireClient(tempClient);
-
+	
+    	   for (int i=0; i<mainApp.getRepresentantData().size();i++)
+           {
+           	System.out.println(mainApp.getRepresentantData().get(i).toString());
+           }
 		if (okClicked) {
 
 			mainApp.getClientData().add(tempClient);
@@ -261,6 +278,10 @@ public class FormulaireProspectController {
 	private void handleNewProspect() {
 		Prospect tempProspect = new Prospect();
 		boolean okClicked = mainApp.showFormulaireProspect(tempProspect);
+		for (int i=0; i<mainApp.getRepresentantData().size();i++)
+        {
+        	System.out.println(mainApp.getRepresentantData().get(i).toString());
+        }
 
 		if (okClicked) {
 
@@ -280,7 +301,7 @@ public class FormulaireProspectController {
 			selectedProspect.setEmail(tfMail.getText());
 			selectedProspect.setTel(tfTel.getText());
 			// selectedClient.setIdentifiantC(Integer.parseInt(tfIdClient.getText()));
-			selectedProspect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
+			//selectedProspect.getRepresentant().setIdentifiantR(Integer.parseInt(tfIdRepresentant.getText()));
 			// selectedClient.setNbCommande(Integer.parseInt(tfCommande.getText()));
 			selectedProspect.setEnseigne(tfEnseigne.getText());
 			selectedProspect.setSiret(tfSiret.getText());

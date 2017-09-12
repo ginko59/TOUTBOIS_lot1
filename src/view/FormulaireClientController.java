@@ -242,7 +242,7 @@ public class FormulaireClientController {
 		private void handleNewClient() {
 			Client tempClient = new Client();
 			boolean okClicked = mainApp.showFormulaireClient(tempClient);
-			System.out.println("test2");
+		
 	    	   for (int i=0; i<mainApp.getRepresentantData().size();i++)
 	           {
 	           	System.out.println(mainApp.getRepresentantData().get(i).toString());

@@ -312,6 +312,7 @@ public class FormulaireEditRepresentantController {
 		            okClicked = true;
 		            //dialogStage.close();
 		            //mainApp.getClientData().add(client);
+		            mainApp.showrepresentantOverview();
 		        }
 		    }
 		    

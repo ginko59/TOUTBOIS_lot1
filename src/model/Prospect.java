@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import util.LocalDateAdapter;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -15,15 +16,15 @@ import javafx.beans.property.StringProperty;
 public class Prospect extends Contact {
 	
 protected final ObjectProperty<LocalDate> dateVisite;
-private Representant representant= new Representant();
+protected final IntegerProperty identifiantR;
 
 public Prospect() {
 	
 	super();
 
 	this.adresse = new Adresse();
-	this.representant = new Representant();
 	
+	this.identifiantR  = new SimpleIntegerProperty();
 	this.dateVisite  = new SimpleObjectProperty<LocalDate>();
 
 }
@@ -46,13 +47,20 @@ public void setDate(LocalDate dateVisite) {
 	this.dateVisite.set(dateVisite);
 }
 
-public Representant getRepresentant() {
-	return representant;
+
+
+public int getIdentifiantR() {
+    return identifiantR.get();
 }
 
-public void setRepresentant(Representant representant) {
-	this.representant = representant;
+public void setIdentifiantR(int identifiantR) {
+    this.identifiantR.set(identifiantR);
 }
+
+public IntegerProperty IdentifuantRProperty() {
+    return identifiantR;
+}
+
 
 public void setAdresse(Adresse adresse) {
 	this.adresse = adresse;
